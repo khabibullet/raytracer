@@ -6,7 +6,7 @@
 #    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/17 21:05:13 by anemesis         ###   ########.fr        #
+#    Updated: 2022/06/17 22:09:22 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,14 +38,12 @@ LIB_MLX		=	-lmlx -framework OpenGL -framework AppKit
 
 # **************************************************************************** #
 
-all : $(LIBS) $(NAME)
+all : $(NAME)
 
-$(LIBS) :
+$(NAME) : $(OBJ) $(HEADER) $(LIBS)
 	make -C $(LIBDIR)/libft
 	make -C $(LIBDIR)/libmlx
-
-$(NAME) : $(OBJ) $(HEADER)
-	$(CC) $(FLAGS) $(INC) $(LIB_FT) $(LIB_MLX) $(OBJ) -o $@
+	$(CC) $(FLAGS) $(INC) $(LIB_FT) $(LIB_MLX) $< -o $@
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	@mkdir -p $(OBJDIR)

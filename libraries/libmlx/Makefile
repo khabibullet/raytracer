@@ -23,7 +23,7 @@ INC				=	-I $(MODULE_DIR)/
 all: $(NAME)
 
 $(NAME): $(MODULES) $(OBJ) $(C_OBJ)
-	swiftc $(INC) -o $(NAME) -emit-library $(OBJ) $(C_OBJ) -lz
+	swiftc -o $@ $? -emit-library -lz
 
 $(OBJ_DIR)/%.o: $(C_SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
