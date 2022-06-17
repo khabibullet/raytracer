@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:55:59 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/17 22:28:47 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/17 22:54:38 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/vector.h"
+#include "../../headers/minirt.h"
 
 float	dot_product(t_vec vec1, t_vec vec2)
 {
