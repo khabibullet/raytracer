@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_utils.h                                     :+:      :+:    :+:   */
+/*   dot_product.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/15 14:55:20 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/14 22:55:59 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/17 22:28:47 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_UTILS_H
-# define VECTOR_UTILS_H
-# include "minirt.h"
+#include "../../headers/vector.h"
 
-typedef struct s_vec
+float	dot_product(t_vec vec1, t_vec vec2)
 {
-	float	x;
-	float	y;
-	float	z;
-}	t_vec;
-
-float	vector_dot(t_vec vec1, t_vec vec2);
-
-#endif
+	return (vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z);
+}

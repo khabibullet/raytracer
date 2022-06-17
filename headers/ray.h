@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/17 22:52:29 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/17 22:52:21 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef RAY_H
+# define RAY_H
+# include "minirt.h"
 
-# include "../libraries/libft/libft.h"
-# include "../libraries/libmlx/libmlx.h"
-
-# include "color.h"
-# include "vector.h"
-# include "ray.h"
-
-# include <stdio.h>
-# include <math.h>
+typedef struct s_ray
+{
+	t_vec		coords;
+	t_color		color;
+	float		ratio;
+}	t_ray;
 
 #endif

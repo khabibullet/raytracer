@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_dot.c                                       :+:      :+:    :+:   */
+/*   vector_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 22:55:59 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/15 14:55:23 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/15 15:18:31 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/17 22:37:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/vector_utils.h"
+#include "../../headers/vector.h"
 
-float	vector_dot(t_vec vec1, t_vec vec2)
+float	vector_len(t_vec vec)
 {
-	return (vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z);
+	return (sqrtf(dot_product(vec, vec)));
 }

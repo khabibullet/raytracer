@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   unit_vector.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/17 22:52:29 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/17 22:19:18 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/17 22:28:47 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../../headers/vector.h"
 
-# include "../libraries/libft/libft.h"
-# include "../libraries/libmlx/libmlx.h"
+t_vec	unit_vector(t_vec vec)
+{
+	t_vec	unit_vec;
+	float	vec_len;
 
-# include "color.h"
-# include "vector.h"
-# include "ray.h"
-
-# include <stdio.h>
-# include <math.h>
-
-#endif
+	vec_len = vector_len(vec);
+	unit_vec.x = vec.x / vec_len;
+	unit_vec.y = vec.x / vec_len;
+	unit_vec.z = vec.x / vec_len;
+	return (unit_vec);
+}

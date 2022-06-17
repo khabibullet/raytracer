@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_len.c                                       :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 15:18:31 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/15 15:19:33 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/17 22:30:51 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/17 22:46:52 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/vector_utils.h"
+#ifndef COLOR_H
+# define COLOR_H
+# include "minirt.h"
 
-float	vector_len(t_vec vec)
+typedef struct s_color
 {
-	return (vector_dot(vec, vec));
-}
+	float	r;
+	float	g;
+	float	b;
+}	t_color;
+
+#endif

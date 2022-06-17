@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/17 22:52:29 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/17 22:49:27 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef VECTOR_H
+# define VECTOR_H
+# include "minirt.h"
 
-# include "../libraries/libft/libft.h"
-# include "../libraries/libmlx/libmlx.h"
+typedef struct s_vec
+{
+	float	x;
+	float	y;
+	float	z;
+}	t_vec;
 
-# include "color.h"
-# include "vector.h"
-# include "ray.h"
-
-# include <stdio.h>
-# include <math.h>
+float	dot_product(t_vec vec1, t_vec vec2);
+float	vector_len(t_vec vec);
+t_vec	unit_vector(t_vec vec);
 
 #endif
