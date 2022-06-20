@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
+#    By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 20:24:51 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/16 22:19:55 by anemesis         ###   ########.fr        #
+#    Updated: 2022/06/20 12:57:27 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ clean:
 	rm -rf obj
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean $(NAME)
 

@@ -1,48 +1,50 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/06/20 11:52:34 by anemesis          #+#    #+#              #
+#    Updated: 2022/06/20 12:50:33 by anemesis         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-MODULE_SRC		=	mlx_image.swift mlx_window.swift mlx_init.swift
-MODULE_SRC_DIR	=	s_sources
-MODULE_SOURCES	=	$(addprefix $(MODULE_SRC_DIR)/,$(MODULE_SRC))
+NAME	=	libmlx.a
 
-MODULE_OBJ		=	$(MODULE_SRC:%.swift=%.swiftmodule)
-MODULE_DIR		=	modules
-MODULES			=	$(addprefix $(MODULE_DIR)/,$(MODULE_OBJ))
+SRC		=	mlx_shaders.c		mlx_new_window.m	mlx_init_loop.m \
+			mlx_new_image.m		mlx_xpm.c			mlx_int_str_to_wordtab.c \
+			mlx_png.c			mlx_mouse.m
 
-OBJ_DIR			=	objects
+SRCDIR	=	sources
 
-SRC				=	$(addprefix $(MODULE_SRC_DIR)/,interface.swift $(MODULE_SRC))
-OBJ				=	$(SRC:$(MODULE_SRC_DIR)/%.swift=$(OBJ_DIR)/%.o)
+OBJDIR	=	objects
 
-C_SRC_DIR		=	c_sources
-C_SRC			=	$(wildcard $(C_SRC_DIR)/*.c)
-C_OBJ			=	$(C_SRC:$(C_SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJ		=	$(addprefix $(OBJDIR)/,$(patsubst %.m,%.o,$(patsubst %.c,%.o,$(SRC))))
 
-NAME			=	libmlx.dylib
+CC		=	cc
 
-INC				=	-I $(MODULE_DIR)/
+CFLAGS	=	-O2 -DSTRINGPUTX11 -w
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(MODULES) $(OBJ) $(C_OBJ)
-	swiftc -o $@ $? -emit-library -lz
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $?
 
-$(OBJ_DIR)/%.o: $(C_SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
-	gcc -c $< -o $@
+$(OBJDIR)/%.o : $(SRCDIR)/%.c
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)/%.o: $(MODULE_SRC_DIR)/%.swift
-	@mkdir -p $(OBJ_DIR)
-	swiftc $(INC) -parse-as-library -c $< -o $@
+$(OBJDIR)/%.o : $(SRCDIR)/%.m
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(MODULE_DIR)/%.swiftmodule: $(MODULE_SRC_DIR)/%.swift
-	@mkdir -p $(MODULE_DIR)
-	swiftc $(INC) -parse-as-library -c $< -o $@ -emit-module -module-name $(notdir $(patsubst %.swift,%,$<)) -module-link-name $(notdir $(patsubst %.swift,%,$<))
+clean :
+	rm -rf $(OBJDIR)
 
-clean:
-	rm -rf objects modules
-
-fclean: clean
-	rm $(NAME)
+fclean : clean
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY : all clean fclean re $(NAME)
+.PHONY: all clean fclean re
