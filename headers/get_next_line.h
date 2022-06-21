@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_multiply_nbr.c                                 :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:36:17 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 21:05:09 by anemesis         ###   ########.fr       */
+/*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/21 21:15:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFFER_SIZE 256
+# include "minirt.h"
 
-t_vec	vec_multiply_nbr(t_vec vec, float nbr)
+typedef struct t_var
 {
-	vec.x = vec.x * nbr;
-	vec.y = vec.y * nbr;
-	vec.z = vec.z * nbr;
-	return (vec);
-}
+	char		buf[BUFFER_SIZE + 1];
+	ssize_t		red;
+	char		*line;
+	int			err_flag;
+}	t_var;
+
+char	*get_next_line(int fd);
+
+#endif

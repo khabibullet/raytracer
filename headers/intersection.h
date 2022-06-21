@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_multiply_nbr.c                                 :+:      :+:    :+:   */
+/*   intersection.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:36:17 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 21:05:09 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/21 22:16:20 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#ifndef INTERSECTION_H
+# define INTERSECTION_H
+# include "minirt.h"
 
-t_vec	vec_multiply_nbr(t_vec vec, float nbr)
-{
-	vec.x = vec.x * nbr;
-	vec.y = vec.y * nbr;
-	vec.z = vec.z * nbr;
-	return (vec);
-}
+t_vec	encounter_sphere(t_ray ray, t_sphere sphere);
+
+#endif

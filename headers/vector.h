@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 18:27:58 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/21 21:04:52 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_vec	find_normal_ver(t_vec vec);
 t_vec	vec_multiply_nbr(t_vec vec, float nbr);
 t_vec	add_vecs(t_vec vec1, t_vec vec2);
 t_vec	subtract_vecs(t_vec vec1, t_vec vec2);
+t_vec	vec_multiply_nbr(t_vec vec, float nbr);
 
 #endif
