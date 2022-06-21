@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 15:12:07 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 12:49:20 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:24:53 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,30 @@
 
 int	main(void)
 {
-	void	*mlx;
-	void	*win;
-	float	a;
+	t_list		*objects;
+	t_list		*tmp;
+	t_cam		camera;
+	t_sphere	sphere;
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 1000, 1000, "here");
-	(void)win;
-	// mlx_loop(mlx);
-	a = -10;
-	printf("%d\n", isnan(sqrtf(a)));
+	camera.id = 'C';
+	sphere.id = 's';
+	tmp = malloc(sizeof(*tmp));
+	tmp->prev = NULL;
+	tmp->next = NULL;
+	tmp->object = &camera;
+	objects = tmp;
+	tmp = malloc(sizeof(*tmp));
+	tmp->prev = objects;
+	tmp->next = NULL;
+	tmp->object = &sphere;
+	tmp = objects;
+	if (*(int *)tmp->object == 'C')
+		printf("Cam found on position 1!\n");
+	else
+	{
+		tmp = tmp->next;
+		if (*(int *)tmp->object == 'C')
+			printf("Cam found on position 2!\n");
+	}
 	return (0);
 }
