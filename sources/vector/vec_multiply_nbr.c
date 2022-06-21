@@ -12,7 +12,7 @@
 
 #include "../../headers/minirt.h"
 
-t_vec	vec_multiply_len(t_vec vec, float nbr)
+t_vec	vec_multiply_nbr(t_vec vec, float nbr)
 {
 	vec.x = vec.x * nbr;
 	vec.y = vec.y * nbr;
