@@ -6,6 +6,7 @@ objects
 libraries/libmlx/objects
 libraries/libft/obj
 miniRT
-libraries/libft/libmlx.a
-libraries/libmlx/libft.a
+libraries/libmlx/libmlx.a
+libraries/libft/libft.a
 sources/main_my.c
+.vscode
