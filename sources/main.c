@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 15:12:07 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 16:04:13 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/21 18:27:00 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/21 18:27:12 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(void)
 
 	density = 1 /  (float) w;
 	ratio = (float) h / (float) w;
-
 	kek = find_pix_coords(i, j, density, ratio);
 	printf("x:%f!   y:%f!\n", kek.x, kek.y);
 	return (0);

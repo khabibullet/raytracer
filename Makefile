@@ -6,7 +6,7 @@
 #    By: enoye <enoye@clown.ru>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/21 15:37:30 by enoye            ###   ########.fr        #
+#    Updated: 2022/06/21 18:23:39 by enoye            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c $(LIBS) $(HEADERS)
 	@mkdir -p $(OBJDIR)
 	@mkdir -p $(@:/$(notdir $@)=)
 	$(CC) $(CFLAGS) -c $< -o $@
+
 
 $(LIBS) :
 	make -C libraries/libft

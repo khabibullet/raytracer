@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 17:36:55 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/21 18:27:58 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ t_vec	unit_vector(t_vec vec);
 t_vec	find_normal_hor(t_vec vec);
 t_vec	find_normal_ver(t_vec vec);
 t_vec	vec_multiply_nbr(t_vec vec, float nbr);
+t_vec	add_vecs(t_vec vec1, t_vec vec2);
+t_vec	subtract_vecs(t_vec vec1, t_vec vec2);
 
 #endif
