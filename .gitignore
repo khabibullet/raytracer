@@ -7,4 +7,4 @@ libraries/libmlx/objects
 libraries/libft/obj
 miniRT
 libraries/libft/libmlx.a
-ibraries/libmlx/libft.a
+libraries/libmlx/libft.a
