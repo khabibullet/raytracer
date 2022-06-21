@@ -1,0 +1,10 @@
+a.out
+*.DS_Store
+test
+main
+objects
+libraries/libmlx/objects
+libraries/libft/obj
+miniRT
+libraries/libft/libmlx.a
+ibraries/libmlx/libft.a
