@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   screen.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 12:53:39 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/21 12:55:07 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/21 12:55:48 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#ifndef SCREEN_H
+# define SCREEN_H
 
-# include "../libraries/libft/libft.h"
-# include "../libraries/libmlx/headers/mlx.h"
+# include "minirt.h"
 
-# include "color.h"
-# include "vector.h"
-# include "ray.h"
-# include "screen.h"
+typedef struct s_pix
+{
+	float	x;
+	float	y;
+}	t_pix;
 
-# include <stdio.h>
-# include <math.h>
+t_pix	pix_coords(int i, int j, int density, int ratio);
 
 #endif
