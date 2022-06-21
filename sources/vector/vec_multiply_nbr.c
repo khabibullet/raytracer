@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector.h                                           :+:      :+:    :+:   */
+/*   vec_multiply_nbr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 17:36:55 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/21 17:36:17 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/21 17:56:50 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_H
-# define VECTOR_H
-# include "minirt.h"
+#include "../../headers/minirt.h"
 
-typedef struct s_vec
+t_vec	vec_multiply_len(t_vec vec, float nbr)
 {
-	float	x;
-	float	y;
-	float	z;
-}	t_vec;
-
-float	dot_product(t_vec vec1, t_vec vec2);
-float	vector_len(t_vec vec);
-t_vec	unit_vector(t_vec vec);
-t_vec	find_normal_hor(t_vec vec);
-t_vec	find_normal_ver(t_vec vec);
-t_vec	vec_multiply_nbr(t_vec vec, float nbr);
-
-#endif
+	vec.x = vec.x * nbr;
+	vec.y = vec.y * nbr;
+	vec.z = vec.z * nbr;
+	return (vec);
+}

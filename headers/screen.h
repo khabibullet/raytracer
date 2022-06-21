@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:55:07 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 12:55:48 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/21 15:43:16 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ typedef struct s_pix
 	float	y;
 }	t_pix;
 
-t_pix	pix_coords(int i, int j, int density, int ratio);
+t_pix	find_pix_coords(int i, int j, float density, float ratio);
 
 #endif

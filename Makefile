@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+         #
+#    By: enoye <enoye@clown.ru>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/20 12:52:43 by anemesis         ###   ########.fr        #
+#    Updated: 2022/06/21 15:37:30 by enoye            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ			=	$(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=
 
 LIBS		=	./libraries/libft/libft.a ./libraries/libmlx/libmlx.a
 
@@ -39,7 +39,7 @@ LIB_MLX		=	-L ./libraries/libmlx/ -lmlx -framework OpenGL -framework AppKit
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(CFLAGS) $(INC) $(LIB_FT) $(LIB_MLX) $< -o $@
+	$(CC) $(CFLAGS) $(INC) $(LIB_FT) $(LIB_MLX) $^ -o $@
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(LIBS) $(HEADERS)
 	@mkdir -p $(OBJDIR)
