@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 17:35:42 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:32:19 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 # include "color.h"
 # include "vector.h"
-# include "ray.h"
 # include "screen.h"
+# include "ray.h"
 # include "scene.h"
 
 # include <stdio.h>

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
+#    By: enoye <enoye@clown.ru>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/21 15:18:37 by anemesis         ###   ########.fr        #
+#    Updated: 2022/06/21 18:23:39 by enoye            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ			=	$(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 CC			=	gcc
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=
 
 LIBS		=	./libraries/libft/libft.a ./libraries/libmlx/libmlx.a
 

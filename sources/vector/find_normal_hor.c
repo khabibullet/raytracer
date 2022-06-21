@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_pix_coords.c                                  :+:      :+:    :+:   */
+/*   find_normal_hor.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 12:36:58 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 18:18:49 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/21 16:23:46 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/21 16:38:42 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minirt.h"
 
-t_pix	find_pix_coords(int i, int j, float density, float ratio)
+t_vec	find_normal_hor(t_vec vec)
 {
-	t_pix	var;
+	t_vec	var;
 
-	var.x = (2 * density * j) + density - 1;
-	var.y = (2 * density * i) + density - ratio;
+	var.x = vec.y;
+	var.y = -vec.x;
+	var.z = 0;
 	return (var);
 }

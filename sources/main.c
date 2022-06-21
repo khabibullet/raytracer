@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 15:12:07 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 17:24:53 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/21 18:27:00 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/21 18:27:12 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,23 @@
 
 int	main(void)
 {
-	t_list		*objects;
-	t_list		*tmp;
-	t_cam		camera;
-	t_sphere	sphere;
+	// void	*mlx;
+	// void	*win;
+	// float	a;
 
-	camera.id = 'C';
-	sphere.id = 's';
-	tmp = malloc(sizeof(*tmp));
-	tmp->prev = NULL;
-	tmp->next = NULL;
-	tmp->object = &camera;
-	objects = tmp;
-	tmp = malloc(sizeof(*tmp));
-	tmp->prev = objects;
-	tmp->next = NULL;
-	tmp->object = &sphere;
-	tmp = objects;
-	if (*(int *)tmp->object == 'C')
-		printf("Cam found on position 1!\n");
-	else
-	{
-		tmp = tmp->next;
-		if (*(int *)tmp->object == 'C')
-			printf("Cam found on position 2!\n");
-	}
+	// mlx = mlx_init();
+	// win = mlx_new_window(mlx, 1000, 1000, "here");
+	// (void)win;
+	// // mlx_loop(mlx);
+	// a = -10;
+	// printf("%d\n", isnan(sqrtf(a)));
+	t_pix	kek;
+	float density, ratio;
+	int	i = 0, j = 0, h = 100, w = 150;
+
+	density = 1 /  (float) w;
+	ratio = (float) h / (float) w;
+	kek = find_pix_coords(i, j, density, ratio);
+	printf("x:%f!   y:%f!\n", kek.x, kek.y);
 	return (0);
 }

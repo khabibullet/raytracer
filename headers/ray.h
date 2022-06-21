@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/19 21:03:54 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:22:50 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ typedef struct s_ray
 	t_color		color;
 	float		ratio;
 }	t_ray;
+
+t_vec	get_cam_to_pix_vec(t_vec cam_dir, float focal, t_pix pix_coords);
 
 #endif
