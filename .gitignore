@@ -1,10 +1,10 @@
 a.out
-# *.DS_Store
+*.DS_Store
 test
 main
-# objects
-# libraries/libmlx/objects
-# libraries/libft/obj
+objects
+libraries/libmlx/objects
+libraries/libft/obj
 miniRT
-# libraries/libft/libmlx.a
-# ibraries/libmlx/libft.a
+libraries/libft/libmlx.a
+ibraries/libmlx/libft.a
