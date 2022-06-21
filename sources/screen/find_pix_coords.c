@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:36:58 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 12:46:04 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/21 14:47:04 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_pix	find_pix_coords(int i, int j, float density, float ratio)
 {
 	t_pix	var;
 
-	var.x = (2 * d * j) + density - 1;
-	var.y = (2 * d * i) + density - ratio;
+	var.x = (2 * density * j) + density - 1;
+	var.y = (2 * density * i) + density - ratio;
 	return (var);
 }
