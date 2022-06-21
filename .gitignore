@@ -8,4 +8,4 @@ libraries/libft/obj
 miniRT
 libraries/libft/libmlx.a
 libraries/libmlx/libft.a
-sources/main_my.c
+my_main.c
