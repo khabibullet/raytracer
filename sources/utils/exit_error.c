@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.h                                           :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/23 13:06:50 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/23 13:05:40 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/23 13:09:08 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIRT_H
-# define MINIRT_H
+#include "../../headers/minirt.h"
 
-# include "../libraries/libft/libft.h"
-# include "../libraries/libmlx/headers/mlx.h"
-
-# include "color.h"
-# include "vector.h"
-# include "screen.h"
-# include "ray.h"
-# include "scene.h"
-# include "intersection.h"
-# include "event.h"
-# include "parsing.h"
-# include "utils.h"
-
-# include <stdio.h>
-# include <math.h>
-
-#endif
+void	exit_error(void)
+{
+	ft_putstr("Error\n");
+	exit(EXIT_FAILURE);
+}
