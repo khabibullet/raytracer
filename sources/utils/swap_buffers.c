@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   swap_buffers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/23 19:09:55 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/23 16:15:48 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/23 16:31:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-# define BUFFER_SIZE 256
-# include "minirt.h"
+#include "../../headers/minirt.h"
 
-typedef struct t_var
+void	swap_buffers(t_minirt *rt)
 {
-	char		buf[BUFFER_SIZE + 1];
-	ssize_t		red;
-	char		*line;
-	int			err_flag;
-}	t_var;
+	void	*tmp;
 
-char	*get_next_line(int fd);
-void	exit_error(void);
-void	exit_free(t_minirt *rt);
-
-#endif
+	tmp = rt->display_buff.ptr;
+	rt->display_buff.ptr = rt->back_buff.ptr;
+	rt->back_buff.ptr = tmp;
+}
