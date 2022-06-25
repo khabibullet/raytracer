@@ -6,13 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 21:04:52 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:14:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
-# include "minirt.h"
+
+# include "vector.h"
 
 typedef struct s_vec
 {

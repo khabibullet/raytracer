@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 22:30:51 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/25 19:07:03 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/25 19:08:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef PARSING_H
+# define PARSING_H
 
-typedef struct s_color
-{
-	int		r;
-	int		g;
-	int		b;
-}	t_color;
+# include "minirt.h"
+
+void	parse_rt(int argc, char **argv);
+void	init_consts(t_minirt *rt);
 
 #endif

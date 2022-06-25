@@ -6,11 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:05:40 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 14:43:27 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:35:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include <stdlib.h>
+
+#include "../../libraries/libft/libft.h"
 
 void	exit_error(void)
 {

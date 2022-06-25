@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 13:16:11 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 15:05:46 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/24 22:41:00 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/vector.h"
 
 t_vec	subtract_vecs(t_vec vec1, t_vec vec2)
 {

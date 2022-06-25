@@ -6,27 +6,19 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:58:31 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 14:48:39 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:07:17 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EVENT_H
 # define EVENT_H
+
 # include "minirt.h"
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3
 # define X_EVENT_MOUSE_MOVE		6
 # define X_EVENT_EXIT			17
-
-typedef struct s_minirt
-{
-	t_mlx		mlx;
-	t_img		display_buff;
-	t_img		back_buff;
-	t_scene		scene;
-	t_ctrl		controls;
-}	t_minirt;
 
 int	key_press(int keycode, t_minirt *rt);
 int	key_release(int keycode, t_minirt *rt);

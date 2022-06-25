@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   find_pix_coords.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:36:58 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 18:18:49 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/25 19:29:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/screen.h"
 
 t_pix	find_pix_coords(int i, int j, float density, float ratio)
 {

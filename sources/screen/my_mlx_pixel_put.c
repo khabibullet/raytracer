@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 15:46:58 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/22 15:47:45 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:30:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/screen.h"
 
 void	my_mlx_pixel_put(t_img *pic, int x, int y, unsigned int color)
 {

@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   encounter_sphere.c                                 :+:      :+:    :+:   */
+/*   sphere_collision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 23:05:52 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 18:57:54 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include <math.h>
 
-t_vec	encounter_sphere(t_ray ray, t_sphere sphere)
+#include "../../headers/ray.h"
+#include "../../headers/scene.h"
+#include "../../headers/vector.h"
+
+t_vec	collide_sphere(t_ray ray, t_sphere sphere)
 {
 	t_vec	intersec;
 	float	a;

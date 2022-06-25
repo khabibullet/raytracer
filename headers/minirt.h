@@ -6,27 +6,25 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/23 13:06:50 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:07:58 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINIRT_H
 # define MINIRT_H
 
-# include "../libraries/libft/libft.h"
-# include "../libraries/libmlx/headers/mlx.h"
-
-# include "color.h"
-# include "vector.h"
 # include "screen.h"
-# include "ray.h"
 # include "scene.h"
-# include "intersection.h"
-# include "event.h"
-# include "parsing.h"
-# include "utils.h"
+# include "controls.h"
 
-# include <stdio.h>
-# include <math.h>
+typedef struct s_minirt
+{
+	t_mlx		mlx;
+	t_img		display_buff;
+	t_img		back_buff;
+	t_scene		scene;
+	t_ctrl		controls;
+	t_screen	screen;
+}	t_minirt;
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:23:56 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 21:05:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:28:49 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/screen.h"
+#include "../../headers/vector.h"
 
 t_vec	get_cam_to_pix_vec(t_vec cam_dir, float focal, t_pix pix_coords)
 {

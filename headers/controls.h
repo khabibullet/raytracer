@@ -6,13 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:14:57 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 15:10:18 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:07:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTROLS_H
 # define CONTROLS_H
-# include "minirt.h"
 
 # define KEY_Q		12
 # define KEY_W		13

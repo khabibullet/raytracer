@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 18:35:10 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/25 19:08:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCENE_H
 # define SCENE_H
-# include "minirt.h"
+# include "vector.h"
+# include "color.h"
 
 typedef struct s_sphere
 {
@@ -65,6 +66,7 @@ typedef struct s_cones
 typedef struct s_scene
 {
 	t_cam		cam;
+	t_cam		cam_default;
 	t_sphere	*spheres;
 	t_cyl		*cylinders;
 	t_plane		*planes;

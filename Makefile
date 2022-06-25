@@ -6,7 +6,7 @@
 #    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/22 21:52:33 by anemesis         ###   ########.fr        #
+#    Updated: 2022/06/24 23:04:15 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ $(NAME) : $(OBJ)
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(LIBS) $(HEADERS)
 	@mkdir -p $(OBJDIR)
 	@mkdir -p $(@:/$(notdir $@)=)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INC) $(LIB_FT) $(LIB_MLX) -c $< -o $@
 
 
 $(LIBS) :

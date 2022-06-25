@@ -6,9 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:22:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 14:44:20 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:36:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../libraries/libft/libft.h"
 
 #include "../../headers/utils.h"
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   find_normal_ver.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:30:10 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/21 16:38:20 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/24 22:40:51 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/vector.h"
 
 t_vec	find_normal_ver(t_vec vec)
 {

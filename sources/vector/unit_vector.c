@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:19:18 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/21 15:32:03 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:31:43 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/vector.h"
 
 t_vec	unit_vector(t_vec vec)
 {

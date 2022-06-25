@@ -6,11 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:49:37 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 13:34:49 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:17:28 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minirt.h"
+#include "../../headers/controls.h"
+#include "../../headers/utils.h"
 
 int	key_press(int keycode, t_minirt *rt)
 {

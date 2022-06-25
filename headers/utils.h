@@ -6,13 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/23 19:09:55 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/25 19:13:26 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 # define BUFFER_SIZE 256
+# include "sys/types.h"
 # include "minirt.h"
 
 typedef struct t_var
@@ -26,5 +27,6 @@ typedef struct t_var
 char	*get_next_line(int fd);
 void	exit_error(void);
 void	exit_free(t_minirt *rt);
+void	swap_buffers(t_minirt *rt);
 
 #endif
