@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:10:47 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 11:41:58 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:06:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,9 @@ void	fill_buffer_color(t_img *buff, int w, int h, unsigned int color)
 
 void	init_consts(t_minirt *rt)
 {
-	t_sphere	sphere;
-	t_ray		ray;
-	t_vec		color_sp;
-	t_vec		color_ry;
-	t_vec		color_res;
+	unsigned int	color;
 
-	sphere = (t_sphere){0, 0, 0, {255, 255, 255}};
-	ray = (t_ray){0, 0, 0.5, {255, 255, 255}};
-	color_sp = (t_vec){(float)sphere.color.r / 255,
-		(float)sphere.color.r / 255, (float)sphere.color.r / 255};
-	color_res.x = ray.ratio * (color_sp.x * ray.color.r);
-	color_res.y = ray.ratio * (color_sp.y * ray.color.g);
-	color_res.z = ray.ratio * (color_sp.z * ray.color.b);
+
 	rt->controls = (t_ctrl){0, 0, 0, 1};
 	rt->screen = (t_screen){1000, 1000, 0, 0};
 	rt->screen.aspect_ratio = rt->screen.heigth / rt->screen.width;
