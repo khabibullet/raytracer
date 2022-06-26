@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 18:06:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:41:50 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,43 @@
 #include "../../headers/scene.h"
 #include "../../headers/vector.h"
 
+/**
+**	1)	If d (descriminant is below zero), then t1 (t[0]) and t2 (t[1]) are
+**		imaginary numbers, which means ray does not intersect sphere.
+**	2)	If t1 and 2 are positive numbers, then it means ray belongs the line, that
+**		intersects sphere, but ray does not intersect sphere.
+**		it means, that ray's origin is inside the sphere and ray intersect sphere
+**		only once.
+**	4)	If both t1 and t2 are positive, ray intersects sphere twice.
+**/
+
+static float	choose_root(float t[2])
+{
+	if (t[0] < 0 || t[0] >= t[1])
+		return (t[1]);
+	return (t[0]);
+}
+
 t_vec	collide_sphere(t_ray ray, t_sphere sphere)
 {
-	t_vec	collision;
-	float	a;
-	float	b;
-	float	c;
+	float	coeffs[3];
 	float	d;
-	float	t1;
-	float	t2;
-	t_vec	sub;
+	float	t[2];
+	t_vec	co;
 
-	sub = subtract_vecs(ray.origin, sphere.center);
-	a = dot_product(ray.coords, ray.coords);
-	b = 2 * dot_product(ray.coords, sub);
-	c = vector_len(sub) - (sphere.radius * sphere.radius);
-	d = (b * b) - (4 * a * c);
+	co = subtract_vecs(ray.origin, sphere.center);
+	coeffs[0] = dot_product(ray.coords, ray.coords);
+	coeffs[1] = 2 * dot_product(ray.coords, co);
+	coeffs[2] = dot_product(co, co) - (sphere.radius * sphere.radius);
+	d = (coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]);
 	if (d < 0)
-	{
-		collision.x = NAN;
-		return (collision);
-	}
-	t1 = (-b + sqrtf(d)) / 2 / a;
-	t2 = (-b - sqrtf(d)) / 2 / a;
-
-	if (t1 < 0 && t2 < 0)
-	{
-		collision.x = NAN;
-		return (collision);
-	}
-	else if (t1 < 0)
-		t1 = t2;
-	else if (t2 < 0)
-		t2 = t1;
-	else
-		t1 = t1 < t2 ? t1 : t2;
-	collision = add_vecs(ray.coords, vec_multiply_nbr(ray.origin, t1));
-	return (collision);
+		return ((t_vec){NAN, NAN, NAN});
+	d = sqrtf(d);
+	coeffs[0] = 1 / (2.0 * coeffs[0]);
+	t[0] = (-coeffs[1] + d) * coeffs[0];
+	t[1] = (-coeffs[1] - d) * coeffs[0];
+	if (t[0] < 0 && t[1] < 0)
+		return ((t_vec){NAN, NAN, NAN});
+	t[0] = choose_root(t);
+	return (add_vecs(ray.coords, vec_multiply_nbr(ray.origin, t[0])));
 }
