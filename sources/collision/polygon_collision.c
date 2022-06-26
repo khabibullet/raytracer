@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_vec.c                                     :+:      :+:    :+:   */
+/*   polygon_collision.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:20:22 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/26 18:29:26 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/26 18:06:17 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 
-#include "../../headers/color.h"
+#include "../../headers/ray.h"
+#include "../../headers/scene.h"
+#include "../../headers/vector.h"
 
-t_color	color_to_vec(unsigned int color)
+t_vec	collide_poly(t_ray ray, t_poly poly)
 {
-	t_color		pix;
-
-	pix.r = color / 0x010000;
-	color = color - pix.r;
-	pix.g = color / 0x000100;
-	pix.b = color - pix.g;
-	return (pix);
+	
 }

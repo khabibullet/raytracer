@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_vec.c                                     :+:      :+:    :+:   */
+/*   mix_product.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:20:22 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/26 18:29:26 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/26 17:17:00 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/26 17:42:58 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../headers/vector.h"
 
-#include "../../headers/color.h"
-
-t_color	color_to_vec(unsigned int color)
+float	mix_product(t_vec vec1, t_vec vec2, t_vec vec3)
 {
-	t_color		pix;
-
-	pix.r = color / 0x010000;
-	color = color - pix.r;
-	pix.g = color / 0x000100;
-	pix.b = color - pix.g;
-	return (pix);
+	return (dot_product(vec1, cross_product(vec2, vec3)));
 }

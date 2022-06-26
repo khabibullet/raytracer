@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_vec.c                                     :+:      :+:    :+:   */
+/*   cross_product.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:20:22 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/26 18:29:26 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/26 17:17:02 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/26 17:41:52 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../headers/vector.h"
 
-#include "../../headers/color.h"
-
-t_color	color_to_vec(unsigned int color)
+t_vec	cross_product(t_vec vec1, t_vec vec2)
 {
-	t_color		pix;
+	t_vec	prod;
 
-	pix.r = color / 0x010000;
-	color = color - pix.r;
-	pix.g = color / 0x000100;
-	pix.b = color - pix.g;
-	return (pix);
+	prod.x = vec1.y * vec1.z - vec1.z * vec2.y;
+	prod.y = vec1.z * vec1.x - vec1.x * vec2.z;
+	prod.z = vec1.x * vec1.y - vec1.z * vec2.y;
+	return (prod);
 }
