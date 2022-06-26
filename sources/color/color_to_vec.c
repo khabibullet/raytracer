@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 22:20:22 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/26 11:52:12 by enoye            ###   ########.fr       */
+/*   Updated: 2022/06/26 12:09:54 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_color	color_to_vec(unsigned color)
 
 	pix.r = color / 0x010000;
 	color = color - pix.r;
-	color.g = sum / 0x000100;
-	color.b = sum - color.g;
+	pix.g = sum / 0x000100;
+	pix.b = sum - pix.g;
 	return (pix);
 }
