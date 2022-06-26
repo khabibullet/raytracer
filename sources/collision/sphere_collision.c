@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/25 18:57:54 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:06:15 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 t_vec	collide_sphere(t_ray ray, t_sphere sphere)
 {
-	t_vec	intersec;
+	t_vec	collision;
 	float	a;
 	float	b;
 	float	c;
@@ -34,16 +34,16 @@ t_vec	collide_sphere(t_ray ray, t_sphere sphere)
 	d = (b * b) - (4 * a * c);
 	if (d < 0)
 	{
-		intersec.x = NAN;
-		return (intersec);
+		collision.x = NAN;
+		return (collision);
 	}
 	t1 = (-b + sqrtf(d)) / 2 / a;
 	t2 = (-b - sqrtf(d)) / 2 / a;
 
 	if (t1 < 0 && t2 < 0)
 	{
-		intersec.x = NAN;
-		return (intersec);
+		collision.x = NAN;
+		return (collision);
 	}
 	else if (t1 < 0)
 		t1 = t2;
@@ -51,6 +51,6 @@ t_vec	collide_sphere(t_ray ray, t_sphere sphere)
 		t2 = t1;
 	else
 		t1 = t1 < t2 ? t1 : t2;
-	intersec = add_vecs(ray.coords, vec_multiply_nbr(ray.origin, t1));
-	return (intersec);
+	collision = add_vecs(ray.coords, vec_multiply_nbr(ray.origin, t1));
+	return (collision);
 }
