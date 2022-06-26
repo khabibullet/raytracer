@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   vec_to_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 22:30:51 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 11:31:52 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/24 22:23:10 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/26 11:53:38 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "../../headers/color.h"
 
-typedef struct s_color
+unsigned	vec_to_color(t_color pix)
 {
-	int		r;
-	int		g;
-	int		b;
-}	t_color;
+	unsigned	sum;
 
-#endif
+	sum = sum + 0x01 * pix.b;
+	sum = sum + 0x0100 * pix.g;
+	sum = sum + 0x010000 * pix.r;
+	return (sum);
+}
