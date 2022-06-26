@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 18:06:10 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/26 18:56:43 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ typedef struct s_cyl
 	t_vec	center;
 	t_vec	color;
 	t_vec	axis;
+	float	diametr;
+	float	heigth;
 }	t_cyl;
 
 typedef struct s_plane
