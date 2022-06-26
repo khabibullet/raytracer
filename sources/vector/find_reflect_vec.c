@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   find_reflect_vec.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 22:30:51 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 14:41:39 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/24 21:59:18 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/26 11:21:54 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
-# include "minirt.h"
+#include "../../headers/minirt.h"
 
-typedef struct s_color
+t_vec	find_reflect_vec(t_vec ray, t_vec norm)
 {
-	int	r;
-	int	g;
-	int	b;
-}	t_color;
+	float	kof;
+	t_vec	reflect;
 
-#endif
+	kof = 2 * ((ray.x * norm.x) + (ray.y * norm.y) + (ray.z * norm.z)) / ((norm.x * norm.x) + (norm.y * norm.y) + (norm.z * norm.z));
+	reflect.x = ray.x - kof * norm.x;
+	reflect.y = ray.y - kof * norm.y;
+	reflect.z = ray.z - kof * norm.z;
+	return (reflect);
+}

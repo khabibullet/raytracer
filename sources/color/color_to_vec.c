@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   color_to_vec.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 22:30:51 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/24 14:41:39 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/24 22:20:22 by enoye             #+#    #+#             */
+/*   Updated: 2022/06/24 22:23:45 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
-# include "minirt.h"
+#include "../../headers/minirt.h"
 
-typedef struct s_color
+t_color	color_to_vec(unsigned color)
 {
-	int	r;
-	int	g;
-	int	b;
-}	t_color;
+	t_color		pix;
 
-#endif
+	pix.b = color % 0x100;
+	color = color / 0x100;
+	pix.g = color % 0x100;
+	color = color / 0x100;
+	pix.r = color % 0x100;
+	return (pix);
+}
