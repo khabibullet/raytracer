@@ -1,7 +1,6 @@
 a.out
 .vscode
 *.DS_Store
-test
 main
 objects
 libraries/libmlx/objects
