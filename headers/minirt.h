@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/25 19:07:58 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:11:35 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_minirt
 {
 	t_mlx		mlx;
+	t_mlx		mlx2;
 	t_img		display_buff;
 	t_img		back_buff;
 	t_scene		scene;

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 18:56:43 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/27 18:23:04 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_cam
 	t_vec	coords;
 	t_vec	direction;
 	int		fov;
+	float	focal;
 }	t_cam;
 
 typedef struct s_cyl
