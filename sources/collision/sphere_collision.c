@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 22:41:50 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/27 19:57:05 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,30 @@
 **	4)	If both t1 and t2 are positive, ray intersects sphere twice.
 **/
 
-static float	choose_root(float t[2])
-{
-	if (t[0] < 0 || t[0] >= t[1])
-		return (t[1]);
-	return (t[0]);
-}
-
-t_vec	collide_sphere(t_ray ray, t_sphere sphere)
+t_vec	collide_sphere(t_ray *ray, t_sphere *sphere)
 {
 	float	coeffs[3];
 	float	d;
 	float	t[2];
 	t_vec	co;
 
-	co = subtract_vecs(ray.origin, sphere.center);
-	coeffs[0] = dot_product(ray.coords, ray.coords);
-	coeffs[1] = 2 * dot_product(ray.coords, co);
-	coeffs[2] = dot_product(co, co) - (sphere.radius * sphere.radius);
+	co = subtract_vecs(ray->origin, sphere->center);
+	coeffs[0] = dot_product(ray->coords, ray->coords);
+	coeffs[1] = 2 * dot_product(ray->coords, co);
+	coeffs[2] = dot_product(co, co) - (sphere->radius * sphere->radius);
 	d = (coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]);
 	if (d < 0)
 		return ((t_vec){NAN, NAN, NAN});
+	if (d == 0)
+		return (add_vecs(ray->coords,
+				vec_multiply_nbr(ray->origin, -coeffs[1] * coeffs[0])));
 	d = sqrtf(d);
 	coeffs[0] = 1 / (2.0 * coeffs[0]);
 	t[0] = (-coeffs[1] + d) * coeffs[0];
 	t[1] = (-coeffs[1] - d) * coeffs[0];
 	if (t[0] < 0 && t[1] < 0)
 		return ((t_vec){NAN, NAN, NAN});
-	t[0] = choose_root(t);
-	return (add_vecs(ray.coords, vec_multiply_nbr(ray.origin, t[0])));
+	if (t[0] < 0 || t[0] >= t[1])
+		t[0] = t[1];
+	return (add_vecs(ray->coords, vec_multiply_nbr(ray->origin, t[0])));
 }

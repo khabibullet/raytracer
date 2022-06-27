@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:21:05 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/26 18:58:13 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:03:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ t_vec	plane_collision(t_ray *ray, t_plane *plane)
 	float	t;
 
 	collision = subtract_vecs(ray->origin, plane->coords);
-	t = -1 * dot_product(collision, plane->direction);
-	t = t / dot_product(ray->coords, plane->direction);
+	t = -1 * dot_product(collision, plane->coords);
+	t = t / dot_product(ray->coords, plane->coords);
 	if (t < 0)
-	{
-		collision.x = NAN;
-		return (collision);
-	}
+		return ((t_vec){NAN, NAN, NAN});
 	collision.x = ray->origin.x + ray->coords.x * t;
 	collision.y = ray->origin.y + ray->coords.y * t;
 	collision.z = ray->origin.z + ray->coords.z * t;
