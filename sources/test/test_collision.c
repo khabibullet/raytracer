@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 16:19:03 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/27 22:11:34 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:22:36 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,14 @@ void	test_collision(t_minirt *rt)
 	t_ray		ray;
 	t_pix		pix;
 	t_vec		tmp;
-	t_poly		polygon;
-	t_sphere	sphere;
 	int			j;
 	int			i;
 
-	(void)polygon;
+
 	if (flag == 0)
 		flag = 255;
 	else
 		flag = 0;
-	// polygon = (t_poly){0, {0, 0, 1}, {0, -1, -1}, {0, 1, -1}, {0, 0, 0}};
-	sphere = (t_sphere){0, {42000, 0, 0}, {0, 0, 0}, 100};
 	i = 0;
 	while (i < rt->screen.heigth)
 	{
@@ -49,16 +45,18 @@ void	test_collision(t_minirt *rt)
 			ray.coords = get_cam_to_pix_vec(rt->scene.cam.direction,
 					rt->scene.cam.focal, pix);
 			ray.origin = ray.coords;
-			if (i == 0 && (j == 0 || j == rt->screen.width - 1))
-			{
-				printf("pix.y = %f\n", pix.y);
-				printf("ray.origin.y = %f\n", ray.origin.y);
-			}
-			// tmp = collide_poly(&ray, &polygon);
+			tmp = collide_plane(&ray, &plane);
+			if (isnan(tmp.x) != FP_NAN)
+				my_mlx_pixel_put(&rt->back_buff, j, i,
+					vec_to_color((t_color){255 - flag, 0 + flag, 0}));
+			tmp = collide_poly(&ray, &polygon);
+			if (isnan(tmp.x) != FP_NAN)
+				my_mlx_pixel_put(&rt->back_buff, j, i,
+					vec_to_color((t_color){255 - flag, 0 + flag, 255}));
 			tmp = collide_sphere(&ray, &sphere);
 			if (isnan(tmp.x) != FP_NAN)
-				my_mlx_pixel_put(&rt->back_buff, i, j,
-					vec_to_color((t_color){255 - flag, 0 + flag, 0}));
+				my_mlx_pixel_put(&rt->back_buff, j, i,
+					vec_to_color((t_color){flag, 255 - flag, 0}));
 			j++;
 		}
 		i++;

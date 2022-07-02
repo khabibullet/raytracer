@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   test_scene.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 18:07:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 14:51:30 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/29 14:00:50 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/29 15:09:20 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "../../headers/scene.h"
+#include "../../headers/minirt.h"
 
-# include "minirt.h"
-# include "screen.h"
-
-void	set_test_scene(t_minirt *rt);
-void	put_test_primitives(t_minirt *rt);
-void	test_collision(t_minirt *rt);
-void	fill_buffer_color(t_img *buff, int w, int h, unsigned int color);
-
-#endif
+void	set_test_scene(t_minirt *rt)
+{
+	rt->screen = (t_screen){1000, 1000, 0, 0};
+	rt->controls = (t_ctrl){0, 0, 0, 1};
+	rt->scene.cam = (t_cam){0, {0, 0, 0}, {1, 0, 0}, 60, 0};
+	rt->scene.num_of = (t_num){8, 2, 2, 2, 2, 1};
+	rt->scene.ambient = (t_amb){{255, 255, 255}, 0.5};
+}
