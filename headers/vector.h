@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 18:06:17 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/28 18:57:04 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_vec	subtract_vecs(t_vec vec1, t_vec vec2);
 t_vec	vec_multiply_nbr(t_vec vec, float nbr);
 t_vec	cross_product(t_vec vec1, t_vec vec2);
 float	mix_product(t_vec vec1, t_vec vec2, t_vec vec3);
+t_vec	find_reflect_vec(t_vec ray, t_vec norm);
 
 #endif
