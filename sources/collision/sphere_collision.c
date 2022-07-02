@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/27 19:57:05 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:21:39 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 **	4)	If both t1 and t2 are positive, ray intersects sphere twice.
 **/
 
-t_vec	collide_sphere(t_ray *ray, t_sphere *sphere)
+int	collide_sphere(t_ray *ray, t_sphere *sphere)
 {
 	float	coeffs[3];
 	float	d;
@@ -39,7 +39,7 @@ t_vec	collide_sphere(t_ray *ray, t_sphere *sphere)
 	coeffs[2] = dot_product(co, co) - (sphere->radius * sphere->radius);
 	d = (coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]);
 	if (d < 0)
-		return ((t_vec){NAN, NAN, NAN});
+		return (0);
 	if (d == 0)
 		return (add_vecs(ray->coords,
 				vec_multiply_nbr(ray->origin, -coeffs[1] * coeffs[0])));
@@ -47,9 +47,9 @@ t_vec	collide_sphere(t_ray *ray, t_sphere *sphere)
 	coeffs[0] = 1 / (2.0 * coeffs[0]);
 	t[0] = (-coeffs[1] + d) * coeffs[0];
 	t[1] = (-coeffs[1] - d) * coeffs[0];
-	if (t[0] < 0 && t[1] < 0)
-		return ((t_vec){NAN, NAN, NAN});
-	if (t[0] < 0 || t[0] >= t[1])
+	if (t[0] <= 0 && t[1] <= 0)
+		return (0);
+	if (t[0] <= 0 || t[0] >= t[1])
 		t[0] = t[1];
 	return (add_vecs(ray->coords, vec_multiply_nbr(ray->origin, t[0])));
 }
