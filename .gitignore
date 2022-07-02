@@ -1,7 +1,6 @@
 a.out
 .vscode
 *.DS_Store
-test
 main
 objects
 libraries/libmlx/objects
@@ -11,3 +10,4 @@ libraries/libmlx/libmlx.a
 libraries/libft/libft.a
 sources/main_my.c
 .vscode
+main.c

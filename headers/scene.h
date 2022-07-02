@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 18:06:10 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/29 16:10:43 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 typedef struct s_sphere
 {
 	int		id;
+	t_color	color;
 	t_vec	center;
-	t_vec	color;
 	float	radius;
 }	t_sphere;
 
@@ -29,45 +29,58 @@ typedef struct s_cam
 	t_vec	coords;
 	t_vec	direction;
 	int		fov;
+	float	focal;
 }	t_cam;
 
 typedef struct s_cyl
 {
 	int		id;
+	t_color	color;
 	t_vec	center;
-	t_vec	color;
 	t_vec	axis;
+	float	diametr;
+	float	heigth;
 }	t_cyl;
 
 typedef struct s_plane
 {
 	int		id;
+	t_color	color;
 	t_vec	coords;
-	t_vec	color;
 	t_vec	normal;
 }	t_plane;
 
 typedef struct s_light
 {
 	int		id;
-	t_vec	coords;
 	t_color	color;
+	t_vec	coords;
 }	t_light;
 
 typedef struct s_amb
 {
-	t_color	color;
+	t_vec	color;
 	float	ratio;
 }	t_amb;
 
 typedef struct s_poly
 {
 	int		id;
+	t_color	color;
 	t_vec	peak1;
 	t_vec	peak2;
 	t_vec	peak3;
-	t_vec	color;
 }	t_poly;
+
+typedef struct s_num
+{
+	int		primitives;
+	int		planes;
+	int		spheres;
+	int		cylinders;
+	int		polygons;
+	int		lights;
+}	t_num;
 
 typedef struct s_scene
 {
@@ -79,6 +92,8 @@ typedef struct s_scene
 	t_plane		*planes;
 	t_poly		*polygons;
 	t_light		*lights;
+	t_num		num_of;
+	t_ray		*tmp_collisions;
 }	t_scene;
 
 #endif

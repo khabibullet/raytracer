@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 22:23:10 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/26 18:44:24 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/02 16:34:41 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ unsigned int	vec_to_color(t_color pix)
 {
 	unsigned int	sum;
 
-	sum = + 0x01 * pix.b;
+	sum = 0x01 * pix.b;
 	sum = 0x01 * pix.b;
 	sum = sum + 0x0100 * pix.g;
 	sum = sum + 0x010000 * pix.r;

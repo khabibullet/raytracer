@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_rt.c                                         :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 13:01:10 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:31:53 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/27 18:07:36 by anemesis          #+#    #+#             */
+/*   Updated: 2022/06/29 14:51:30 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/parsing.h"
-#include "../../headers/test.h"
+#ifndef TEST_H
+# define TEST_H
 
-void	parse_rt(int argc, char **argv, t_minirt *rt)
-{
-	(void)argc;
-	(void)argv;
-	set_test_scene(rt);
-	// count_objects(rt);
-	alloc_objects_arrays(rt);
-	put_test_primitives(rt);
-	alloc_rays_array(rt);
-	alloc_tmp_collisions_array(rt);
-	init_window_and_buffers(rt);
-	// test_collision(&rt);
-	// swap_buffers(&rt);
-}
+# include "minirt.h"
+# include "screen.h"
+
+void	set_test_scene(t_minirt *rt);
+void	put_test_primitives(t_minirt *rt);
+void	test_collision(t_minirt *rt);
+void	fill_buffer_color(t_img *buff, int w, int h, unsigned int color);
+
+#endif
