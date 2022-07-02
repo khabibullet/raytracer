@@ -6,9 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/27 22:11:36 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/06/28 21:13:55 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include "../libraries/libmlx/headers/mlx.h"
 
@@ -16,14 +18,13 @@
 #include "../headers/parsing.h"
 #include "../headers/test.h"
 #include "../headers/utils.h"
+#include "../headers/vector.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_minirt	rt;
 
-	init_consts(&rt);
-	test_collision(&rt);
-	swap_buffers(&rt);
+	parse_rt(argc, argv, &rt);
 	mlx_hook(rt.mlx.win, X_EVENT_KEY_PRESS, 0, &key_press, &rt);
 	mlx_hook(rt.mlx.win, X_EVENT_KEY_RELEASE, 0, &key_release, &rt);
 	mlx_hook(rt.mlx.win, X_EVENT_EXIT, 0, &exit_hook, &rt);
