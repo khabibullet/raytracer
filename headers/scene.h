@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:10:43 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:20:20 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCENE_H
 # include "vector.h"
 # include "color.h"
+# include "ray.h"
 
 typedef struct s_sphere
 {
