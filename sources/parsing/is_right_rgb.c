@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_rgb.c                                        :+:      :+:    :+:   */
+/*   is_right_rgb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 09:00:45 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/02 16:12:09 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/03 12:21:36 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
+#include "../../libraries/libft/libft.h"
 
 static	int	final_check_rgb(char *line)
 {
@@ -23,34 +24,35 @@ static	int	final_check_rgb(char *line)
 	return (1);
 }
 
-int	check_rgb(char *line)
+int	is_right_rgb(char *line)
 {
-	int		i;
+	int	k;
+	int	i;
 
-	while (*line != '\0' || *line != ' ' || *line != '\n')
+	k = 0;
+	while (k < 3)
 	{
-		i = 0;
-		if (is_digit(*line) == 0)
+		if (ft_isdigit(*line) == 0)
 			return (0);
-		while (is_digit(*line) == 1)
+		while (*line == '0')
+				line++
+		i = 0;
+		while (ft_isdigit(*line) == 1)
 		{
-			i++;
 			line++;
+			i++;
 		}
 		if (i > 3)
 			return (0);
-		if (*line != ',')
+		if (k == 2 && (*line != ' ' || *line != '\n' || *line != '\0'))
 			return (0);
-		if (i == 3)
-		{
-			if (final_check_rgb(line) == 0)
-				return (0);
-		}
-		line++;
+		else if (k != 2 && *line != ',')
+			return (0);
+		if (i == 3 && final_check_rgb(line) == 0)
+			return (0);
+		else
+			line++;
+		k++;
 	}
-	while (*line == ' ')
-		line++;
-	if (*line != '\0' && *line != '\n')
-		return (0);
 	return (1);
 }

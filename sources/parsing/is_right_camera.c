@@ -6,11 +6,12 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:18:29 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/02 16:14:13 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 10:56:25 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
+#include "../../libraries/libft/libft.h"
 
 static int	is_right_pov(char *line)
 {
@@ -24,9 +25,9 @@ static int	is_right_pov(char *line)
 		if (*line == ' ' || *line == '\n' || *line == '\0')
 			return (1);
 	}
-	if (is_digit(*line) == 0)
+	if (ft_isdigit(*line) == 0)
 		return (0);
-	while (is_digit(*line) == 1)
+	while (ft_isdigit(*line) == 1)
 	{
 		line++;
 		k++;
@@ -68,11 +69,9 @@ int	is_right_camera(char *line)
 		return (0);
 	while (*line != ' ' && *line != '\n' && *line != '\0')
 		line++;
-	if (*line == '\n' || *line == '\0')
-		return (1);
 	while (*line == ' ')
 		line++;
-	if (*line == '\n' || *line == '\0')
-		return (1);
-	return (0);
+	if (*line != '\n' && *line != '\0')
+		return (0);
+	return (1);
 }

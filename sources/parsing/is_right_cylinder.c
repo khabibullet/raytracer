@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_ambient.c                                 :+:      :+:    :+:   */
+/*   is_right_cylinder.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 17:08:09 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/03 12:26:51 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/04 10:58:31 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/04 11:29:19 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
+#include "../../libraries/libft/libft.h"
 
-int	is_right_ambient(char *line)
+int	is_right_cylinder(char *line)
 {
 	line++;
+	if (is_right_coord(line) == 0)
+		return (0);
+	while (*line != ' ')
+		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_ratio(line) == 0)
+	if (is_right_norm_vec(line) == 0)
+		return (0);
+	while (*line != ' ')
+		line++;
+	while (*line == ' ')
+		line++;
+	if (is_right_float(line) == 0)
+		return (0);
+	while (*line != ' ')
+		line++;
+	while (*line == ' ')
+		line++;
+	if (is_right_float(line) == 0)
 		return (0);
 	while (*line != ' ')
 		line++;
@@ -25,9 +42,11 @@ int	is_right_ambient(char *line)
 		line++;
 	if (is_right_rgb(line) == 0)
 		return (0);
+	while (*line != ' ' && *line != '\n' && *line != '\0')
+		line++;
 	while (*line == ' ')
 		line++;
-	if (*line != '\0' && *line != '\n')
+	if (*line != '\n' && *line != '\0')
 		return (0);
 	return (1);
 }

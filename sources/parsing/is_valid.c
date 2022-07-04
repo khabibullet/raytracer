@@ -6,19 +6,11 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/02 16:14:35 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/02 18:33:47 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
-
-typedef struct s_elements
-{
-	int	ambient;
-	int	light;
-	int	camera;
-	int	object;
-}	t_elements;
 
 static void	find_elements_in_line(char *line, t_elements *elements)
 {
@@ -89,7 +81,7 @@ int	is_valid(int fd, char *name)
 	fd = open(name, O_RDONLY, 0644);
 	while (line != 0)
 	{
-		line = get_next_line(fd)
+		line = get_next_line(fd);
 		if (is_line_valid(line) == 0)
 			return (0);
 	}
