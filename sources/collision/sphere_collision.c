@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere_collision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 18:21:39 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:57:47 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere)
 	if (d < 0)
 		return (0);
 	if (d == 0)
-		return (add_vecs(ray->coords,
-				vec_multiply_nbr(ray->origin, -coeffs[1] * coeffs[0])));
+		return (1);
+		// return (add_vecs(ray->coords,
+		// 		vec_multiply_nbr(ray->origin, -coeffs[1] * coeffs[0])));
 	d = sqrtf(d);
 	coeffs[0] = 1 / (2.0 * coeffs[0]);
 	t[0] = (-coeffs[1] + d) * coeffs[0];
@@ -51,5 +52,6 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere)
 		return (0);
 	if (t[0] <= 0 || t[0] >= t[1])
 		t[0] = t[1];
-	return (add_vecs(ray->coords, vec_multiply_nbr(ray->origin, t[0])));
+	//return (add_vecs(ray->coords, vec_multiply_nbr(ray->origin, t[0])));
+	return (1);
 }

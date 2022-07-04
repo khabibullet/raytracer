@@ -3,12 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   choose_nearest_collision.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 21:32:24 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/28 22:32:49 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:19:15 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
+//#include "../../headers/collision.h"
 

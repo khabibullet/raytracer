@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_back_buffer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:18:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 18:01:47 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 #include "../../headers/test.h"
 #include "../../headers/utils.h"
 
-int	fill_back_buffer(t_minirt *rt)
-{
-	add_amb_component(rt);
-	// choose_nearest_collision(); // еще нужно количество пересечений
+// int	fill_back_buffer(t_minirt *rt)
+// {
+// 	//add_amb_component(rt);
+// 	// choose_nearest_collision(); // еще нужно количество пересечений
 
-	// swap_buffers(rt);
-	// usleep(10000);
-	return (0);
-}
+// 	// swap_buffers(rt);
+// 	// usleep(10000);
+// 	rt = 0;//ebaniy wextra werror
+// 	return (0);
+// }
