@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:10:43 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/03 19:16:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCENE_H
 # include "vector.h"
 # include "color.h"
+# include "ray.h"
 
 typedef struct s_sphere
 {
@@ -38,8 +39,10 @@ typedef struct s_cyl
 	t_color	color;
 	t_vec	center;
 	t_vec	axis;
-	float	diametr;
+	float	radius;
 	float	heigth;
+	float	rot[3][3];
+	float	rev[3][3];
 }	t_cyl;
 
 typedef struct s_plane
