@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:12:00 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 14:41:56 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ void	count_objects(t_minirt *rt);
 void	alloc_rays_array(t_minirt *rt);
 void	alloc_objects_arrays(t_minirt *rt);
 void	alloc_tmp_collisions_array(t_minirt *rt);
+void	init_cylinders(t_minirt *rt);
 
 #endif

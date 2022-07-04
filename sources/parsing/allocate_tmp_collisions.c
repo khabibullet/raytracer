@@ -6,9 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 16:09:02 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:14:59 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:05:49 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdlib.h>
 
 #include "../../headers/minirt.h"
 
