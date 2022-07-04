@@ -11,4 +11,5 @@ libraries/libft/libft.a
 sources/main_my.c
 .vscode
 main.c
+test.c
 kek_main.c
