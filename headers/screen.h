@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:55:07 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/02 18:15:01 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 12:28:06 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SCREEN_H
 
 # include "ray.h"
-# include "color.h"
-# include "vector.h"
 
 typedef struct s_mlx
 {

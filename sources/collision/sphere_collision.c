@@ -6,11 +6,12 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/02 17:57:47 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 12:33:54 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
+#include <stdio.h>
 
 #include "../../headers/ray.h"
 #include "../../headers/scene.h"
@@ -39,8 +40,11 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere)
 	coeffs[2] = dot_product(co, co) - (sphere->radius * sphere->radius);
 	d = (coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]);
 	if (d < 0)
+	{
+		ray->surface = NULL;
 		return (0);
-	if (d == 0)
+	}
+	if (d == 0) 
 		return (1);
 		// return (add_vecs(ray->coords,
 		// 		vec_multiply_nbr(ray->origin, -coeffs[1] * coeffs[0])));
@@ -49,9 +53,12 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere)
 	t[0] = (-coeffs[1] + d) * coeffs[0];
 	t[1] = (-coeffs[1] - d) * coeffs[0];
 	if (t[0] <= 0 && t[1] <= 0)
+	{
+		ray->surface = NULL;
 		return (0);
-	if (t[0] <= 0 || t[0] >= t[1])
+	}
+	if (t[0] <= 0 || (t[1] > 0 && t[0] >= t[1]))
 		t[0] = t[1];
-	//return (add_vecs(ray->coords, vec_multiply_nbr(ray->origin, t[0])));
+	// return (add_vecs(ray->coords, vec_multiply_nbr(ray->origin, t[0])));
 	return (1);
 }

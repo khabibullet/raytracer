@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/02 18:20:20 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 12:27:40 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,10 @@ typedef struct s_cyl
 	t_color	color;
 	t_vec	center;
 	t_vec	axis;
-	float	diametr;
+	float	radius;
 	float	heigth;
+	float	rot[3][3];
+	float	rev[3][3];
 }	t_cyl;
 
 typedef struct s_plane

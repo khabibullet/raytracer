@@ -6,17 +6,16 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 14:54:58 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/04 11:55:09 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAY_H
 # define RAY_H
 
-# include "screen.h"
+// # include "minirt.h"
 # include "vector.h"
 # include "color.h"
-# include "minirt.h"
 
 /**
 **		Ray's origin and coords correspond to ray, which is emitted by the camera.
@@ -29,10 +28,14 @@ typedef struct s_ray
 {
 	t_vec		coords;
 	t_vec		origin;
-	t_vec		color;
+	t_color		color;
 	int			count;
 	void		*surface;
 	t_vec		surf_normal;
 }	t_ray;
+
+// void	add_amb_component(t_minirt *rt);
+void	add_diff_component(void);
+void	add_spec_component(void);
 
 #endif
