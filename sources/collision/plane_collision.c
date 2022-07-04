@@ -6,13 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:21:05 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/29 14:27:26 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/04 11:55:09 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
 #include "../../headers/scene.h"
 #include "../../headers/vector.h"
+
 #include <math.h>
 
 int	collide_plane(t_ray *ray, t_plane *plane)
@@ -28,5 +29,6 @@ int	collide_plane(t_ray *ray, t_plane *plane)
 	collision.x = ray->origin.x + ray->coords.x * t;
 	collision.y = ray->origin.y + ray->coords.y * t;
 	collision.z = ray->origin.z + ray->coords.z * t;
-	return (collision);
+	// return (collision);
+	return (1);
 }

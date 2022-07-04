@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 16:18:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:04:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 
 int	fill_back_buffer(t_minirt *rt)
 {
-	add_amb_component(rt);
+	(void)rt;
+	// add_amb_component(rt);
 	// choose_nearest_collision(); // еще нужно количество пересечений
 
 	// swap_buffers(rt);

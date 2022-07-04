@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:55:07 by enoye             #+#    #+#             */
-/*   Updated: 2022/06/29 13:23:45 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/02 21:00:37 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SCREEN_H
 
 # include "ray.h"
-# include "color.h"
 
 typedef struct s_mlx
 {
