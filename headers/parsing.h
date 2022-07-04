@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:27:21 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 12:35:52 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	count_objects(t_minirt *rt);
 void	alloc_rays_array(t_minirt *rt);
 void	alloc_objects_arrays(t_minirt *rt);
 void	alloc_tmp_collisions_array(t_minirt *rt);
-void	init_cylinders(t_minirt *rt);
 
 
 
