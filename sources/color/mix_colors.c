@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   mix_colors.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 22:30:51 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 15:12:06 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/04 15:04:49 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/04 15:07:23 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "../../headers/color.h"
 
-typedef struct s_color
+t_color	mix_colors(t_color koef, t_color base)
 {
-	float	r;
-	float	g;
-	float	b;
-}	t_color;
-
-t_color			color_to_vec(unsigned int color);
-unsigned int	vec_to_color(t_color pix);
-void			limit_color(t_color *color);
-t_color			mix_colors(t_color koef, t_color base);
-t_color			add_colors(t_color col1, t_color col2);
-
-#endif
+	base.r *= koef.r;
+	base.g *= koef.g;
+	base.b *= koef.b;
+	return (base);
+}
