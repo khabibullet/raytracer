@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:01:10 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 11:55:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:33:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	parse_rt(int argc, char **argv, t_minirt *rt)
 	(void)argv;
 	set_test_scene(rt);
 	alloc_objects_arrays(rt);
-	alloc_rays_array(rt);
-	alloc_tmp_collisions_array(rt);
+	init_rays(rt);
 	init_window_and_buffers(rt);
 	put_test_primitives(rt);
 	init_cylinders(rt);
