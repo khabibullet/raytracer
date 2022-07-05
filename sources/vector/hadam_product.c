@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_reflect_vec.c                                 :+:      :+:    :+:   */
+/*   hadam_product.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 21:59:18 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 14:13:13 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/04 14:52:29 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/04 14:58:02 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/vector.h"
 
-t_vec	find_reflect_vec(t_vec ray, t_vec norm)
+t_vec	hadam_product(t_vec v1, t_vec v2)
 {
-	float	kof;
-	t_vec	reflect;
-
-	kof = 2.0F * ((ray.x * norm.x) + (ray.y * norm.y) + (ray.z * norm.z)) / \
-	((norm.x * norm.x) + (norm.y * norm.y) + (norm.z * norm.z));
-	reflect.x = ray.x - kof * norm.x;
-	reflect.y = ray.y - kof * norm.y;
-	reflect.z = ray.z - kof * norm.z;
-	return (reflect);
+	v1.x *= v2.x;
+	v1.y *= v2.y;
+	v1.z *= v2.z;
+	return (v1);
 }
