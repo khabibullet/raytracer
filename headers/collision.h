@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 23:29:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:07:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ typedef struct s_collision
 	void	*surface;
 }	t_collision;
 
-int		collide_sphere(t_ray *ray, t_sphere *sphere, int mode);
-int		collide_plane(t_ray *ray, t_plane *plane, t_collision *collision);
-int		collide_poly(t_ray *ray, t_poly *poly, t_collision *collision);
+int		collide_sphere(t_ray *ray, t_sphere *sphere);
+int		collide_cylinder(t_ray *ray, t_cyl *cylinder);
+int		collide_plane(t_ray *ray, t_plane *plane);
+int		collide_poly(t_ray *ray, t_poly *poly);
 void	get_nearest_collisions(t_minirt *rt);
 
 #endif
