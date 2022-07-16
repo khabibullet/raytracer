@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:01:40 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 15:51:42 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/16 15:53:33 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	parse_sphere(t_minirt *rt, char *line, int obj_id)
 {
 	char	*start;
 
-	line++;
+	line = line + 2;
 	while (*line == ' ')
 		line++;
 	rt->scene.spheres[obj_id].center = parse_coords(line);

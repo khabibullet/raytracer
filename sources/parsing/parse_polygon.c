@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:23:35 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 17:40:49 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/16 15:46:01 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	parse_polygon(t_minirt *rt, char *line, int obj_id)
 {
-	line++;
+	line = line + 2;
 	while (*line == ' ')
 		line++;
 	rt->scene.polygones[obj_id].peak1 = parse_coords(line);
