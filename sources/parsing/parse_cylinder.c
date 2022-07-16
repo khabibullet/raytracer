@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:27:27 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 17:07:20 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/16 15:56:25 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	parse_cylinder(t_minirt *rt, char *line, int obj_id)
 {
 	char	*start;
 
-	line++;
+	line = line + 2;
 	while (*line == ' ')
 		line++;
 	rt->scene.cylinders[obj_id].axis = parse_coords(line);
