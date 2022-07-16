@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cylinder_collision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 11:55:10 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/04 12:48:09 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../../headers/scene.h"
 #include "../../headers/ray.h"
 #include "../../headers/vector.h"
+#include <math.h>
 
 int	collide_cylinder(t_ray *ray, t_cyl *cylinder)
 {
@@ -36,5 +37,7 @@ int	collide_cylinder(t_ray *ray, t_cyl *cylinder)
 	rr = 1.0F / rr;
 	t[0] = (-vec.x - vec.y + d) * rr;
 	t[1] = (-vec.x - vec.y - d) * rr;
-	
+	rr = t[0];//hz udalit wextra pomoyka
+
+	return (1);
 }

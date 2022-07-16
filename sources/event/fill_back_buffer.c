@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:15:20 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 12:49:15 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	fill_back_buffer(t_minirt *rt)
 {
-	(void)rt;
+	(void)	rt;
 	// add_amb_component(rt);
 	// choose_nearest_collision(); // еще нужно количество пересечений
 
@@ -27,5 +27,5 @@ int	fill_back_buffer(t_minirt *rt)
 // 	// swap_buffers(rt);
 // 	// usleep(10000);
 // 	rt = 0;//ebaniy wextra werror
-// 	return (0);
-// }
+	return (0);
+}
