@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 09:00:45 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/03 12:21:36 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/05 13:07:50 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,19 @@ static	int	final_check_rgb(char *line)
 	return (1);
 }
 
+static int	check_end(char *line, int i, int k)
+{
+	if (i > 3)
+		return (0);
+	if (i == 3 && final_check_rgb(line) == 0)
+		return (0);
+	if (k == 2 && (*line == ' ' || *line == '\n' || *line == '\0'))
+		return (1);
+	else if (k != 2 && *line != ',')
+		return (0);
+	return (10);
+}
+
 int	is_right_rgb(char *line)
 {
 	int	k;
@@ -35,23 +48,19 @@ int	is_right_rgb(char *line)
 		if (ft_isdigit(*line) == 0)
 			return (0);
 		while (*line == '0')
-				line++
+				line++;
 		i = 0;
 		while (ft_isdigit(*line) == 1)
 		{
 			line++;
 			i++;
 		}
-		if (i > 3)
+		i = check_end(line, i, k);
+		if (i == 0)
 			return (0);
-		if (k == 2 && (*line != ' ' || *line != '\n' || *line != '\0'))
-			return (0);
-		else if (k != 2 && *line != ',')
-			return (0);
-		if (i == 3 && final_check_rgb(line) == 0)
-			return (0);
-		else
-			line++;
+		else if (i == 1)
+			return (1);
+		line++;
 		k++;
 	}
 	return (1);

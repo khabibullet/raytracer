@@ -6,12 +6,30 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:18:29 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 10:56:25 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/05 16:24:28 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 #include "../../libraries/libft/libft.h"
+
+static int	last_check(char *line, int k)
+{
+	if (k > 3)
+		return (0);
+	if (*line != ' ' && *line != '\n' && *line != '\0')
+		return (0);
+	if (k == 3)
+	{
+		if (*(line - 3) > '1')
+			return (0);
+		if (*(line - 3) == '1' && *(line - 2) > '8')
+			return (0);
+		if (*(line - 3) == '1' && *(line - 2) == '8' && *(line - 1) > '0')
+			return (0);
+	}
+	return (1);
+}
 
 static int	is_right_pov(char *line)
 {
@@ -32,19 +50,9 @@ static int	is_right_pov(char *line)
 		line++;
 		k++;
 	}
-	if (k > 3)
+	k = last_check(line, k);
+	if (k == 0)
 		return (0);
-	if (*line != ' ' && *line != '\n' && *line != '\0')
-		return (0);
-	if (k == 3)
-	{
-		if (*(line - 3) > '1')
-			return (0);
-		if (*(line - 3) == '1' && *(line - 2) > '8')
-			return (0);
-		if (*(line - 3) == '1' && *(line - 2) == '8' && *(line - 1) > '0')
-			return (0);
-	}
 	return (1);
 }
 

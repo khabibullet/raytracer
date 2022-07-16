@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_ambient.c                                 :+:      :+:    :+:   */
+/*   parse_coords.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 17:08:09 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/05 16:25:02 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/07 12:46:03 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 13:02:04 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
+#include "../../headers/vector.h"
 
-int	is_right_ambient(char *line)
+t_vec	parse_coords(char *line)
 {
-	line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_ratio(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);	
+	char	*end;
+	t_vec	vector;
+	int		x;
+
+	x = 1;
+	end = line;
+	while (*end != ' ')
+	{
+		if (*end == ',')
+		{
+			*end = '\0';
+			if (x == 1)
+				vector.x = parse_str_to_float(line);
+			else
+				vector.y = parse_str_to_float(line);
+			line = end + 1;
+			*end = ',';
+			x = 0;
+		}
+		end++;
+	}
+	*end = '\0'
+	vector.z = parse_str_to_float(line);
+	*end = ' ';
+	return (vector);
 }

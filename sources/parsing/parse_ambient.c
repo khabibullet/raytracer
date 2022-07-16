@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_plane.c                                   :+:      :+:    :+:   */
+/*   parse_ambient.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:47:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 16:28:05 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/14 11:44:37 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 12:30:04 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
-#include "../../libraries/libft/libft.h"
+#include "../../headers/minirt.h"
 
-int	is_right_plane(char *line)
+void	parse_ambient(t_minirt *rt, char *line)
 {
-	line = line + 2;
+	char	*start;
+
+	line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
+	start = line;
 	while (*line != ' ')
 		line++;
+	*line = '\0';
+	rt->scene.ambient.ratio = parse_str_to_float(start);
+	*line = ' ';
 	while (*line == ' ')
 		line++;
-	if (is_right_norm_vec(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);
+	rt->scene.ambient.color = parse_color(line);
 }

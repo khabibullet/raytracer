@@ -1,42 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_plane.c                                   :+:      :+:    :+:   */
+/*   parse_camera.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:47:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 16:28:05 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/12 12:15:19 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 13:06:17 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
+#include "../../headers/minirt.h"
 #include "../../libraries/libft/libft.h"
 
-int	is_right_plane(char *line)
+static int	parse_fov(char *line)
 {
-	line = line + 2;
+	char	*end;
+	char	tmp;
+	int		fov;
+
+	end = line;
+	while (*end != ' ' && *end != '\n' && *end != '\0')
+		end++;
+	tmp = *end;
+	*end = '\0';
+	fov = ft_atoi(line);
+	*end = tmp;
+	return (fov);
+}
+
+void	parse_camera(t_minirt *rt, char *line)
+{
+	line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
+	rt->scene.cam.coords = parse_coords(line);
 	while (*line != ' ')
 		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_norm_vec(line) == 0)
-		return (0);
+	rt->scene.cam.direction = parse_coords(line);
 	while (*line != ' ')
 		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);
+	rt->scene.cam.fov = parse_fov(line);
 }

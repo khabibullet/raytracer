@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:35:52 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/12 13:26:22 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 # define PARSING_H
 
 # include "minirt.h"
+# include <stdio.h>
+
+typedef struct	s_id
+{
+	int	sp_id;
+	int	cy_id;
+	int	pl_id;
+	int	po_id;
+	int	light_id;
+}	t_id;
 
 typedef struct s_elements
 {
@@ -45,5 +55,6 @@ int		is_right_plane(char *lane);
 int		is_right_rgb(char *line);
 int		is_right_float(char *line);
 int		is_right_ratio(char *line);
+int		is_file_valid(char *name);
 
 #endif

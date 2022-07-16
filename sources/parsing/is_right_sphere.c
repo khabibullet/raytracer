@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 13:06:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 10:55:22 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 16:29:07 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	is_right_sphere(char *line)
 {
-	line++;
+	line = line + 2;
 	while (*line == ' ')
 		line++;
 	if (is_right_coord(line) == 0)

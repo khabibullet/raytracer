@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_ambient.c                                 :+:      :+:    :+:   */
+/*   parse_datas.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/30 17:08:09 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/05 16:25:02 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/05 11:38:03 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 12:29:56 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
+#include "../../headers/minirt.h"
 
-int	is_right_ambient(char *line)
+int	parse_datas(t_minirt *rt, char *filename)
 {
-	line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_ratio(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);	
+	int	fd;
+
+	fd = open(filename, O_RDONLY);
+	parse_objects_num(rt, fd);
+	close (fd);
+	parse_alloc_obj_arr(rt);
+	parse_obj_id(rt);
+	fd = open(filename, O_RDONLY);
+	parse_obj_datas(rt, fd);
 }

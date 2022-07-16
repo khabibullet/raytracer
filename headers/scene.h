@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:27:40 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/14 13:09:11 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ typedef struct s_light
 	int		id;
 	t_color	color;
 	t_vec	coords;
+	float	brightless;
 }	t_light;
 
 typedef struct s_amb
 {
-	t_vec	color;
+	t_color	color;
 	float	ratio;
 }	t_amb;
 

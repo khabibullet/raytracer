@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_plane.c                                   :+:      :+:    :+:   */
+/*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:47:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 16:28:05 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/14 12:09:34 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 15:00:22 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
-#include "../../libraries/libft/libft.h"
+#include "../../headers/color.h"
 
-int	is_right_plane(char *line)
+t_color	parse_color(char *line)
 {
-	line = line + 2;
-	while (*line == ' ')
+	t_color	var;
+	char	*start;
+	char	tmp;
+
+	start = line;
+	while (*line != ',')
 		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
-	while (*line != ' ')
+	*line = '\0'
+	var.r = parse_str_to_float(start) / 255;
+	*line = ',';
+	line++;
+	start = line;
+	while (*line != ',')
 		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_norm_vec(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
+	*line = '\0'
+	var.g = parse_str_to_float(start) / 255;
+	*line = ',';
+	line++;
+	start = line;
 	while (*line != ' ' && *line != '\n' && *line != '\0')
 		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);
+	tmp = *line;
+	*line = '\0'
+	var.b = parse_str_to_float(start) / 255;
+	*line = tmp;
+	return (var);
 }
