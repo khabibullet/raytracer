@@ -6,7 +6,7 @@
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:21:05 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 12:18:50 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/16 15:17:13 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include <math.h>
 
-int	collide_plane(t_ray *ray, t_plane *plane)
+int	collide_plane(t_ray *ray, t_plane *plane, t_collision *collision)
 {
 	t_vec	collision;
 	float	t;

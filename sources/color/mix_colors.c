@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   allocate_tmp_collisions.c                          :+:      :+:    :+:   */
+/*   mix_colors.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/29 16:09:02 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:12:45 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/04 15:04:49 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/16 15:14:01 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../../headers/color.h"
 
-#include "../../headers/minirt.h"
-
-// void	alloc_tmp_collisions_array(t_minirt *rt)
-// {
-// 	rt->scene.tmp_collisions = malloc(sizeof(*rt->scene.tmp_collisions) * rt->scene.num_of.primitives);
-// }
+t_color	mix_colors(t_color koef, t_color base)
+{
+	base.r *= koef.r;
+	base.g *= koef.g;
+	base.b *= koef.b;
+	return (base);
+}

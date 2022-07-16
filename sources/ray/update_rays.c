@@ -1,26 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_reflect_vec.c                                 :+:      :+:    :+:   */
+/*   update_rays.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 21:59:18 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 14:13:13 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/04 23:27:25 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/05 14:37:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/vector.h"
-
-t_vec	find_reflect_vec(t_vec ray, t_vec norm)
-{
-	float	kof;
-	t_vec	reflect;
-
-	kof = 2.0F * ((ray.x * norm.x) + (ray.y * norm.y) + (ray.z * norm.z)) / \
-	((norm.x * norm.x) + (norm.y * norm.y) + (norm.z * norm.z));
-	reflect.x = ray.x - kof * norm.x;
-	reflect.y = ray.y - kof * norm.y;
-	reflect.z = ray.z - kof * norm.z;
-	return (reflect);
-}
+ray->coords = vec_multiply_nbr(ray->coords, ray->collis.distance - EPSILON);
+curr_ray->origin = add_vecs(curr_ray->origin, curr_ray->coords);
+curr_ray->coords = vec_multiply_nbr(curr_ray->coords, -1.0F);
+curr_ray->surface = collision.surface;
+get_surf_normal();

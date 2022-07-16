@@ -1,13 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_nearest_collision.c                         :+:      :+:    :+:   */
+/*   add_colors.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 21:32:24 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:16:27 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/04 15:10:55 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/16 15:13:31 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../../headers/collision.h"
+#include "../../headers/color.h"
+
+t_color	add_colors(t_color col1, t_color col2)
+{
+	col2.r += col1.r;
+	col2.g += col1.g;
+	col2.b += col1.b;
+	return (col2);
+}

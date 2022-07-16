@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_reflect_vec.c                                 :+:      :+:    :+:   */
+/*   get_ambient_component.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 21:59:18 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 14:13:13 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/04 21:14:42 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/04 21:20:26 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/vector.h"
+#include "../../headers/minirt.h"
+#include "../../headers/ray.h"
+#include "../../headers/collision.h"
 
-t_vec	find_reflect_vec(t_vec ray, t_vec norm)
+void	get_ambient_component(t_minirt *rt)
 {
-	float	kof;
-	t_vec	reflect;
+	int			i;
+	int			j;
 
-	kof = 2.0F * ((ray.x * norm.x) + (ray.y * norm.y) + (ray.z * norm.z)) / \
-	((norm.x * norm.x) + (norm.y * norm.y) + (norm.z * norm.z));
-	reflect.x = ray.x - kof * norm.x;
-	reflect.y = ray.y - kof * norm.y;
-	reflect.z = ray.z - kof * norm.z;
-	return (reflect);
+	i = 0;
+	while (i < rt->screen.heigth)
+	{
+		j = 0;
+		while (j < rt->screen.width)
+		{
+			rt->screen.rays[i][j].color = mix_colors(\
+			*(t_color *)(rt->screen.rays[i][j].surface + 4), rt->scene.ambient);
+			j++;
+		}
+		i++;
+	}
 }

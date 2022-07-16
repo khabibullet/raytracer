@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_all_colisions.c                                :+:      :+:    :+:   */
+/*   get_nearest_colisions.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:17:10 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/04 23:29:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minirt.h"
+#include "../../headers/ray.h"
+#include "../../headers/collision.h"
 
-void	get_all_collisions(t_minirt *rt)
+void	get_nearest_collisions(t_minirt *rt)
 {
-	(void)rt;
-// 	int	i;
+	int			i;
+	int			j;
 
-// 	i = 0
-// 	while (1)
-// 	{
-// 		rt->scene.tmp_collisions;
-// 	}
+	i = 0;
+	while (i < rt->screen.heigth)
+	{
+		j = 0;
+		while (j < rt->screen.width)
+		{
+			current_ray_nearest_collision(&rt->screen.rays[i][j], &rt->scene);
+			j++;
+		}
+		i++;
+	}
 }

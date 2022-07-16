@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   allocate_rays_array.c                              :+:      :+:    :+:   */
+/*   hadam_product.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:22:28 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:13:38 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/04 14:52:29 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/16 15:16:13 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../../headers/vector.h"
 
-#include "../../headers/minirt.h"
-
-// void	alloc_rays_array(t_minirt *rt)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	rt->screen.rays = malloc(sizeof(*rt->screen.rays) * rt->screen.heigth);
-// 	while (i < rt->screen.heigth)
-// 	{
-// 		rt->screen.rays[i] = malloc(sizeof(**rt->screen.rays) * rt->screen.width);
-// 		i++;
-// 	}
-// }
+t_vec	hadam_product(t_vec v1, t_vec v2)
+{
+	v1.x *= v2.x;
+	v1.y *= v2.y;
+	v1.z *= v2.z;
+	return (v1);
+}
