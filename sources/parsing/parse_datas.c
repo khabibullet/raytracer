@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_to_color.c                                     :+:      :+:    :+:   */
+/*   parse_datas.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:23:10 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 12:30:44 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/05 11:38:03 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 12:29:56 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/color.h"
+#include "../../headers/parsing.h"
+#include "../../headers/minirt.h"
 
-unsigned int	vec_to_color(t_color pix)
+int	parse_datas(t_minirt *rt, char *filename)
 {
-	unsigned int	sum;
+	int	fd;
 
-	sum = 0x01 * pix.b;
-	sum = 0x01 * pix.b;
-	sum = sum + 0x0100 * pix.g;
-	sum = sum + 0x010000 * pix.r;
-	return (sum);
+	fd = open(filename, O_RDONLY);
+	parse_objects_num(rt, fd);
+	close (fd);
+	parse_alloc_obj_arr(rt);
+	parse_obj_id(rt);
+	fd = open(filename, O_RDONLY);
+	parse_obj_datas(rt, fd);
 }

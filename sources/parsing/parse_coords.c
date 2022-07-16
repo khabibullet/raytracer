@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matmul_mat_vec.c                                   :+:      :+:    :+:   */
+/*   parse_coords.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/02 18:42:28 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/16 15:16:16 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/07 12:46:03 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 13:02:04 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../headers/parsing.h"
 #include "../../headers/vector.h"
 
-t_vec	matmul_mat_vec(float mat[3][3], t_vec *vec)
+t_vec	parse_coords(char *line)
 {
-	t_vec	res;
+	char	*end;
+	t_vec	vector;
+	int		x;
 
-	res.x = mat[0][0] * vec->x + mat[0][1] * vec->y + mat[0][2] * vec->z;
-	res.y = mat[1][0] * vec->x + mat[1][1] * vec->y + mat[1][2] * vec->z;
-	res.z = mat[2][0] * vec->x + mat[2][1] * vec->y + mat[2][2] * vec->z;
-	return (res);
+	x = 1;
+	end = line;
+	while (*end != ' ')
+	{
+		if (*end == ',')
+		{
+			*end = '\0';
+			if (x == 1)
+				vector.x = parse_str_to_float(line);
+			else
+				vector.y = parse_str_to_float(line);
+			line = end + 1;
+			*end = ',';
+			x = 0;
+		}
+		end++;
+	}
+	*end = '\0'
+	vector.z = parse_str_to_float(line);
+	*end = ' ';
+	return (vector);
 }

@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_to_color.c                                     :+:      :+:    :+:   */
+/*   parse_ambient.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:23:10 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 12:30:44 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/14 11:44:37 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/14 12:30:04 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/color.h"
+#include "../../headers/parsing.h"
+#include "../../headers/minirt.h"
 
-unsigned int	vec_to_color(t_color pix)
+void	parse_ambient(t_minirt *rt, char *line)
 {
-	unsigned int	sum;
+	char	*start;
 
-	sum = 0x01 * pix.b;
-	sum = 0x01 * pix.b;
-	sum = sum + 0x0100 * pix.g;
-	sum = sum + 0x010000 * pix.r;
-	return (sum);
+	line++;
+	while (*line == ' ')
+		line++;
+	start = line;
+	while (*line != ' ')
+		line++;
+	*line = '\0';
+	rt->scene.ambient.ratio = parse_str_to_float(start);
+	*line = ' ';
+	while (*line == ' ')
+		line++;
+	rt->scene.ambient.color = parse_color(line);
 }

@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2022/07/04 12:04:10 by enoye            ###   ########.fr       */
+=======
 /*   Updated: 2022/07/02 21:49:31 by anemesis         ###   ########.fr       */
+>>>>>>> fe522de18ff17d5dcbcbfcd0c11f88101cd7427c
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <fcntl.h>
 
 #include "../libraries/libmlx/headers/mlx.h"
 

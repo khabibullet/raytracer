@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 17:01:06 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/16 15:13:22 by enoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,14 @@ typedef struct s_light
 {
 	t_color	color;
 	t_vec	coords;
+	float	brightless;
 }	t_light;
+
+typedef struct s_amb
+{
+	t_color	color;
+	float	ratio;
+}	t_amb;
 
 typedef struct s_poly
 {
