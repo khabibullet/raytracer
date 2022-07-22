@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/07/04 12:04:10 by enoye            ###   ########.fr       */
-=======
-/*   Updated: 2022/07/02 21:49:31 by anemesis         ###   ########.fr       */
->>>>>>> fe522de18ff17d5dcbcbfcd0c11f88101cd7427c
+/*   Updated: 2022/07/22 12:10:31 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +23,9 @@ int	main(int argc, char **argv)
 {
 	t_minirt	rt;
 
-	parse_rt(argc, argv, &rt);
+	validate_config(argc, argv[1], &rt);
+	parse_config(argc, argv, &rt.scene.num_of);
+	initialize_raytracing(&rt);
 	mlx_hook(rt.mlx.win, X_EVENT_KEY_PRESS, 0, &key_press, &rt);
 	mlx_hook(rt.mlx.win, X_EVENT_KEY_RELEASE, 0, &key_release, &rt);
 	mlx_hook(rt.mlx.win, X_EVENT_EXIT, 0, &exit_hook, &rt);

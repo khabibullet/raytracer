@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   parse_config.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/22 21:40:08 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/23 13:01:10 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/22 12:10:54 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include <stdio.h>
 
-# include "minirt.h"
+#include "../../headers/parsing.h"
+#include "../../headers/test.h"
 
-void	parse_config(int argc, char **argv, t_minirt *rt);
-void	init_window_and_buffers(t_minirt *rt);
-void	init_rays(t_minirt *rt);
-void	alloc_objects_arrays(t_minirt *rt);
-
-#endif
+void	parse_config(int argc, char **argv, t_minirt *rt)
+{
+	init_rays(rt);
+	init_window_and_buffers(rt);
+	init_cylinders(rt);
+}

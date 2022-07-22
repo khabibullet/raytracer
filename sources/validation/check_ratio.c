@@ -1,28 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_float.c                                   :+:      :+:    :+:   */
+/*   check_ratio.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/03 13:27:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 10:43:53 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/03 12:43:48 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/22 22:26:19 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 #include "../../libraries/libft/libft.h"
 
-int	is_right_float(char *line)
+static int	if_alone(char **line)
 {
-	if (ft_isdigit(*line) == 0)
+	*line++;
+	if (**line == '.')
+	{
+		*line++;
+		if (**line != '0')
+			return (0);
+		while (**line == '0')
+			*line++;
+	}
+	if (**line != ' ')
 		return (0);
-	while (ft_isdigit(*line) == 1)
+	return (1);
+}
+
+void	check_ratio(char *line)
+{
+	if (*line != '0' && *line != '1')
+		return (0);
+	while (*line == '0')
 		line++;
-	if (*line != ' ' && *line != '.')
-		return (0);
-	if (*line == ' ')
-		return (1);
+	if (*line == '1')
+	{
+		if (if_alone(&line) == 0)
+			return (0);
+	}
 	else if (*line == '.')
 	{
 		line++;
@@ -30,8 +47,8 @@ int	is_right_float(char *line)
 			return (0);
 		while (ft_isdigit(*line) == 1)
 			line++;
-		if (*line == ' ')
-			return (1);
+		if (*line != ' ')
+			return (0);
 	}
-	return (0);
+	return (1);
 }

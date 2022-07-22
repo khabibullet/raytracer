@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_camera.c                                  :+:      :+:    :+:   */
+/*   valid_camera.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:18:29 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/05 16:24:28 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/22 22:10:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ static int	is_right_pov(char *line)
 	return (1);
 }
 
-int	is_right_camera(char *line)
+int	valid_camera(char *line)
 {
-	line++;
 	while (*line == ' ')
 		line++;
 	if (is_right_coord(line) == 0)

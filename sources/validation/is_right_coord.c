@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_right_coord.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 10:25:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/05 16:10:48 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/22 22:09:51 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	if_alone(char **line, int k)
 			return (0);
 		while (ft_isdigit(**line) == 1)
 			line++;
-		if (k == 2 && **line == ' ') // v konce probel
+		if (k == 2 && **line == ' ')
 			return (1);
-		else if (k !=2 && **line == ',') // esli ne konec, to zapyataya posle chisla
+		else if (k != 2 && **line == ',')
 			*line++;
 		else
 			return (0);
@@ -43,7 +43,7 @@ static int	if_alone(char **line, int k)
 int	is_right_coord(char *line)
 {
 	int	k;
-	int res;
+	int	res;
 
 	k = 0;
 	while (k < 3)

@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_plane.c                                   :+:      :+:    :+:   */
+/*   valid_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:47:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 16:28:05 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/04 10:58:31 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/22 22:08:30 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 #include "../../libraries/libft/libft.h"
 
-int	is_right_plane(char *line)
+static char	move_line(char *line)
 {
-	line = line + 2;
+	while (*line != ' ')
+		line++;
 	while (*line == ' ')
 		line++;
+	return (line);
+}
+
+int	valid_cylinder(char *line)
+{
 	if (is_right_coord(line) == 0)
 		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
+	line = move_line(line);
 	if (is_right_norm_vec(line) == 0)
 		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
+	line = move_line(line);
+	if (is_right_float(line) == 0)
+		return (0);
+	line = move_line(line);
+	if (is_right_float(line) == 0)
+		return (0);
+	line = move_line(line);
 	if (is_right_rgb(line) == 0)
 		return (0);
 	while (*line != ' ' && *line != '\n' && *line != '\0')

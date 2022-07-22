@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_polygon.c                                 :+:      :+:    :+:   */
+/*   valid_sphere.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 12:13:08 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/07 13:23:53 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/03 13:06:51 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/22 22:12:53 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 #include "../../libraries/libft/libft.h"
 
-static char move_line(char *line)
+int	valid_sphere(char *line)
 {
+	while (*line == ' ')
+		line++;
+	if (is_right_coord(line) == 0)
+		return (0);
 	while (*line != ' ')
 		line++;
 	while (*line == ' ')
 		line++;
-	return (line);
-}
-
-int	is_right_polygon(char *line)
-{
-	line = line + 2;
+	if (is_right_float(line) == 0)
+		return (0);
+	while (*line != ' ')
+		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
-	line = move_line(line);
-	if (is_right_coord(line) == 0)
-		return (0);
-	line = move_line(line);
-	if (is_right_coord(line) == 0)
-		return (0);
-	line = move_line(line);
 	if (is_right_rgb(line) == 0)
 		return (0);
 	while (*line != ' ' && *line != '\n' && *line != '\0')

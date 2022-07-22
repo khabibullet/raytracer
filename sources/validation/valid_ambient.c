@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_sphere.c                                  :+:      :+:    :+:   */
+/*   valid_ambient.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/03 13:06:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 16:29:07 by enoye            ###   ########.fr       */
+/*   Created: 2022/06/30 17:08:09 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/22 22:21:14 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
-#include "../../libraries/libft/libft.h"
 
-int	is_right_sphere(char *line)
+int	valid_ambient(char *line)
 {
-	line = line + 2;
 	while (*line == ' ')
 		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_float(line) == 0)
-		return (0);
+	check_ratio(line);
 	while (*line != ' ')
 		line++;
 	while (*line == ' ')

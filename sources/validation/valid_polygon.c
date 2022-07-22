@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_cylinder.c                                :+:      :+:    :+:   */
+/*   valid_polygon.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 10:58:31 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/05 15:48:13 by enoye            ###   ########.fr       */
+/*   Created: 2022/07/07 12:13:08 by enoye             #+#    #+#             */
+/*   Updated: 2022/07/22 22:12:02 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,17 @@ static char	move_line(char *line)
 	return (line);
 }
 
-int	is_right_cylinder(char *line)
+int	valid_polygon(char *line)
 {
-	line = line + 2;
+	while (*line == ' ')
+		line++;
 	if (is_right_coord(line) == 0)
 		return (0);
 	line = move_line(line);
-	if (is_right_norm_vec(line) == 0)
+	if (is_right_coord(line) == 0)
 		return (0);
 	line = move_line(line);
-	if (is_right_float(line) == 0)
-		return (0);
-	line = move_line(line);
-	if (is_right_float(line) == 0)
+	if (is_right_coord(line) == 0)
 		return (0);
 	line = move_line(line);
 	if (is_right_rgb(line) == 0)
