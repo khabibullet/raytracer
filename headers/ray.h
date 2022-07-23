@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 23:28:26 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 00:17:44 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,13 @@
 /**
 **		Ray's origin and coords correspond to ray, which is emitted by the camera.
 **		Ray's color consists of 3 components: ambient, diffuse and spectular. Each
-**		of component based on color of surface which has been collided with the ray.
-**		We can reach surface color using *surface pointer.
+**		of component based on color of surface which has been encountered by the ray.
+**		We can reach surface color using *surface pointer (collision structure).
 **/
+
+typedef struct s_collision	t_collision;
+typedef struct s_vec		t_vec;
+typedef struct s_color		t_color;
 
 typedef struct s_ray
 {
@@ -35,7 +39,6 @@ typedef struct s_ray
 
 void	emit_rays(t_minirt *rt);
 void	get_ambient_component(t_minirt *rt);
-update_rays
 // void	add_diff_component(void);
 // void	add_spec_component(void);
 

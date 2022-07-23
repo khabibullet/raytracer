@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fill_back_buffer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/16 15:14:24 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/23 22:21:33 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-
-#include "../../headers/minirt.h"
-#include "../../headers/test.h"
-#include "../../headers/utils.h"
+#include "../../headers/event.h"
 
 int	fill_back_buffer(t_minirt *rt)
 {

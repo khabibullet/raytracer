@@ -3,20 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   sphere_collision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/16 15:17:24 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/23 22:19:01 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <stdio.h>
-
-#include "../../headers/ray.h"
-#include "../../headers/scene.h"
-#include "../../headers/vector.h"
-#include "../../headers/color.h"
 #include "../../headers/collision.h"
 
 /**

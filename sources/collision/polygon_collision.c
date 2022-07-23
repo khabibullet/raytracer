@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   polygon_collision.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 12:19:37 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/23 22:19:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <stdio.h>
-
-#include "../../headers/ray.h"
-#include "../../headers/scene.h"
-#include "../../headers/vector.h"
+#include "../../headers/collision.h"
 
 /**
 **	"Fast, Minimum Storage Ray-Triangle Intersection" algorithm

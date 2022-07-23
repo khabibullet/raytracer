@@ -6,7 +6,7 @@
 #    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/27 19:46:50 by anemesis         ###   ########.fr        #
+#    Updated: 2022/07/23 18:24:58 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ $(OBJDIR)/%.o : $(SRCDIR)/%.c $(LIBS) $(HEADERS)
 	@mkdir -p $(OBJDIR)
 	@mkdir -p $(@:/$(notdir $@)=)
 	$(CC) $(CFLAGS) -c $< -o $@
-
 
 $(LIBS) :
 	make -C libraries/libft

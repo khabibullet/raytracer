@@ -6,16 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:36:32 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/27 20:50:38 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:22:35 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-
-#include "../../libraries/libmlx/headers/mlx.h"
-
-#include "../../headers/minirt.h"
+#include "../../headers/event.h"
 
 int	put_display_buff_to_window(t_minirt *rt)
 {

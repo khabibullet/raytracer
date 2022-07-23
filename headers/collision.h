@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collision.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/16 15:10:32 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 00:17:46 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 # define MD_PART 0
 # define EPSILON 0.0001F
 
-# include "minirt.h"
 # include "scene.h"
 # include "ray.h"
-# include "vector.h"
 
 typedef struct s_collision
 {

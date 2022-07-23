@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   screen.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:55:07 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 12:28:06 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 00:10:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SCREEN_H
 
 # include "ray.h"
+
+typedef struct s_ray	t_ray;
 
 typedef struct s_mlx
 {

@@ -6,14 +6,10 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/17 11:58:34 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:15:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
-#include "../../headers/scene.h"
-#include "../../headers/ray.h"
-#include "../../headers/vector.h"
 #include "../../headers/collision.h"
 
 int	collide_cylinder(t_ray *ray, t_cyl *cylinder)

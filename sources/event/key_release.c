@@ -6,12 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:50:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/25 19:18:56 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:21:59 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
-#include "../../headers/controls.h"
+#include "../../headers/event.h"
 
 int	key_release(int keycode, t_minirt *rt)
 {

@@ -6,12 +6,10 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 23:29:25 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:16:05 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
-#include "../../headers/ray.h"
 #include "../../headers/collision.h"
 
 void	get_nearest_collisions(t_minirt *rt)

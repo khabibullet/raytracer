@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 18:07:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/29 14:51:30 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:03:53 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define TEST_H
 
 # include "minirt.h"
-# include "screen.h"
 
 void	set_test_scene(t_minirt *rt);
 void	put_test_primitives(t_minirt *rt);

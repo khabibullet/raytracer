@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:49:40 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/25 19:19:26 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:22:05 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/event.h"
 
 int	mouse_hook(int x2, int y2, t_minirt *rt)
 {
