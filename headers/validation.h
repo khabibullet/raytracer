@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:29:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/22 22:22:19 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 22:04:35 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ typedef struct s_elements
 
 void	validate_config(int argc, char *filename, t_num *num_of);
 int		valid_camera(char *line);
-int		valid_ambient(char *line);
+void	valid_ambient(char *line);
 int		valid_sphere(char *line);
 int		valid_cylinder(char *line);
 int		valid_light(char *line);
 int		valid_plane(char *lane);
+void	check_rgb(char *line);
+void	check_ratio(char *line);
 
 int		is_right_norm_vec(char *line);
 int		is_right_coord(char *line);
-int		is_right_rgb(char *line);
 int		is_right_float(char *line);
-void	check_ratio(char *line);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 17:08:09 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 22:21:14 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/23 18:23:59 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/parsing.h"
+#include "../../headers/validation.h"
 
-int	valid_ambient(char *line)
+void	valid_ambient(char *line)
 {
 	while (*line == ' ')
 		line++;
@@ -21,13 +21,11 @@ int	valid_ambient(char *line)
 		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);
+	check_rgb(line);
+	// while (*line != ' ' && *line != '\n' && *line != '\0')
+	// 	line++;
+	// while (*line == ' ')
+	// 	line++;
+	// if (*line != '\n' && *line != '\0')
+	// 	exit()
 }
