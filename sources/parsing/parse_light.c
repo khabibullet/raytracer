@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_light.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:31:17 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 12:31:17 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 17:58:04 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	parse_light(t_minirt *rt, char *line, int obj_id)
 {
-	char	*start;
+	// char	*start;
 
 	line++;
 	rt->scene.lights[obj_id].coords = parse_coords(line);
@@ -23,11 +23,11 @@ void	parse_light(t_minirt *rt, char *line, int obj_id)
 		line++;
 	while (*line == ' ')
 		line++;
-	start = line;
+	// start = line;
 	while (*line != ' ')
 		line++;
 	*line = '\0';
-	rt->scene.lights[obj_id].brightless = parse_str_to_float(start);
+	// rt->scene.lights[obj_id].brightless = parse_str_to_float(start);
 	*line = ' ';
 	while (*line == ' ')
 		line++;

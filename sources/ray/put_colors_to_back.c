@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nearest_colisions.c                            :+:      :+:    :+:   */
+/*   put_colors_to_back.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:09:48 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/24 16:52:41 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/24 18:13:07 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
+#include "../../headers/ray.h"
 #include "../../headers/minirt.h"
 
-void	get_nearest_collisions(t_minirt *rt)
+void	put_colors_to_back_buff(t_minirt *rt)
 {
-	int			i;
-	int			j;
+	int		i;
+	int		j;
+	// t_ray	*ray;
 
 	i = 0;
 	while (i < rt->screen.heigth)
@@ -24,7 +25,7 @@ void	get_nearest_collisions(t_minirt *rt)
 		j = 0;
 		while (j < rt->screen.width)
 		{
-			current_ray_nearest_collision(&rt->screen.rays[i][j], &rt->scene);
+			// get_surf_normal();
 			j++;
 		}
 		i++;

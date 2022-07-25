@@ -1,13 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   diffusion.c                                        :+:      :+:    :+:   */
+/*   diffuse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:32:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/28 18:32:38 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:37:36 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	add_diff_component(void);
+#include "../../headers/minirt.h"
+
+void	get_diffuse_component(t_minirt *rt)
+{
+	(void)rt;
+}

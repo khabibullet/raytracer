@@ -6,8 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:32:47 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/28 18:33:49 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:37:33 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	add_spec_component(void);
+#include "../../headers/minirt.h"
+
+void	get_specular_component(t_minirt *rt)
+{
+	(void)rt;
+}

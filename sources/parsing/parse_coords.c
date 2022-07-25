@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_coords.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:46:03 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 13:02:04 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 17:34:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_vec	parse_coords(char *line)
 		}
 		end++;
 	}
-	*end = '\0'
+	*end = '\0';
 	vector.z = parse_str_to_float(line);
 	*end = ' ';
 	return (vector);

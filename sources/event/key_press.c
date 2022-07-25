@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:49:37 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 22:21:55 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:58:33 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/event.h"
+#include "../../headers/utils.h"
 
 int	key_press(int keycode, t_minirt *rt)
 {

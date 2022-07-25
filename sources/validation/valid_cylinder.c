@@ -6,14 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:58:31 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 22:08:30 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 18:29:24 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/parsing.h"
+#include "../../headers/validation.h"
 #include "../../libraries/libft/libft.h"
 
-static char	move_line(char *line)
+static char	*move_line(char *line)
 {
 	while (*line != ' ')
 		line++;
@@ -36,8 +36,7 @@ int	valid_cylinder(char *line)
 	if (is_right_float(line) == 0)
 		return (0);
 	line = move_line(line);
-	if (is_right_rgb(line) == 0)
-		return (0);
+	check_rgb(line);
 	while (*line != ' ' && *line != '\n' && *line != '\0')
 		line++;
 	while (*line == ' ')

@@ -6,33 +6,34 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 22:07:16 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 22:01:27 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fcntl.h>
+
 #include "../../headers/validation.h"
 #include "../../headers/utils.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
+
+#include "../../libraries/libft/libft.h"
 
 static void	count_elements(char *line, t_elements *elements, t_num *num_of)
 {
 	while (*line == ' ')
 		line++;
-	if (ft_strncmp(line, "A ", 2))
+	if (!ft_strncmp(line, "A ", 2))
 		elements->ambient++;
-	else if (ft_strncmp(line, "C ", 2))
+	else if (!ft_strncmp(line, "C ", 2))
 		elements->camera++;
-	else if (ft_strncmp(line, "L ", 2))
+	else if (!ft_strncmp(line, "L ", 2))
 		num_of->lights++;
-	else if (ft_strncmp(line, "sp ", 3))
+	else if (!ft_strncmp(line, "sp ", 3))
 		num_of->spheres++;
-	else if (ft_strncmp(line, "pl ", 3))
+	else if (!ft_strncmp(line, "pl ", 3))
 		num_of->planes++;
-	else if (ft_strncmp(line, "cy ", 3))
+	else if (!ft_strncmp(line, "cy ", 3))
 		num_of->cylinders++;
-	else if (ft_strncmp(line, "po ", 3))
+	else if (!ft_strncmp(line, "po ", 3))
 		num_of->polygons++;
 }
 
@@ -65,37 +66,37 @@ static void	validate_line(char *line)
 {
 	while (*line == ' ')
 		line++;
-	if (ft_strcmp(line, "\n"))
+	if (!ft_strcmp(line, "\n"))
 		return ;
-	if (ft_strncmp(line, "A ", 2))
+	if (!ft_strncmp(line, "A ", 2))
 		valid_ambient(line + 1);
-	else if (ft_strncmp(line, "C ", 2))
+	else if (!ft_strncmp(line, "C ", 2))
 		valid_camera(line + 1);
-	else if (ft_strncmp(line, "L ", 2))
+	else if (!ft_strncmp(line, "L ", 2))
 		valid_light(line + 1);
-	else if (ft_strncmp(line, "sp ", 3))
+	else if (!ft_strncmp(line, "sp ", 3))
 		valid_sphere(line + 2);
-	else if (ft_strncmp(line, "pl ", 3))
+	else if (!ft_strncmp(line, "pl ", 3))
 		valid_plane(line + 2);
-	else if (ft_strncmp(line, "cy ", 3))
+	else if (!ft_strncmp(line, "cy ", 3))
 		valid_cylinder(line + 2);
-	else if (ft_strncmp(line, "po ", 3))
+	else if (!ft_strncmp(line, "po ", 3))
 		valid_polygon(line + 2);
 	else
 		return ;
 }
 
-static void	validate_file(char *name)
+static void	validate_file(char *filename)
 {
 	int		fd;
 
-	if (ft_strlen(name) < 3)
+	if (ft_strlen(filename) < 3)
 		exit_error();
-	if (!ft_strcmp(name + ft_strlen(name) - 3, ".rt"))
+	if (ft_strcmp(filename + ft_strlen(filename) - 3, ".rt"))
 		exit_error();
-	if (open(name, O_DIRECTORY) > 0)
+	if (open(filename, O_DIRECTORY) > 0)
 		exit_error();
-	fd = open(name, O_RDONLY);
+	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		exit_error();
 	else

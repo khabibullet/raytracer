@@ -6,79 +6,25 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:18:29 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 22:10:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:35:57 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/parsing.h"
+#include "../../headers/validation.h"
 #include "../../libraries/libft/libft.h"
 
-static int	last_check(char *line, int k)
+void	valid_camera(char *line)
 {
-	if (k > 3)
-		return (0);
-	if (*line != ' ' && *line != '\n' && *line != '\0')
-		return (0);
-	if (k == 3)
-	{
-		if (*(line - 3) > '1')
-			return (0);
-		if (*(line - 3) == '1' && *(line - 2) > '8')
-			return (0);
-		if (*(line - 3) == '1' && *(line - 2) == '8' && *(line - 1) > '0')
-			return (0);
-	}
-	return (1);
-}
+	char	**params;
 
-static int	is_right_pov(char *line)
-{
-	int	k;
+	check_digit_or_charset(line, " .,-\n");
+	check_num_of_char(line, ',', 4);
+	params = ft_split(line, ' ');
+	check_num_of_fields(params, 3);
+	check_coords(params[0]);
 
-	k = 0;
-	if (*line == '0')
-	{
-		while (*line == '0')
-			line++;
-		if (*line == ' ' || *line == '\n' || *line == '\0')
-			return (1);
-	}
-	if (ft_isdigit(*line) == 0)
-		return (0);
-	while (ft_isdigit(*line) == 1)
-	{
-		line++;
-		k++;
-	}
-	k = last_check(line, k);
-	if (k == 0)
-		return (0);
-	return (1);
-}
-
-int	valid_camera(char *line)
-{
-	while (*line == ' ')
-		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_norm_vec(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_pov(line) == 0)
-		return (0);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
-	return (1);
+	free(params[0]);
+	free(params[1]);
+	free(params[2]);
+	free(params);
 }

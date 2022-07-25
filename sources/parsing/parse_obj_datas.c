@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   parse_obj_datas.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:31:21 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 12:30:28 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 18:08:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 #include "../../headers/utils.h"
 
-void	get_next_datas(t_minirt *rt, char *line, t_id *obj_id)
+static void	get_next_datas(t_minirt *rt, char *line, t_id *obj_id)
 {
 	if (*line == 'C')
 		parse_camera(rt, line);
@@ -64,7 +64,7 @@ void	parse_obj_datas(t_minirt *rt, int fd)
 		{
 			while (*line == ' ')
 				line++;
-			get_next_datas(rt, line, obj_id);
+			get_next_datas(rt, line, &obj_id);
 		}
 	}
 }

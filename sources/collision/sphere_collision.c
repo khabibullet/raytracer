@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 22:19:01 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:12:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
+#include "../../headers/ray.h"
 
 /**
 **	1)	If d (descriminant is below zero), then t1 (t[0]) and t2 (t[1]) are

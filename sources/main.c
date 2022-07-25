@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 00:17:47 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 22:01:30 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 
 int	main(int argc, char **argv)
 {
-	// t_minirt	rt;
+	t_minirt	rt;
 
-	// validate_config(argc, argv[1], &rt);
+	validate_config(argc, argv[1], &rt.scene.num_of);
+	printf("ok\n");
 	// parse_config(argc, argv, &rt.scene.num_of);
 	// initialize_raytracing(&rt);
 	// mlx_hook(rt.mlx.win, X_EVENT_KEY_PRESS, 0, &key_press, &rt);

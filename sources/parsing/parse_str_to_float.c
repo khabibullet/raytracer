@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_str_to_float.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:21:42 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 12:34:30 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 18:09:00 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static float	if_dot_here(char *str, char *end, int before, float sum)
 	int	after;
 	int	len;
 
-	*end == '\0';
+	*end = '\0';
 	before = ft_atoi(str);
 	*end = '.';
 	end++;

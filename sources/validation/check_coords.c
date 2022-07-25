@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nearest_colisions.c                            :+:      :+:    :+:   */
+/*   check_coords.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:09:48 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/24 22:21:44 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/25 19:35:19 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
-#include "../../headers/minirt.h"
+#include "../../libraries/libft/libft.h"
+#include "../../headers/validation.h"
 
-void	get_nearest_collisions(t_minirt *rt)
+void	check_coords(char *coords)
 {
-	int			i;
-	int			j;
+	char	**xyz;
 
-	i = 0;
-	while (i < rt->screen.heigth)
-	{
-		j = 0;
-		while (j < rt->screen.width)
-		{
-			current_ray_nearest_collision(&rt->screen.rays[i][j], &rt->scene);
-			j++;
-		}
-		i++;
-	}
+	xyz = ft_split(coords, ',');
+	check_num_of_fields(xyz, 3);
+	check_float(xyz[0]);
+	check_float(xyz[1]);
+	check_float(xyz[2]);
 }

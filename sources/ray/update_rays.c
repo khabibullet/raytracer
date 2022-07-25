@@ -6,12 +6,33 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:27:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/05 14:37:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 18:13:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-ray->coords = vec_multiply_nbr(ray->coords, ray->collis.distance - EPSILON);
-curr_ray->origin = add_vecs(curr_ray->origin, curr_ray->coords);
-curr_ray->coords = vec_multiply_nbr(curr_ray->coords, -1.0F);
-curr_ray->surface = collision.surface;
-get_surf_normal();
+#include "../../headers/ray.h"
+#include "../../headers/minirt.h"
+
+void	update_rays(t_minirt *rt)
+{
+	int		i;
+	int		j;
+	t_ray	*ray;
+
+	i = 0;
+	while (i < rt->screen.heigth)
+	{
+		j = 0;
+		while (j < rt->screen.width)
+		{
+			ray = &rt->screen.rays[i][j];
+			ray->coords = vec_multiply_nbr(ray->coords, \
+												ray->collis.distance - EPSILON);
+			ray->origin = add_vecs(ray->origin, ray->coords);
+			ray->coords = vec_multiply_nbr(ray->coords, -1.0F);
+			// get_surf_normal();
+			j++;
+		}
+		i++;
+	}
+}

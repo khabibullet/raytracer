@@ -6,11 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 12:30:53 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 22:11:25 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 18:30:47 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/parsing.h"
+#include "../../headers/validation.h"
 #include "../../libraries/libft/libft.h"
 
 int	valid_light(char *line)
@@ -23,14 +23,12 @@ int	valid_light(char *line)
 		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_ratio(line) == 0)
-		return (0);
+	check_ratio(line);
 	while (*line != ' ')
 		line++;
 	while (*line == ' ')
 		line++;
-	if (is_right_rgb(line) == 0)
-		return (0);
+	check_rgb(line);
 	while (*line != ' ' && *line != '\n' && *line != '\0')
 		line++;
 	while (*line == ' ')

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nearest_colisions.c                            :+:      :+:    :+:   */
+/*   ambient.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:09:48 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/04 21:14:42 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/24 18:11:50 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
 #include "../../headers/minirt.h"
+#include "../../headers/ray.h"
+#include "../../headers/collision.h"
 
-void	get_nearest_collisions(t_minirt *rt)
+void	get_ambient_component(t_minirt *rt)
 {
 	int			i;
 	int			j;
@@ -24,7 +25,9 @@ void	get_nearest_collisions(t_minirt *rt)
 		j = 0;
 		while (j < rt->screen.width)
 		{
-			current_ray_nearest_collision(&rt->screen.rays[i][j], &rt->scene);
+			rt->screen.rays[i][j].color = mix_colors(\
+			*(t_color *)(rt->screen.rays[i][j].collis.surface + 4), \
+															rt->scene.ambient);
 			j++;
 		}
 		i++;

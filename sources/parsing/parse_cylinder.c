@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:27:27 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/16 15:56:25 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 17:48:00 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	parse_cylinder(t_minirt *rt, char *line, int obj_id)
 	while (*line == ' ')
 		line++;
 	start = line;
+	(void)start;
 	while (*line != ' ')
 		line++;
 	*line = '\0';
-	rt->scene.cylinders[obj_id].height = parse_str_to_float(line);
+	rt->scene.cylinders[obj_id].heigth = parse_str_to_float(line);
 	*line = ' ';
 	while (*line == ' ')
 		line++;

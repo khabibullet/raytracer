@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 22:21:33 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:58:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/event.h"
+#include "../../headers/utils.h"
 
 int	fill_back_buffer(t_minirt *rt)
 {

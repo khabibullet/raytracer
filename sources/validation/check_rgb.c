@@ -6,26 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 14:55:26 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 17:47:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:36:17 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/utils.h"
+#include "../../headers/validation.h"
 #include "../../libraries/libft/libft.h"
-
-static void	check_num_of_components(char **split)
-{
-	int	count;
-
-	count = 0;
-	while (*split)
-	{
-		split++;
-		count++;
-	}
-	if (count != 3)
-		exit_error();
-}
 
 static void	check_components_all_digit(char **rgb)
 {
@@ -59,31 +46,15 @@ static void	check_components_limit(char **rgb)
 	}
 }
 
-static void	check_num_of_commas(char *str)
-{
-	int	count;
-
-	count = 0;
-	while (*str)
-	{
-		if (*str == ',')
-		{
-			if (++count > 2)
-				exit_error();
-		}
-		str++;
-	}
-}
-
 void	check_rgb(char *line)
 {
 	char	*color_vec;
 	char	**rgb;
 
-	check_num_of_commas(line);
+	check_num_of_char(line, ',', 2);
 	color_vec = ft_strtrim(line, " \n");
 	rgb = ft_split(color_vec, ',');
-	check_num_of_components(rgb);
+	check_num_of_components(rgb, 3);
 	check_components_all_digit(rgb);
 	check_components_limit(rgb);
 	free(rgb[0]);

@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_right_float.c                                   :+:      :+:    :+:   */
+/*   check_float.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 13:27:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 21:53:48 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:34:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/parsing.h"
+#include "../../headers/utils.h"
+#include "../../headers/validation.h"
 #include "../../libraries/libft/libft.h"
 
-int	is_right_float(char *line)
+int	count_digits(char *str)
 {
-	if (ft_isdigit(*line) == 0)
-		return (0);
-	while (ft_isdigit(*line) == 1)
-		line++;
-	if (*line != ' ' && *line != '.')
-		return (0);
-	if (*line == ' ')
-		return (1);
-	else if (*line == '.')
+	int	count;
+
+	count = 0;
+	while (*str)
 	{
-		line++;
-		if (ft_isdigit(*line) == 0)
-			return (0);
-		while (ft_isdigit(*line) == 1)
-			line++;
-		if (*line == ' ')
-			return (1);
+		if (ft_isdigit(*str))
+			count++;
+		str++;
 	}
-	return (0);
+	return (count);
+}
+
+void	check_float(char *str)
+{
+	char	**parts;
+
+	if (count_digits > 8 || count_digits == 0)
+		exit_error();
+	parts = ft_split(str, '.');
+	if (parts == NULL)
+		exit_error();
+	check_digit_or_charset(parts[0] + 1, "");
+	if (parts[1] != NULL)
+		check_digit_or_charset(parts[1], "");
 }

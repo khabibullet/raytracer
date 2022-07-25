@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:09:34 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 15:00:22 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 17:22:37 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ t_color	parse_color(char *line)
 	start = line;
 	while (*line != ',')
 		line++;
-	*line = '\0'
+	*line = '\0';
 	var.r = parse_str_to_float(start) / 255;
 	*line = ',';
 	line++;
 	start = line;
 	while (*line != ',')
 		line++;
-	*line = '\0'
+	*line = '\0';
 	var.g = parse_str_to_float(start) / 255;
 	*line = ',';
 	line++;
@@ -37,7 +37,7 @@ t_color	parse_color(char *line)
 	while (*line != ' ' && *line != '\n' && *line != '\0')
 		line++;
 	tmp = *line;
-	*line = '\0'
+	*line = '\0';
 	var.b = parse_str_to_float(start) / 255;
 	*line = tmp;
 	return (var);

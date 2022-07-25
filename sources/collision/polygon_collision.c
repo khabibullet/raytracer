@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 22:19:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:11:37 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/collision.h"
+#include "../../headers/ray.h"
 
 /**
 **	"Fast, Minimum Storage Ray-Triangle Intersection" algorithm

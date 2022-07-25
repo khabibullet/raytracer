@@ -6,16 +6,19 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 00:17:44 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 21:27:49 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RAY_H
 # define RAY_H
 
-# include "minirt.h"
+# include <stdio.h>
+# include <math.h>
+
 # include "vector.h"
 # include "color.h"
+# include "collision.h"
 
 /**
 **		Ray's origin and coords correspond to ray, which is emitted by the camera.
@@ -23,10 +26,6 @@
 **		of component based on color of surface which has been encountered by the ray.
 **		We can reach surface color using *surface pointer (collision structure).
 **/
-
-typedef struct s_collision	t_collision;
-typedef struct s_vec		t_vec;
-typedef struct s_color		t_color;
 
 typedef struct s_ray
 {
@@ -37,9 +36,13 @@ typedef struct s_ray
 	t_vec			surf_normal;
 }	t_ray;
 
+typedef struct s_minirt	t_minirt;
+
 void	emit_rays(t_minirt *rt);
 void	get_ambient_component(t_minirt *rt);
-// void	add_diff_component(void);
-// void	add_spec_component(void);
+void	get_diffuse_component(t_minirt *rt);
+void	get_specular_component(t_minirt *rt);
+void	update_rays(t_minirt *rt);
+void	put_colors_to_back_buff(t_minirt *rt);
 
 #endif

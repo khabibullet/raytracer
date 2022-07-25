@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_config.c                                     :+:      :+:    :+:   */
+/*   check_num_of_char.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 13:01:10 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/22 12:10:54 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/25 15:30:01 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/25 15:32:08 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "../../headers/utils.h"
 
-#include "../../headers/parsing.h"
-#include "../../headers/test.h"
-
-void	parse_config(int argc, char **argv, t_minirt *rt)
+void	check_num_of_char(char *str, char ch, int num)
 {
-	init_rays(rt);
-	init_window_and_buffers(rt);
-	init_cylinders(rt);
+	int	count;
+
+	count = 0;
+	while (*str)
+	{
+		if (*str == ch)
+			++count;
+		str++;
+	}
+	if (count != num)
+		exit_error();
 }

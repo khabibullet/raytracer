@@ -3,25 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   parse_datas.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 11:38:03 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/14 12:29:56 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/24 17:56:46 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <fcntl.h>
+#include <unistd.h>
 
 #include "../../headers/parsing.h"
 #include "../../headers/minirt.h"
 
-int	parse_datas(t_minirt *rt, char *filename)
+void	parse_datas(t_minirt *rt, char *filename)
 {
 	int	fd;
 
 	fd = open(filename, O_RDONLY);
-	parse_objects_num(rt, fd);
-	close (fd);
-	parse_alloc_obj_arr(rt);
-	parse_obj_id(rt);
+	// parse_objects_num(rt, fd);
+	close(fd);
+	alloc_objects_arrays(rt);
+	// parse_obj_id(rt);
 	fd = open(filename, O_RDONLY);
 	parse_obj_datas(rt, fd);
 }

@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_ambient_component.c                            :+:      :+:    :+:   */
+/*   check_digit_or_charset.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/04 21:14:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 21:20:26 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/25 16:03:05 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/25 16:13:42 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
-#include "../../headers/ray.h"
-#include "../../headers/collision.h"
+#include "../../headers/utils.h"
+#include "../../libraries/libft/libft.h"
 
-void	get_ambient_component(t_minirt *rt)
+void	check_digit_or_charset(char *str, char *charset)
 {
-	int			i;
-	int			j;
-
-	i = 0;
-	while (i < rt->screen.heigth)
+	while (*str)
 	{
-		j = 0;
-		while (j < rt->screen.width)
-		{
-			rt->screen.rays[i][j].color = mix_colors(\
-			*(t_color *)(rt->screen.rays[i][j].surface + 4), rt->scene.ambient);
-			j++;
-		}
-		i++;
+		if (!ft_isdigit(*str) && !ft_strchr(charset, *str))
+			exit_error();
+		str++;
 	}
 }

@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 22:15:22 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 16:00:09 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/collision.h"
+#include "../../headers/ray.h"
 
 int	collide_cylinder(t_ray *ray, t_cyl *cylinder)
 {

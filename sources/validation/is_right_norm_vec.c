@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 12:09:30 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/22 22:10:01 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/24 18:25:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,34 @@
 static int	if_dot(char **line, int k)
 {
 	line++;
-	if (ft_isdigit(*line) == 0)
+	if (ft_isdigit(**line) == 0)
 		return (0);
-	while (ft_isdigit(*line) == 1)
+	while (ft_isdigit(**line) == 1)
 		line++;
-	if (k == 2 && *line == ' ') // v konce probel
+	if (k == 2 && **line == ' ') // v konce probel
 		return (1);
-	else if (k !=2 && *line == ',') // esli ne konec, to zapyataya posle chisla
+	else if (k !=2 && **line == ',') // esli ne konec, to zapyataya posle chisla
 		line++;
 	else
 		return (0);
+	return (0);
 }
 
 static int	if_alone(char **line, int k)
 {
-	*line++;
+	(*line)++;
 	if (**line == '.')
 	{
-		*line++;
+		(*line)++;
 		if (**line != '0')
 			return (0);
 		while (**line == '0')
-			*line++;
+			(*line)++;
 	}
 	if (k == 2 && **line == ' ') // v konce probel
 		return (1);
 	else if (k !=2 && **line == ',') // esli ne konec, to zapyataya posle chisla
-		*line++;
+		(*line)++;
 	else
 		return (0);
 	return (10);
@@ -52,7 +53,7 @@ static int	if_alone(char **line, int k)
 
 static int	what_next(char **line, int k)
 {
-	int res;
+	int	res;
 
 	if (**line == '1')
 	{
@@ -75,14 +76,14 @@ static int	what_next(char **line, int k)
 
 static int	circle(char **line, int k)
 {
-	int res;
+	int	res;
 
 	if (**line == '-')
 		line++;
 	if (**line != '0' && **line != '1')
 		return (0);
 	while (**line == '0')
-		*line++;
+		(*line)++;
 	if (**line == '1' || **line == '.')
 	{
 		res = what_next(line, k);
@@ -94,7 +95,7 @@ static int	circle(char **line, int k)
 	else if (k == 2 && **line == ' ') // v konce probel
 		return (1);
 	else if (k !=2 && **line == ',') // esli ne konec, to zapyataya posle chisla
-		*line++;
+		(*line)++;
 	else
 		return (0);
 	return (10);
