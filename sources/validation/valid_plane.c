@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:47:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/24 18:31:27 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:44:06 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,27 @@
 
 int	valid_plane(char *line)
 {
-	while (*line == ' ')
-		line++;
-	if (is_right_coord(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (is_right_norm_vec(line) == 0)
-		return (0);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	check_rgb(line);
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	while (*line == ' ')
-		line++;
-	if (*line != '\n' && *line != '\0')
-		return (0);
+	(void)line;
+	// while (*line == ' ')
+	// 	line++;
+	// if (is_right_coord(line) == 0)
+	// 	return (0);
+	// while (*line != ' ')
+	// 	line++;
+	// while (*line == ' ')
+	// 	line++;
+	// if (is_right_norm_vec(line) == 0)
+	// 	return (0);
+	// while (*line != ' ')
+	// 	line++;
+	// while (*line == ' ')
+	// 	line++;
+	// check_rgb(line);
+	// while (*line != ' ' && *line != '\n' && *line != '\0')
+	// 	line++;
+	// while (*line == ' ')
+	// 	line++;
+	// if (*line != '\n' && *line != '\0')
+	// 	return (0);
 	return (1);
 }

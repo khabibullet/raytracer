@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/24 22:01:27 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:14:10 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,16 @@ static void	validate_line(char *line)
 		valid_ambient(line + 1);
 	else if (!ft_strncmp(line, "C ", 2))
 		valid_camera(line + 1);
-	else if (!ft_strncmp(line, "L ", 2))
-		valid_light(line + 1);
-	else if (!ft_strncmp(line, "sp ", 3))
-		valid_sphere(line + 2);
-	else if (!ft_strncmp(line, "pl ", 3))
-		valid_plane(line + 2);
-	else if (!ft_strncmp(line, "cy ", 3))
-		valid_cylinder(line + 2);
-	else if (!ft_strncmp(line, "po ", 3))
-		valid_polygon(line + 2);
+	// else if (!ft_strncmp(line, "L ", 2))
+	// 	valid_light(line + 1);
+	// else if (!ft_strncmp(line, "sp ", 3))
+	// 	valid_sphere(line + 2);
+	// else if (!ft_strncmp(line, "pl ", 3))
+	// 	valid_plane(line + 2);
+	// else if (!ft_strncmp(line, "cy ", 3))
+	// 	valid_cylinder(line + 2);
+	// else if (!ft_strncmp(line, "po ", 3))
+	// 	valid_polygon(line + 2);
 	else
 		return ;
 }

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/25 16:28:56 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:21:56 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define UTILS_H
 # define BUFFER_SIZE 256
 # include "sys/types.h"
-# include "minirt.h"
 
-typedef struct t_var
+typedef struct s_var
 {
 	char		buf[BUFFER_SIZE + 1];
 	ssize_t		red;
@@ -24,10 +23,13 @@ typedef struct t_var
 	int			err_flag;
 }	t_var;
 
+typedef struct s_minirt	t_minirt;
+
 char	*get_next_line(int fd);
 void	exit_error(void);
 void	exit_free(t_minirt *rt);
 void	swap_buffers(t_minirt *rt);
 int		safe_atoi(const char *str);
+double	ft_atof(const char *str);
 
 #endif

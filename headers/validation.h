@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:29:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/25 16:12:32 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:24:54 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 
 # include "scene.h"
+# include "utils.h"
 
 typedef struct s_elements
 {
@@ -36,6 +37,7 @@ void	check_ratio(char *line);
 void	check_num_of_fields(char **split, int num);
 void	check_num_of_char(char *str, char ch, int num);
 void	check_digit_or_charset(char *str, char *charset);
+void	check_coords(char *coords);
 
 int		is_right_norm_vec(char *line);
 int		is_right_coord(char *line);

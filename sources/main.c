@@ -6,13 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 22:01:30 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:13:21 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/event.h"
 #include "../headers/validation.h"
 #include "../headers/parsing.h"
+#include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
