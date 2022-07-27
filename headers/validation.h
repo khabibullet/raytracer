@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:29:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/27 18:43:48 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/27 22:44:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,14 @@
 
 # include "../libraries/libft/libft.h"
 
-typedef struct s_elements
-{
-	int	ambient;
-	int	camera;
-}	t_elements;
-
 void	validate_config(int argc, char *filename, t_num *num_of);
 void	valid_camera(char *line);
 void	valid_ambient(char *line);
-int		valid_sphere(char *line);
-int		valid_cylinder(char *line);
-int		valid_light(char *line);
-int		valid_plane(char *lane);
-int		valid_polygon(char *line);
+void	valid_sphere(char *line);
+void	valid_cylinder(char *line);
+void	valid_light(char *line);
+void	valid_plane(char *lane);
+void	valid_polygon(char *line);
 void	check_rgb(char *line);
 void	check_ratio(char *line);
 void	check_num_of_fields(char **split, int num);
