@@ -6,12 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:47:41 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/26 15:44:06 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:41:23 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/validation.h"
-#include "../../libraries/libft/libft.h"
 
 int	valid_plane(char *line)
 {

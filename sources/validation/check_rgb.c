@@ -6,13 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 14:55:26 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/26 15:24:27 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:41:01 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/utils.h"
 #include "../../headers/validation.h"
-#include "../../libraries/libft/libft.h"
 
 static void	check_components_all_digit(char **rgb)
 {

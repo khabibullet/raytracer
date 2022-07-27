@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/26 17:14:10 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:39:54 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 #include "../../headers/validation.h"
 #include "../../headers/utils.h"
-
-#include "../../libraries/libft/libft.h"
 
 static void	count_elements(char *line, t_elements *elements, t_num *num_of)
 {

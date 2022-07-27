@@ -6,12 +6,11 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:13:08 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/26 15:43:43 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/27 18:41:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/validation.h"
-#include "../../libraries/libft/libft.h"
 
 // static char	*move_line(char *line)
 // {
