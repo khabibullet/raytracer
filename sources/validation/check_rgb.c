@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 14:55:26 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/27 18:41:01 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 16:25:40 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,15 @@ static void	check_components_limit(char **rgb)
 
 void	check_rgb(char *line)
 {
-	char	*color_vec;
 	char	**rgb;
 
 	check_num_of_char(line, ',', 2);
-	color_vec = ft_strtrim(line, " \n");
-	rgb = ft_split(color_vec, ',');
+	rgb = ft_split(line, ',');
 	check_num_of_fields(rgb, 3);
 	check_components_all_digit(rgb);
 	check_components_limit(rgb);
 	free(rgb[0]);
 	free(rgb[1]);
 	free(rgb[2]);
-	free(color_vec);
+	free(rgb);
 }
