@@ -6,44 +6,25 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 12:15:19 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/24 18:00:13 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 17:37:56 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
 #include "../../headers/parsing.h"
-#include "../../headers/minirt.h"
-#include "../../libraries/libft/libft.h"
 
-static int	parse_fov(char *line)
+void	parse_camera(char *line, t_scene *scene)
 {
-	char	*end;
-	char	tmp;
-	int		fov;
+	char	**params;
 
-	end = line;
-	while (*end != ' ' && *end != '\n' && *end != '\0')
-		end++;
-	tmp = *end;
-	*end = '\0';
-	fov = ft_atoi(line);
-	*end = tmp;
-	return (fov);
-}
-
-void	parse_camera(t_minirt *rt, char *line)
-{
-	line++;
-	while (*line == ' ')
-		line++;
-	rt->scene.cam.coords = parse_coords(line);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	rt->scene.cam.direction = parse_coords(line);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	rt->scene.cam.fov = parse_fov(line);
+	params = ft_split(line, ' ');
+	parse_coords(params[0], &scene->cam.coords);
+	parse_coords(params[1], &scene->cam.direction);
+	scene->cam.fov = ft_atof(params[2]);
+	free(params[0]);
+	free(params[1]);
+	free(params[2]);
+	free(params);
+	scene->cam.focal = 1.0F / tanf(scene->cam.fov * M_PI / 360.0F);
+	scene->cam_default = scene->cam;
 }

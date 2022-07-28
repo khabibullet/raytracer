@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 21:27:49 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:26:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <stdio.h>
 # include <math.h>
 
-# include "vector.h"
-# include "color.h"
 # include "collision.h"
 
 /**

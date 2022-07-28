@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_datas.c                                      :+:      :+:    :+:   */
+/*   safe_malloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 11:38:03 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/24 17:56:46 by anemesis         ###   ########.fr       */
+/*   Created: 2022/07/28 15:17:06 by anemesis          #+#    #+#             */
+/*   Updated: 2022/07/28 15:20:30 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
+#include "../../headers/utils.h"
 
-#include "../../headers/parsing.h"
-#include "../../headers/minirt.h"
-
-void	parse_datas(t_minirt *rt, char *filename)
+void	*safe_malloc(size_t size)
 {
-	int	fd;
+	void	*ptr;
 
-	fd = open(filename, O_RDONLY);
-	// parse_objects_num(rt, fd);
-	close(fd);
-	alloc_objects_arrays(rt);
-	// parse_obj_id(rt);
-	fd = open(filename, O_RDONLY);
-	parse_obj_datas(rt, fd);
+	ptr = malloc(size);
+	if (ptr == NULL)
+		exit_error();
+	return (ptr);
 }

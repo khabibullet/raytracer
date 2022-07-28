@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rays_initialization.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enoye <enoye@clown.ru>                     +#+  +:+       +#+        */
+/*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:22:28 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/16 15:15:56 by enoye            ###   ########.fr       */
+/*   Updated: 2022/07/28 15:25:49 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 #include "../../headers/minirt.h"
 #include "../../headers/ray.h"
+#include "../../headers/scene.h"
 
 void	init_rays(t_minirt *rt)
 {
 	int	i;
 	int	j;
 
-	rt->screen.rays = malloc(sizeof(*rt->screen.rays) * rt->screen.heigth);
+	rt->screen.rays = safe_malloc(sizeof(*rt->screen.rays) * rt->screen.heigth);
 	i = 0;
 	while (i < rt->screen.heigth)
 	{
-		rt->screen.rays[i] = malloc(sizeof(**rt->screen.rays) \
+		rt->screen.rays[i] = safe_malloc(sizeof(**rt->screen.rays) \
 															* rt->screen.width);
 		j = 0;
 		while (i < rt->screen.width)

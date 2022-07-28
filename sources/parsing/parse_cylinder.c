@@ -6,46 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 16:27:27 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/24 17:48:00 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 16:59:58 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 #include "../../headers/minirt.h"
 
-void	parse_cylinder(t_minirt *rt, char *line, int obj_id)
+void	parse_cylinder(char *line, t_scene *scene)
 {
-	char	*start;
-
-	line = line + 2;
-	while (*line == ' ')
-		line++;
-	rt->scene.cylinders[obj_id].axis = parse_coords(line);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	rt->scene.cylinders[obj_id].center = parse_coords(line);
-	while (*line != ' ')
-		line++;
-	while (*line == ' ')
-		line++;
-	start = line;
-	while (*line != ' ')
-		line++;
-	*line = '\0';
-	rt->scene.cylinders[obj_id].radius = parse_str_to_float(line);
-	*line = ' ';
-	while (*line == ' ')
-		line++;
-	start = line;
-	(void)start;
-	while (*line != ' ')
-		line++;
-	*line = '\0';
-	rt->scene.cylinders[obj_id].heigth = parse_str_to_float(line);
-	*line = ' ';
-	while (*line == ' ')
-		line++;
-	rt->scene.cylinders[obj_id].color = parse_color(line);
+	
 }

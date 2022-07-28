@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_color.c                                      :+:      :+:    :+:   */
+/*   parse_rgb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 12:09:34 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/24 17:22:37 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 16:49:59 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
-#include "../../headers/color.h"
 
-t_color	parse_color(char *line)
+void	parse_rgb_object(char *line, t_color *color)
 {
-	t_color	var;
-	char	*start;
-	char	tmp;
+	char	**rgb;
 
-	start = line;
-	while (*line != ',')
-		line++;
-	*line = '\0';
-	var.r = parse_str_to_float(start) / 255;
-	*line = ',';
-	line++;
-	start = line;
-	while (*line != ',')
-		line++;
-	*line = '\0';
-	var.g = parse_str_to_float(start) / 255;
-	*line = ',';
-	line++;
-	start = line;
-	while (*line != ' ' && *line != '\n' && *line != '\0')
-		line++;
-	tmp = *line;
-	*line = '\0';
-	var.b = parse_str_to_float(start) / 255;
-	*line = tmp;
-	return (var);
+	rgb = ft_split(line, ',');
+	color->r = (float)safe_atoi(rgb[0]) / 255.0F;
+	color->g = (float)safe_atoi(rgb[1]) / 255.0F;
+	color->b = (float)safe_atoi(rgb[2]) / 255.0F;
+	free(rgb[0]);
+	free(rgb[1]);
+	free(rgb[2]);
+	free(rgb);
+}
+
+void	parse_rgb_light(char *line, t_color *color, float ratio)
+{
+	char	**rgb;
+
+	rgb = ft_split(line, ',');
+	color->r = (float)safe_atoi(rgb[0]) * ratio;
+	color->g = (float)safe_atoi(rgb[1]) * ratio;
+	color->b = (float)safe_atoi(rgb[2]) * ratio;
+	free(rgb[0]);
+	free(rgb[1]);
+	free(rgb[2]);
+	free(rgb);
 }

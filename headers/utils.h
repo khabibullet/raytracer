@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/26 15:21:56 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:20:48 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 # define BUFFER_SIZE 256
 # include "sys/types.h"
+# include <stdlib.h>
 
 typedef struct s_var
 {
@@ -31,5 +32,6 @@ void	exit_free(t_minirt *rt);
 void	swap_buffers(t_minirt *rt);
 int		safe_atoi(const char *str);
 double	ft_atof(const char *str);
+void	*safe_malloc(size_t size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:22:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/25 19:36:41 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:25:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd > 256 || vars.err_flag || BUFFER_SIZE <= 0)
 		return (NULL);
-	vars.line = malloc(sizeof(*vars.line));
+	vars.line = safe_malloc(sizeof(*vars.line));
 	if (!vars.line)
 	{
 		vars.err_flag = 1;
