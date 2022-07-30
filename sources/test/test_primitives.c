@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:50:34 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/02 21:51:53 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/30 19:19:35 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	put_test_primitives(t_minirt *rt)
 {
-	rt->scene.planes[0] = (t_plane){0, {100, 100, 100}, {10, 0, -20}, \
+	rt->scene.num_of = (t_num){7, 2, 2, 1, 2, 0};
+	rt->scene.planes[0] = (t_plane){{100, 100, 100}, {10, 0, -20}, \
 																	{0, 0, 1}};
 	rt->scene.planes[1] = (t_plane){0, {100, 100, 100}, {10, 0, 20}, \
 																	{0, 0, 1}};

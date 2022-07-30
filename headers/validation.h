@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:29:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/27 22:44:25 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/30 19:01:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-# include "scene.h"
+# include "minirt.h"
 # include "utils.h"
 
 # include "../libraries/libft/libft.h"

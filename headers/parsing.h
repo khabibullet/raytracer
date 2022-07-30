@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 16:50:35 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/30 19:05:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 # include <stdio.h>
 # include <fcntl.h>
-# include "scene.h"
+
+# include "minirt.h"
 # include "utils.h"
+
+# include "../libraries/libft/libft.h"
 
 void	alloc_objects_arrays(t_minirt *rt);
 void	parse_config(char *filename, t_minirt *rt);

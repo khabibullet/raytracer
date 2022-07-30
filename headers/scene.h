@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 21:27:57 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/30 15:08:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 typedef struct s_sphere
 {
-	int		id;
 	t_color	color;
 	t_vec	center;
 	float	radius;
@@ -36,19 +35,17 @@ typedef struct s_cam
 
 typedef struct s_cyl
 {
-	int		id;
 	t_color	color;
 	t_vec	center;
 	t_vec	axis;
 	float	radius;
-	float	heigth;
+	float	semi_heigth;
 	float	rot[3][3];
 	float	rev[3][3];
 }	t_cyl;
 
 typedef struct s_plane
 {
-	int		id;
 	t_color	color;
 	t_vec	coords;
 	t_vec	normal;
@@ -62,7 +59,6 @@ typedef struct s_light
 
 typedef struct s_poly
 {
-	int		id;
 	t_color	color;
 	t_vec	peak1;
 	t_vec	peak2;

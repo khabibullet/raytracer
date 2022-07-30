@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:00:09 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/30 18:53:50 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ int	collide_cylinder(t_ray *ray, t_cyl *cylinder)
 		return (0);
 	new_origin = add_vecs(new_origin, vec_multiply_nbr(new_coords, t[0]));
 	new_coords = add_vecs(new_origin, vec_multiply_nbr(new_coords, t[1]));
-	if (fabsf(new_origin.z) > cylinder->heigth \
-	&& fabsf(new_coords.z) > cylinder->heigth)
+	if (fabsf(new_origin.z) > cylinder->semi_heigth \
+	&& fabsf(new_coords.z) > cylinder->semi_heigth)
 		return (0);
 	if (t[0] <= 0 || (t[1] > 0 && t[0] >= t[1]))
 		t[0] = t[1];
