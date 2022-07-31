@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 10:58:31 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/28 13:10:43 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:56:00 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	check_positive_float(char *line)
 {
 	check_digit_or_charset(line, ".");
 	if (count_char(line, '.') > 1)
-		exit_error();
+		exit_error("Invalid input: cylinder: invalid charset");
 }
 
 void	valid_cylinder(char *line)

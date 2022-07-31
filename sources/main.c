@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 15:29:09 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 17:09:43 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	validate_config(argc, argv[1], &rt.scene.num_of);
 	printf("ok\n");
 	parse_config(argv[1], &rt);
+	printf("ambient: (%d, %d, %d))", (int)rt.scene.ambient.r, (int)rt.scene.ambient.g, (int)rt.scene.ambient.b);
 	// initialize_raytracing(&rt);
 	// mlx_hook(rt.mlx.win, X_EVENT_KEY_PRESS, 0, &key_press, &rt);
 	// mlx_hook(rt.mlx.win, X_EVENT_KEY_RELEASE, 0, &key_release, &rt);

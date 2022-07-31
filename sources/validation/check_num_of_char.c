@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 15:30:01 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/25 15:32:08 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:51:33 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	check_num_of_char(char *str, char ch, int num)
 		str++;
 	}
 	if (count != num)
-		exit_error();
+		exit_error("Invalid input: invalid number of char in line");
 }

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 16:19:03 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/02 21:10:45 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:41:51 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	test_collision(t_minirt *rt)
 	t_vec		tmp;
 	int			j;
 	int			i;
-
 
 	if (flag == 0)
 		flag = 255;

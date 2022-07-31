@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/28 13:26:37 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:58:06 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ static void	check_num_of_elements(char *filename, t_num *num_of)
 	num_of->primitives = num_of->planes + num_of->spheres + \
 							num_of->cylinders + num_of->polygons;
 	if (camera_num != 1 || num_of->primitives == 0)
-		exit_error();
+		exit_error("Invalid input: incomplete scene");
 	if (num_of->lights != 1 || ambient_num != 1)
-		exit_error();
+		exit_error("Invalid input: invalid scene");
 	close(fd);
 }
 
@@ -98,14 +98,14 @@ static void	validate_file(char *filename)
 	int		fd;
 
 	if (ft_strlen(filename) < 3)
-		exit_error();
+		exit_error("Invalid config file name");
 	if (ft_strcmp(filename + ft_strlen(filename) - 3, ".rt"))
-		exit_error();
+		exit_error("Invalid config file extension");
 	if (open(filename, O_DIRECTORY) > 0)
-		exit_error();
+		exit_error("Config file name is a directory name");
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		exit_error();
+		exit_error("Config file: cannot open");
 	else
 		close(fd);
 }
@@ -116,7 +116,7 @@ void	validate_config(int argc, char *filename, t_num *num_of)
 	char	*line;
 
 	if (argc != 2)
-		exit_error();
+		exit_error("Invalid number of execution arguments");
 	validate_file(filename);
 	check_num_of_elements(filename, num_of);
 	fd = open(filename, O_RDONLY);

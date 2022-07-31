@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 15:20:48 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:45:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_var
 typedef struct s_minirt	t_minirt;
 
 char	*get_next_line(int fd);
-void	exit_error(void);
+void	exit_error(char *str);
 void	exit_free(t_minirt *rt);
 void	swap_buffers(t_minirt *rt);
 int		safe_atoi(const char *str);

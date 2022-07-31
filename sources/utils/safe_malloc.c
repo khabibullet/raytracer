@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 15:17:06 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 15:20:30 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:51:33 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void	*safe_malloc(size_t size)
 
 	ptr = malloc(size);
 	if (ptr == NULL)
-		exit_error();
+		exit_error("Cannot allocate memory");
 	return (ptr);
 }

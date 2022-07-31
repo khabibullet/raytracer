@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 14:55:26 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 16:25:40 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:54:59 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	check_components_all_digit(char **rgb)
 		while (*color)
 		{
 			if (!ft_isdigit(*color))
-				exit_error();
+				exit_error("Invalid input: invalid color format");
 			color++;
 		}
 		rgb++;
@@ -40,7 +40,7 @@ static void	check_components_limit(char **rgb)
 		while (*color == '0')
 			color++;
 		if (ft_strlen(color) > 3 || ft_atoi(color) > 255)
-			exit_error();
+			exit_error("Invalid input: invalid color format");
 		rgb++;
 	}
 }

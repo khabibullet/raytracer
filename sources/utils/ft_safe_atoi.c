@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:23:30 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/25 16:29:01 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 14:54:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	safe_atoi(const char *str)
 	int		sign;
 
 	if (!str)
-		exit_error();
+		exit_error("atoi: NULL input");
 	sum = 0;
 	sign = 1;
 	while (((9 <= *str) && (*str <= 13)) || (*str == ' '))
@@ -34,10 +34,10 @@ int	safe_atoi(const char *str)
 		lsum = sum;
 		sum = 10 * sum + *str - '0';
 		if (sum < lsum)
-			exit_error();
+			exit_error("atoi: long integer overflow");
 		str++;
 	}
 	if ((sum * sign < -2147483648) || (sum * sign > 2147483647))
-		exit_error();
+		exit_error("atoi: integer overflow");
 	return (sum * sign);
 }

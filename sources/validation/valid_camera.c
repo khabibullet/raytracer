@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 18:18:29 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/28 17:29:07 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:56:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ static void	check_field_of_view(char *line)
 
 	check_digit_or_charset(line, ".");
 	if (count_char(line, '.') > 1)
-		exit_error();
+		exit_error("Invalid input: camera: field of view: invalid format");
 	fov = ft_atof(line);
 	if (fov < 0.0F || fov > 180.0F)
-		exit_error();
+		exit_error("Invalid input: camera: field of view: invalid value");
 }
 
 void	valid_camera(char *line)

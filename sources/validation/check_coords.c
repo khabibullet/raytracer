@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 22:21:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/27 21:57:22 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:59:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_coords(char *coords)
 	if (count_char(xyz[0], '.') > 1
 		|| count_char(xyz[1], '.') > 1
 		|| count_char(xyz[2], '.') > 1)
-		exit_error();
+		exit_error("Invalid input: invalid vector format");
 	free(xyz[0]);
 	free(xyz[1]);
 	free(xyz[2]);

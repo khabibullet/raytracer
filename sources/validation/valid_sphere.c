@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 13:06:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/28 12:15:21 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:56:38 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	check_radius(char *line)
 {
 	check_digit_or_charset(line, ".");
 	if (count_char(line, '.') > 1)
-		exit_error();
+		exit_error("Invalid input: sphere: invalid parameter");
 }
 
 void	valid_sphere(char *line)

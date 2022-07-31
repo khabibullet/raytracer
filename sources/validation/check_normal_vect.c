@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 12:09:30 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/27 18:39:21 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:50:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	check_normal_vect(char *line)
 	norm.z = ft_atof(xyz[2]);
 	len = vector_len(norm);
 	if (len > 1.0F + EPSILON)
-		exit_error();
+		exit_error("Invalid input: invalid normal vector");
 }
