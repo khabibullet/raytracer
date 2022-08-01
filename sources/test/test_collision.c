@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 16:19:03 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/31 14:41:51 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 00:01:56 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	test_collision(t_minirt *rt)
 			// 		vec_to_color((t_color){255 - flag, 0 + flag, 255}));
 			// tmp = collide_sphere(&ray, &sphere);
 			if (isnan(tmp.x) != FP_NAN)
-				my_mlx_pixel_put(&rt->back_buff, j, i,
+				my_mlx_pixel_put(&rt->phong_buffer, j, i,
 					vec_to_color((t_color){flag, 255 - flag, 0}));
 			j++;
 		}

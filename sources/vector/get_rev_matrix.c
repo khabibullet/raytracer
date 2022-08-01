@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_buffers.c                                     :+:      :+:    :+:   */
+/*   get_rev_matrix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 16:15:48 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/27 21:20:58 by anemesis         ###   ########.fr       */
+/*   Created: 2022/08/01 17:12:23 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/01 17:12:32 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/minirt.h"
+#include "../../headers/vector.h"
 
-void	swap_buffers(t_minirt *rt)
+void	get_rev_matrix(float rev[3][3], float rot[3][3])
 {
-	void	*tmp;
-	char	*tmp_addr;
-
-	tmp_addr = rt->display_buff.addr;
-	tmp = rt->display_buff.ptr;
-	rt->display_buff.ptr = rt->back_buff.ptr;
-	rt->display_buff.addr = rt->back_buff.addr;
-	rt->back_buff.ptr = tmp;
-	rt->back_buff.addr = tmp_addr;
+	rev[0][0] = rot[0][0];
+	rev[1][1] = rot[1][1];
+	rev[2][2] = rot[2][2];
+	rev[0][1] = rot[1][0];
+	rev[1][0] = rot[0][1];
+	rev[1][2] = rot[2][1];
+	rev[2][1] = rot[1][2];
+	rev[0][2] = rot[2][0];
+	rev[2][0] = rot[0][2];
 }

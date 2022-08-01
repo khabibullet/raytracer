@@ -6,36 +6,24 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:10:47 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 14:58:25 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/01 23:21:09 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <stdio.h>
-
-#include "../../libraries/libmlx/headers/mlx.h"
-
-#include "../../headers/screen.h"
 #include "../../headers/minirt.h"
-#include "../../headers/controls.h"
-#include "../../headers/utils.h"
-#include "../../headers/ray.h"
-#include "../../headers/vector.h"
-#include "../../headers/test.h"
-#include "../../headers/parsing.h"
 
 void	init_window_and_buffers(t_minirt *rt)
 {
-	rt->mlx.ptr = mlx_init();
-	rt->mlx2.ptr = mlx_init();
-	rt->mlx.win = mlx_new_window(rt->mlx.ptr, rt->screen.width, \
+	rt->phong_rt.ptr = mlx_init();
+	rt->fast_rt.ptr = mlx_init();
+	rt->phong_rt.win = mlx_new_window(rt->phong_rt.ptr, rt->screen.width, \
 												rt->screen.heigth, "miniRT");
-	rt->display_buff.ptr = mlx_new_image(rt->mlx.ptr, rt->screen.width, \
+	rt->phong_buffer.ptr = mlx_new_image(rt->phong_rt.ptr, rt->screen.width, \
 															rt->screen.heigth);
-	rt->display_buff.addr = mlx_get_data_addr(rt->display_buff.ptr, \
-	&rt->display_buff.depth, &rt->display_buff.len, &rt->display_buff.end);
-	rt->back_buff.ptr = mlx_new_image(rt->mlx.ptr, rt->screen.width, \
+	rt->phong_buffer.addr = mlx_get_data_addr(rt->phong_rt.ptr, \
+	&rt->phong_buffer.depth, &rt->phong_buffer.len, &rt->phong_buffer.end);
+	rt->fast_buffer.ptr = mlx_new_image(rt->phong_buffer.ptr, rt->screen.width, \
 															rt->screen.heigth);
-	rt->back_buff.addr = mlx_get_data_addr(rt->back_buff.ptr, \
-	&rt->back_buff.depth, &rt->back_buff.len, &rt->back_buff.end);
+	rt->fast_buffer.addr = mlx_get_data_addr(rt->fast_buffer.ptr, \
+	&rt->fast_buffer.depth, &rt->fast_buffer.len, &rt->fast_buffer.end);
 }

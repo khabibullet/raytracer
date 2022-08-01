@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialization.h                                   :+:      :+:    :+:   */
+/*   put_buffer_to_window.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 21:46:07 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/01 23:22:52 by anemesis         ###   ########.fr       */
+/*   Created: 2022/06/23 16:15:48 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/01 23:52:47 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INITIALIZATION_H
-# define INITIALIZATION_H
+#include "../../headers/minirt.h"
 
-# include "minirt.h"
-
-void	initialize_raytracing(t_minirt *minirt);
-void	set_screen_properties(t_screen *screen, int heigth, int width);
-void	init_window_and_buffers(t_minirt *rt);
-void	init_rays(t_minirt *rt);
-
-#endif
+void	put_buffer_to_window(t_minirt *rt, t_img *buf)
+{
+	mlx_put_image_to_window(rt->phong_rt.ptr, rt->phong_rt.win, buf->ptr, 0, 0);
+}

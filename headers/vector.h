@@ -6,12 +6,15 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 22:59:29 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/04 14:59:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/01 16:43:53 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_H
 # define VECTOR_H
+
+# include <math.h>
+# include <stdio.h>
 
 typedef struct s_vec
 {
@@ -35,5 +38,7 @@ t_vec	find_reflect_vec(t_vec ray, t_vec norm);
 void	matmul_mat_mat(float a[3][3], float b[3][3], float res[3][3]);
 t_vec	matmul_mat_vec(float mat[3][3], t_vec *vec);
 t_vec	hadam_product(t_vec v1, t_vec v2);
+void	get_rot_matrix(float rot[3][3], t_vec v);
+void	get_rev_matrix(float rev[3][3], float rot[3][3]);
 
 #endif

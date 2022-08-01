@@ -6,30 +6,32 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/31 21:14:41 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 00:07:20 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/event.h"
 #include "../headers/validation.h"
 #include "../headers/parsing.h"
+#include "../headers/initialization.h"
+#include "../headers/event.h"
 #include <stdlib.h>
 
 int	main(int argc, char **argv)
 {
-	t_minirt	rt;
+	t_minirt		rt;
 
 	validate_config(argc, argv[1], &rt.scene.num_of);
-	printf("ok\n");
 	parse_config(argv[1], &rt);
-	// initialize_raytracing(&rt);
-	// mlx_hook(rt.mlx.win, X_EVENT_KEY_PRESS, 0, &key_press, &rt);
-	// mlx_hook(rt.mlx.win, X_EVENT_KEY_RELEASE, 0, &key_release, &rt);
-	// mlx_hook(rt.mlx.win, X_EVENT_EXIT, 0, &exit_hook, &rt);
-	// mlx_hook(rt.mlx.win, X_EVENT_MOUSE_MOVE, 0, &mouse_hook, &rt);
-	// mlx_loop_hook(rt.mlx.ptr, &put_display_buff_to_window, &rt);
-	// mlx_loop_hook(rt.mlx2.ptr, &fill_back_buffer, &rt);
-	// mlx_do_key_autorepeatoff(rt.mlx.ptr);
-	// mlx_loop(rt.mlx.ptr);
+	set_screen_properties(&rt.screen, 800, 800);
+	initialize_raytracing(&rt);
+	mlx_hook(rt.phong_rt.win, X_EVENT_KEY_PRESS, 0, &key_press, &rt);
+	mlx_hook(rt.phong_rt.win, X_EVENT_KEY_RELEASE, 0, &key_release, &rt);
+	mlx_hook(rt.phong_rt.win, X_EVENT_EXIT, 0, &exit_hook, &rt);
+	mlx_hook(rt.phong_rt.win, X_EVENT_MOUSE_MOVE, 0, &mouse_hook, &rt);
+	// mlx_loop_hook(rt.phong_rt.ptr, &phong_raytracing, &rt);
+	// mlx_loop_hook(rt.fast_rt.ptr, &fast_raytracing, &rt);
+	mlx_do_key_autorepeatoff(rt.phong_rt.ptr);
+	mlx_loop(rt.phong_rt.ptr);
+	mlx_loop(rt.fast_rt.ptr);
 	return (0);
 }

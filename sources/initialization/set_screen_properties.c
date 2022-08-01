@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialization.h                                   :+:      :+:    :+:   */
+/*   set_screen_properties.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/22 21:46:07 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/01 23:22:52 by anemesis         ###   ########.fr       */
+/*   Created: 2022/08/01 22:50:48 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/01 23:08:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INITIALIZATION_H
-# define INITIALIZATION_H
+#include "../../headers/initialization.h"
 
-# include "minirt.h"
-
-void	initialize_raytracing(t_minirt *minirt);
-void	set_screen_properties(t_screen *screen, int heigth, int width);
-void	init_window_and_buffers(t_minirt *rt);
-void	init_rays(t_minirt *rt);
-
-#endif
+void	set_screen_properties(t_screen *screen, int heigth, int width)
+{
+	screen->heigth = heigth;
+	screen->width = width;
+	screen->density = 1.0F / screen->width;
+	screen->aspect_ratio = screen->heigth / screen->width;
+}
