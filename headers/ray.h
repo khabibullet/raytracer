@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 15:26:29 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:59:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,14 @@ typedef struct s_ray
 }	t_ray;
 
 typedef struct s_minirt	t_minirt;
+typedef struct s_screen	t_screen;
+typedef struct s_img	t_img;
 
 void	emit_rays(t_minirt *rt);
-void	get_ambient_component(t_minirt *rt);
-void	get_diffuse_component(t_minirt *rt);
-void	get_specular_component(t_minirt *rt);
+void	add_ambient_component(t_screen *screen, t_color *ambient);
+void	add_diffuse_component(t_minirt *rt);
+void	add_specular_component(t_minirt *rt);
 void	update_rays(t_minirt *rt);
-void	put_colors_to_back_buff(t_minirt *rt);
+void	colorize_buffer(t_img *buffer, t_ray **rays, t_screen *screen);
 
 #endif

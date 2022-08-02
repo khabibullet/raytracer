@@ -6,17 +6,18 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:09:48 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:55:08 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/collision.h"
 #include "../../headers/minirt.h"
+#include "../../headers/ray.h"
 
 void	get_nearest_collisions(t_minirt *rt)
 {
-	int			i;
-	int			j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < rt->screen.heigth)

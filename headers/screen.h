@@ -6,15 +6,16 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 12:55:07 by enoye             #+#    #+#             */
-/*   Updated: 2022/08/01 23:28:42 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:11:06 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCREEN_H
 # define SCREEN_H
 
-# include "ray.h"
 # include "../libraries/libmlx/headers/mlx.h"
+# include "vector.h"
+# include "scene.h"
 
 typedef struct s_ray	t_ray;
 
@@ -46,10 +47,11 @@ typedef struct s_screen
 	float		aspect_ratio;
 	float		density;
 	t_ray		**rays;
+	t_pix		**pixels;
 }	t_screen;
 
-t_pix	find_pix_coords(int i, int j, float density, float ratio);
+t_pix	find_pix_coords(int i, int j, t_screen *screen);
 void	my_mlx_pixel_put(t_img *pic, int x, int y, unsigned int color);
-t_vec	get_cam_to_pix_vec(t_vec cam_dir, float focal, t_pix pix_coords);
+t_vec	cam_to_pix_vec(t_cam *cam, t_pix *pix_coords);
 
 #endif

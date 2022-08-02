@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:29:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/30 19:01:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:06:47 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "minirt.h"
 # include "utils.h"
+# include "ray.h"
 
 # include "../libraries/libft/libft.h"
 

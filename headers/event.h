@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:58:31 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/01 23:53:43 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:03:48 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EVENT_H
 
 # include "minirt.h"
+# include "ray.h"
 
 # define X_EVENT_KEY_PRESS		2
 # define X_EVENT_KEY_RELEASE	3

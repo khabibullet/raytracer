@@ -6,13 +6,15 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:22:28 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/02 00:06:31 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 20:06:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 #include "../../headers/validation.h"
+
+
 
 void	init_rays(t_minirt *rt)
 {

@@ -6,13 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:32:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:37:36 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/02 17:49:01 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minirt.h"
 
-void	get_diffuse_component(t_minirt *rt)
+void	add_diffuse_component(t_minirt *rt)
 {
 	(void)rt;
 }

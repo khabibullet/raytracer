@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_colors_to_back.c                               :+:      :+:    :+:   */
+/*   init_pixels.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 16:52:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 18:13:07 by anemesis         ###   ########.fr       */
+/*   Created: 2022/08/02 14:51:01 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/02 14:56:27 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/ray.h"
-#include "../../headers/minirt.h"
+#include "../../headers/initialization.h"
 
-void	put_colors_to_back_buff(t_minirt *rt)
+void	init_pixels(t_minirt *rt)
 {
-	int		i;
-	int		j;
-	// t_ray	*ray;
+	int	i;
+	int	j;
 
+	rt->screen.pixels = safe_malloc(sizeof(*rt->screen.pixels) \
+														* rt->screen.heigth);
 	i = 0;
 	while (i < rt->screen.heigth)
 	{
+		rt->screen.pixels[i] = safe_malloc(sizeof(**rt->screen.pixels) \
+															* rt->screen.width);
 		j = 0;
 		while (j < rt->screen.width)
 		{
-			// get_surf_normal();
+			rt->screen.pixels[i][j] = find_pix_coords(i, j, &rt->screen);
 			j++;
 		}
 		i++;
