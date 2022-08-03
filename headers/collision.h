@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 21:28:04 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/03 22:18:05 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # define MD_FULL 1
 # define MD_PART 0
 # define EPSILON 0.0001F
+# define ORIGIN 0
+# define COORDS 1
 
 # include <stdio.h>
 

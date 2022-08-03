@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:54:34 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/02 20:55:05 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:05:54 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@ void	current_ray_nearest_collision(t_ray *ray, t_scene *scene)
 {
 	int	i;
 
+	// printf("cyl center: (%f, %f, %f)\n", scene->cylinders[0].center.x, scene->cylinders[0].center.y, scene->cylinders[0].center.z);
+	// printf("cyl axis: (%f, %f, %f)\n\n", scene->cylinders[0].axis.x, scene->cylinders[0].axis.y, scene->cylinders[0].axis.z);
+	// printf("origin: (%f, %f, %f)\n", ray->origin.x, ray->origin.y, ray->origin.z);
+	// printf("coords: (%f, %f, %f)\n\n", ray->coords.x, ray->coords.y, ray->coords.z);
 	i = -1;
 	while (++i < scene->num_of.cylinders)
-		if (collide_cylinder(ray, &scene->cylinders[i]))
-			printf("got it\n");
+		collide_cylinder(ray, &scene->cylinders[i]);
 	// i = -1;
 	// while (++i < scene->num_of.spheres)
 	// 	collide_sphere(ray, &scene->spheres[i]);
