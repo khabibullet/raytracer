@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:14:57 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/23 21:30:48 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:10:24 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_ctrl
 	int		hor_shift;
 	int		ver_shift;
 	float	velocity;
+	int		mouse_press;
 }	t_ctrl;
 
 #endif

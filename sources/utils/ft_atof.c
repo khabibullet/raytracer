@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:23:02 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/26 17:12:37 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/04 17:28:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ double	ft_atof(const char *str)
 		str++;
 	while (*str != '\0' && ft_isdigit(*str))
 		a = a * 10.0 + (*str++ - '0');
-	if (*str != '.')
+	if (*str != '.' && *sign != '-')
 		return (a);
+	if (*str != '.' && *sign == '-')
+		return (-a);
 	while ((*str++ != '\0') && ft_isdigit(*str))
 	{
 		a = a * 10.0 + (*str - '0');

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/02 19:59:18 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:25:20 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct s_ray
 	t_vec			origin;
 	t_color			color;
 	t_collision		collis;
-	t_vec			surf_normal;
 }	t_ray;
 
 typedef struct s_minirt	t_minirt;
@@ -44,5 +43,6 @@ void	add_diffuse_component(t_minirt *rt);
 void	add_specular_component(t_minirt *rt);
 void	update_rays(t_minirt *rt);
 void	colorize_buffer(t_img *buffer, t_ray **rays, t_screen *screen);
+void	refresh_rays(t_minirt *rt);
 
 #endif

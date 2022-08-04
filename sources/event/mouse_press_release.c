@@ -1,21 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_minirt.c                                :+:      :+:    :+:   */
+/*   mouse_press_release.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 13:55:00 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 20:37:45 by anemesis         ###   ########.fr       */
+/*   Created: 2022/08/04 20:16:23 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/04 20:58:27 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/initialization.h"
 
-void	initialize_raytracing(t_minirt *rt)
+#include "../../headers/event.h"
+
+int	mouse_press(int button, int x, int y, t_minirt *rt)
 {
-	init_window_and_buffers(rt);
-	init_controls(rt);
-	init_pixels(rt);
-	init_rays(rt);
+	(void)x;
+	(void)y;
+	mlx_mouse_hide();
+	if (button == 1)
+		rt->controls.mouse_press = 1;
+	return (0);
+}
+
+int	mouse_release(int button, int x, int y, t_minirt *rt)
+{
+	(void)x;
+	(void)y;
+	mlx_mouse_show();
+	if (button == 1)
+		rt->controls.mouse_press = 0;
+	return (0);
 }

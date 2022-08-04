@@ -6,25 +6,21 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:23:56 by enoye             #+#    #+#             */
-/*   Updated: 2022/08/03 16:18:03 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/04 21:15:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/screen.h"
 
-t_vec	cam_to_pix_vec(t_cam *cam, t_pix *pix_coords)
+t_vec	cam_to_pix_vec(t_cam *cam, t_pix *pix_coords, t_screen *screen)
 {
-	t_vec	normal_hor;
-	t_vec	normal_ver;
+	t_vec	hor_axis;
+	t_vec	ver_axis;
 	t_vec	sum;
 
-	normal_hor = find_normal_hor(&cam->direction);
-	normal_ver = find_normal_ver(&cam->direction);
-	normal_hor = unit_vector(normal_hor);
-	normal_ver = unit_vector(normal_ver);
-	normal_hor = vec_multiply_nbr(normal_hor, pix_coords->x);
-	normal_ver = vec_multiply_nbr(normal_ver, pix_coords->y);
-	sum = add_vecs(vec_multiply_nbr(cam->direction, cam->focal), normal_hor);
-	sum = add_vecs(sum, normal_ver);
+	hor_axis = vec_multiply_nbr(screen->hor_axis, pix_coords->x);
+	ver_axis = vec_multiply_nbr(screen->ver_axis, pix_coords->y);
+	sum = add_vecs(vec_multiply_nbr(cam->direction, cam->focal), hor_axis);
+	sum = add_vecs(sum, ver_axis);
 	return (sum);
 }

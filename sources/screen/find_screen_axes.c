@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_minirt.c                                :+:      :+:    :+:   */
+/*   find_screen_axes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 13:55:00 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 20:37:45 by anemesis         ###   ########.fr       */
+/*   Created: 2022/08/04 21:07:08 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/04 21:11:01 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/initialization.h"
+#include "../../headers/screen.h"
 
-void	initialize_raytracing(t_minirt *rt)
+void	find_screen_axes(t_screen *screen, t_cam *cam)
 {
-	init_window_and_buffers(rt);
-	init_controls(rt);
-	init_pixels(rt);
-	init_rays(rt);
+	screen->hor_axis = unit_vector(find_normal_hor(&cam->direction));
+	screen->ver_axis = unit_vector(find_normal_ver(&cam->direction));
 }

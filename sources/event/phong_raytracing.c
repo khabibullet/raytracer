@@ -6,15 +6,18 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/03 16:55:58 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/04 21:18:23 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/event.h"
 #include "../../headers/utils.h"
+// #include "../../headers/screen.h"
 
 int	phong_raytracing(t_minirt *rt)
 {
+	find_screen_axes(&rt->screen, &rt->scene.cam);
+	move_cam(&rt->scene.cam, &rt->screen, &rt->controls);
 	emit_rays(rt);
 	get_nearest_collisions(rt);
 	add_ambient_component(&rt->screen, &rt->scene.ambient);

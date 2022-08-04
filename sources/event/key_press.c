@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:49:37 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 16:58:33 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:50:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	key_press(int keycode, t_minirt *rt)
 	else if (keycode == KEY_Q && rt->controls.ver_shift != -1)
 		rt->controls.ver_shift--;
 	else if (keycode == KEY_PLUS)
-		rt->controls.velocity *= 2;
+		rt->controls.velocity *= 2.0F;
 	else if (keycode == KEY_MINUS)
-		rt->controls.velocity /= 2;
+		rt->controls.velocity *= 0.5F;
 	else if (keycode == KEY_R)
 		rt->scene.cam = rt->scene.cam_default;
 	else if (keycode == KEY_ESC)
