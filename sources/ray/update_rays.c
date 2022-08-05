@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:27:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/24 18:13:25 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 13:56:33 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	update_rays(t_minirt *rt)
 		while (j < rt->screen.width)
 		{
 			ray = &rt->screen.rays[i][j];
-			ray->coords = vec_multiply_nbr(ray->coords, \
+			ray->coords = vec_multiply_nbr(&ray->coords, \
 												ray->collis.distance - EPSILON);
 			ray->origin = add_vecs(ray->origin, ray->coords);
-			ray->coords = vec_multiply_nbr(ray->coords, -1.0F);
+			ray->coords = vec_multiply_nbr(&ray->coords, -1.0F);
 			// get_surf_normal();
 			j++;
 		}

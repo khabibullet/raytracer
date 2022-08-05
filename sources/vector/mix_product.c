@@ -6,13 +6,16 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:17:00 by anemesis          #+#    #+#             */
-/*   Updated: 2022/06/26 17:42:58 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 13:32:06 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/vector.h"
 
-float	mix_product(t_vec vec1, t_vec vec2, t_vec vec3)
+float	mix_product(t_vec *vec1, t_vec *vec2, t_vec *vec3)
 {
-	return (dot_product(vec1, cross_product(vec2, vec3)));
+	t_vec	tmp;
+
+	tmp = cross_product(vec2, vec3);
+	return (dot_product(vec1, &tmp));
 }

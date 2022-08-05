@@ -6,7 +6,7 @@
 #    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/08/04 14:03:04 by anemesis         ###   ########.fr        #
+#    Updated: 2022/08/05 12:33:41 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC			=	$(wildcard $(SRCDIR)/*.c) $(wildcard $(SRCDIR)/*/*.c)
 
 OBJ			=	$(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
-CC			=	gcc -g
+CC			=	gcc
 
 CFLAGS		=	-Wall -Wextra -Werror
 
