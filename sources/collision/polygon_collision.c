@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 13:32:44 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:02:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 static void	init_basic(t_poly *poly, t_vec ab_ac[2], t_vec *n)
 {
-	ab_ac[0] = subtract_vecs(poly->peak2, poly->peak1);
-	ab_ac[1] = subtract_vecs(poly->peak3, poly->peak1);
+	ab_ac[0] = subtract_vecs(&poly->peak2, &poly->peak1);
+	ab_ac[1] = subtract_vecs(&poly->peak3, &poly->peak1);
 	*n = cross_product(&ab_ac[0], &ab_ac[1]);
 }
 
@@ -38,7 +38,7 @@ int	collide_poly(t_ray *ray, t_poly *poly)
 	if (denom == 0)
 		return (0);
 	denom = 1.0F / denom;
-	ao = subtract_vecs(ray->origin, poly->peak1);
+	ao = subtract_vecs(&ray->origin, &poly->peak1);
 	t_u_v[0] = -denom * dot_product(&ao, &n);
 	t_u_v[1] = denom * mix_product(&ray->coords, &ao, &ab_ac[1]);
 	t_u_v[2] = denom * mix_product(&ray->coords, &ab_ac[0], &ao);

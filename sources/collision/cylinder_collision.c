@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 14:16:26 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 15:01:57 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	optimal_root(float t[2], t_vec *origin, t_vec *coords, float *heigh)
 
 static void	transform_ray(t_vec new[2], t_cyl *cylinder, t_ray *ray)
 {
-	new[ORIGIN] = subtract_vecs(ray->origin, cylinder->center);
+	new[ORIGIN] = subtract_vecs(&ray->origin, &cylinder->center);
 	new[ORIGIN] = matmul_mat_vec(cylinder->rot, &new[ORIGIN]);
 	new[COORDS] = matmul_mat_vec(cylinder->rot, &ray->coords);
 }
