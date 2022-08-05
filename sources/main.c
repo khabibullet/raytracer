@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 13:59:02 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 14:37:04 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include "../headers/event.h"
 #include <stdlib.h>
 
-// int	g_sum = 0;
-// int	g_count = 0;
+int	g_sum = 0;
+int	g_count = 0;
 
 int	main(int argc, char **argv)
 {
