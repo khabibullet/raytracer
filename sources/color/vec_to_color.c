@@ -6,13 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 22:23:10 by enoye             #+#    #+#             */
-/*   Updated: 2022/08/04 23:18:52 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:49:50 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/color.h"
 
-unsigned int	vec_to_color(t_color *pix)
+inline unsigned int	vec_to_color(t_color *pix)
 {
 	unsigned int	sum;
 

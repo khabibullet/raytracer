@@ -6,7 +6,7 @@
 #    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 20:24:51 by anemesis          #+#    #+#              #
-#    Updated: 2022/08/06 13:28:12 by anemesis         ###   ########.fr        #
+#    Updated: 2022/08/06 23:25:19 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ		=	$(SRC:./src/%.c=./obj/%.o)
 
 CC		=	cc
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-O1 -Wall -Wextra -Werror
 
 all: $(NAME)
 

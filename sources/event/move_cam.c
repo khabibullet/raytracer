@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:44:19 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 14:57:55 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 18:28:02 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 
 void	move_cam(t_cam *cam, t_screen *screen, t_ctrl *controls)
 {
-	t_vec	tmp;
+	t_vec	tmp1;
+	t_vec	tmp2;
 
-	tmp = vec_multiply_nbr(&screen->hor_axis, \
+	tmp2 = vec_multiply_nbr(&screen->hor_axis, \
 									controls->hor_shift * controls->velocity);
-	cam->coords = add_vecs(&cam->coords, &tmp);
-	tmp = vec_multiply_nbr(&screen->ver_axis, \
+	tmp1 = add_vecs(&cam->coords, &tmp2);
+	tmp2 = vec_multiply_nbr(&screen->ver_axis, \
 									controls->ver_shift * controls->velocity);
-	cam->coords = add_vecs(&cam->coords, &tmp);
-	tmp = vec_multiply_nbr(&cam->direction, \
+	tmp1 = add_vecs(&tmp1, &tmp2);
+	tmp2 = vec_multiply_nbr(&cam->direction, \
 										controls->zoom * controls->velocity);
-	cam->coords = add_vecs(&cam->coords, &tmp);
+	cam->coords = add_vecs(&tmp1, &tmp2);
 	return ;
 }

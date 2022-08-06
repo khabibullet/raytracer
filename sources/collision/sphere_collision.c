@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 15:02:23 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:39:19 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 **	4)	If both t1 and t2 are positive, ray intersects sphere twice.
 **/
 
-int	collide_sphere(t_ray *ray, t_sphere *sphere)
+void	collide_sphere(t_ray *ray, t_sphere *sphere)
 {
 	float	coeffs[3];
 	float	d;
@@ -38,7 +38,7 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere)
 	t[0] = (-coeffs[1] + d) * coeffs[0];
 	t[1] = (-coeffs[1] - d) * coeffs[0];
 	if (d < 0 || (t[0] <= 0 && t[1] <= 0))
-		return (0);
+		return ;
 	if (t[0] <= 0 || (t[1] > 0 && t[0] >= t[1]))
 		t[0] = t[1];
 	if (t[0] - EPSILON < ray->collis.distance)
@@ -46,5 +46,4 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere)
 		ray->collis.surface = (void *)sphere;
 		ray->collis.distance = t[0] - EPSILON;
 	}
-	return (1);
 }

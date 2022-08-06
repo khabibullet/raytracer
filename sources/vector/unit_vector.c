@@ -6,13 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:19:18 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 18:27:45 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:20:52 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/vector.h"
 
-t_vec	unit_vector(t_vec *vec)
+inline t_vec	unit_vector(t_vec *vec)
 {
 	float	norm;
 

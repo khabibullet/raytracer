@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 21:14:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 23:23:36 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:48:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 #include "../../headers/ray.h"
 #include "../../headers/collision.h"
 
-void	add_ambient_component(t_screen *screen, t_color	*ambient)
+void	add_ambient_component(t_ray **rays, t_color	*ambient, int heigth, \
+																	int width)
 {
 	register int	i;
 	register int	j;
 
 	i = 0;
-	while (i < screen->heigth)
+	while (i < heigth)
 	{
 		j = 0;
-		while (j < screen->width)
+		while (j < width)
 		{
-			if (screen->rays[i][j].collis.surface != NULL)
-				screen->rays[i][j].color = mix_colors(\
-					(t_color *)(screen->rays[i][j].collis.surface), *ambient);
+			if (rays[i][j].collis.surface != NULL)
+				rays[i][j].color = mix_colors(\
+					(t_color *)(rays[i][j].collis.surface), ambient);
 			++j;
 		}
 		++i;

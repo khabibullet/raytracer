@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+         #
+#    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 11:52:34 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/20 12:50:33 by anemesis         ###   ########.fr        #
+#    Updated: 2022/08/06 23:24:52 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

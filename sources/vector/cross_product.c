@@ -6,13 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:17:02 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 13:30:02 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 15:19:51 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/vector.h"
 
-t_vec	cross_product(t_vec *vec1, t_vec *vec2)
+inline t_vec	cross_product(t_vec *vec1, t_vec *vec2)
 {
 	t_vec	prod;
 
