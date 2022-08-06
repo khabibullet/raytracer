@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:58:31 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 21:19:46 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 19:34:05 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 # define X_EVENT_MOUSE_PRESS	4
 # define X_EVENT_MOUSE_RELEASE	5
 
-void	put_buffer_to_window(t_minirt *rt, t_img *buffer);
 int		phong_raytracing(t_minirt *rt);
 int		fast_raytracing(t_minirt *rt);
 int		key_press(int keycode, t_minirt *rt);

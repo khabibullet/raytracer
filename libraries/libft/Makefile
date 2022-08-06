@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anemesis <anemesis@student.42.fr>          +#+  +:+       +#+         #
+#    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 20:24:51 by anemesis          #+#    #+#              #
-#    Updated: 2022/06/20 12:57:27 by anemesis         ###   ########.fr        #
+#    Updated: 2022/08/06 13:28:12 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ SRC		=	$(wildcard ./src/*.c)
 
 OBJ		=	$(SRC:./src/%.c=./obj/%.o)
 
-CC		= gcc
+CC		=	cc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror
 
 all: $(NAME)
 

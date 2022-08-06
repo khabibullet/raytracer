@@ -6,34 +6,32 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:30:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 15:03:13 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 14:25:07 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/minirt.h"
 #include "../../headers/ray.h"
 
-void	emit_rays(t_minirt *rt)
+void	emit_rays(t_screen *screen, t_cam *cam, int heigth, int width)
 {
-	int			j;
-	int			i;
+	register int	j;
+	register int	i;
 
 	i = 0;
-	while (i < rt->screen.heigth)
+	while (i < heigth)
 	{
 		j = 0;
-		while (j < rt->screen.width)
+		while (j < width)
 		{
-			rt->screen.rays[i][j].coords = cam_to_pix_vec(&rt->scene.cam, \
-										&rt->screen.pixels[i][j], &rt->screen);
-			/*
-			rt->screen.rays[i][j].origin = add_vecs(&rt->scene.cam.coords, \
-												&rt->screen.rays[i][j].coords);
-			rt->screen.rays[i][j].coords = unit_vector(\
-												rt->screen.rays[i][j].coords);
-			*/
-			j++;
+			screen->rays[i][j].coords = cam_to_pix_vec(cam, \
+												&screen->pixels[i][j], screen);
+			screen->rays[i][j].origin = add_vecs(&cam->coords, \
+												&screen->rays[i][j].coords);
+			screen->rays[i][j].coords = unit_vector(\
+												&screen->rays[i][j].coords);
+			++j;
 		}
-		i++;
+		++i;
 	}
 }

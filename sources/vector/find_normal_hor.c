@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:23:46 by enoye             #+#    #+#             */
-/*   Updated: 2022/08/02 14:32:57 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/05 18:20:53 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 t_vec	find_normal_hor(t_vec *vec)
 {
-	t_vec	var;
-
-	var.x = vec->y;
-	var.y = -vec->x;
-	var.z = 0;
-	return (var);
+	return ((t_vec){vec->y, -vec->x, 0});
 }

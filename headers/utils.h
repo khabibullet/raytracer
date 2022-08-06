@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 22:45:37 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 12:35:58 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_var
 }	t_var;
 
 typedef struct s_minirt	t_minirt;
+typedef struct s_img	t_img;
 
 char		*get_next_line(int fd);
 void		exit_error(char *str);
@@ -33,5 +34,6 @@ int			safe_atoi(const char *str);
 double		ft_atof(const char *str);
 void		*safe_malloc(size_t size);
 long int	current_time_ms(void);
+void		put_buffer_to_window(t_minirt *rt, t_img *buf);
 
 #endif

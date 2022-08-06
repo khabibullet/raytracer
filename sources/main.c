@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 18:00:13 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 13:46:34 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include "../headers/event.h"
 #include <stdlib.h>
 
-// int	g_sum = 0;
-// int	g_count = 0;
+int	g_sum = 0;
+int	g_count = 0;
 
 int	main(int argc, char **argv)
 {
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 
 	validate_config(argc, argv[1], &rt.scene.num_of);
 	parse_config(argv[1], &rt);
-	set_screen_properties(&rt.screen, 800, 800);
+	set_screen_properties(&rt.screen, 700, 700);
 	initialize_raytracing(&rt);
 	mlx_hook(rt.phong_rt.win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &rt);
 	mlx_hook(rt.phong_rt.win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, &rt);

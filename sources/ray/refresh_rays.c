@@ -6,26 +6,26 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:22:33 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/05 14:13:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/06 14:16:40 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/validation.h"
 
-void	refresh_rays(t_minirt *rt)
+void	refresh_rays(t_ray **rays, int heigth, int width)
 {
 	register int	i;
 	register int	j;
 
 	i = 0;
-	while (i < rt->screen.heigth)
+	while (i < heigth)
 	{
 		j = 0;
-		while (j < rt->screen.width)
+		while (j < width)
 		{
-			rt->screen.rays[i][j].collis.surface = NULL;
-			rt->screen.rays[i][j].collis.distance = 3.402823e+38;
-			rt->screen.rays[i][j].color = (t_color){0.0F, 0.0F, 0.0F};
+			rays[i][j].collis.surface = NULL;
+			rays[i][j].collis.distance = 3.402823e+38;
+			rays[i][j].color = (t_color){0.0F, 0.0F, 0.0F};
 			++j;
 		}
 		++i;
