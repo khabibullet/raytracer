@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:36:32 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/07 17:57:44 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/07 20:38:40 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,8 @@ int	fast_raytracing(t_minirt *rt)
 
 	refresh_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 	move_cam(&rt->scene.cam, &rt->screen, &rt->controls);
-	print_vec(rt->scene.cam.direction);
-	printf("\n");
 	rotate_cam_ver(&rt->scene.cam, &rt->controls);
-	print_vec(rt->scene.cam.direction);
-	rotate_cam_hor(&rt->scene.cam, &rt->controls);
-	print_vec(rt->scene.cam.direction);
-	printf("\n");
-	rotate_cam_ver(&rt->scene.cam, &rt->controls);
-	print_vec(rt->scene.cam.direction);
-	rotate_cam_hor(&rt->scene.cam, &rt->controls);
-	print_vec(rt->scene.cam.direction);
-	printf("\n");
+	// rotate_cam_hor(&rt->scene.cam, &rt->controls);
 	find_screen_axes(&rt->screen, &rt->scene.cam.direction);
 	emit_rays(&rt->screen, &rt->scene.cam, rt->screen.heigth, rt->screen.width);
 	get_nearest_collisions(rt->screen.rays, &rt->scene, \
