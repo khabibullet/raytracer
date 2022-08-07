@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:30:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 14:25:07 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/07 12:50:15 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	emit_rays(t_screen *screen, t_cam *cam, int heigth, int width)
 												&screen->pixels[i][j], screen);
 			screen->rays[i][j].origin = add_vecs(&cam->coords, \
 												&screen->rays[i][j].coords);
-			screen->rays[i][j].coords = unit_vector(\
-												&screen->rays[i][j].coords);
+			screen->rays[i][j].coords = unit_vector(screen->rays[i][j].coords);
 			++j;
 		}
 		++i;
