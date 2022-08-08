@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/22 21:46:07 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 20:37:32 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 13:52:36 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "minirt.h"
 # include "utils.h"
+# include "../libraries/libft/libft.h"
 
 void	initialize_raytracing(t_minirt *minirt);
 void	set_screen_properties(t_screen *screen, int heigth, int width);

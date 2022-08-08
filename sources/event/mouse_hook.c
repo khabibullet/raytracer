@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:49:40 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/07 16:40:47 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 12:32:44 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	mouse_hook(int x2, int y2, t_minirt *rt)
 
 	if (flag)
 	{
-		rt->controls.d_fi = (x2 - x1) * rt->screen.density * 1;
-		rt->controls.d_teta = (y2 - y1) * rt->screen.density * 1;
+		rt->controls.d_fi = (x1 - x2) * rt->screen.density * 2.0F;
+		rt->controls.d_teta = (y1 - y2) * rt->screen.density * 2.0F;
 	}
 	x1 = x2;
 	y1 = y2;
