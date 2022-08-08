@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 17:52:47 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 19:30:06 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	add_ambient_component(t_ray **rays, t_color	*ambient, int heigth, \
 																int width);
 void	add_diffuse_component(t_minirt *rt);
 void	add_specular_component(t_minirt *rt);
-void	update_rays(t_minirt *rt, int heigth, int width);
+void	update_rays(t_ray **rays, int heigth, int width);
 void	colorize_buffer(t_img *buffer, t_ray **rays, t_screen *screen);
 void	refresh_rays(t_ray **rays, int heigth, int width);
 

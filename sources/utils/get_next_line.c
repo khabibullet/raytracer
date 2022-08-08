@@ -6,13 +6,24 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 13:22:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/28 15:25:22 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 21:12:55 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libraries/libft/libft.h"
 
 #include "../../headers/utils.h"
+
+static char	*str_free_join(char *str1, char *str2)
+{
+	char	*newstr;
+
+	newstr = ft_strjoin(str1, str2);
+	if (!newstr)
+		return (0);
+	free(str1);
+	return (newstr);
+}
 
 static int	func(t_var	*v)
 {
@@ -22,7 +33,7 @@ static int	func(t_var	*v)
 	ptr = ft_strchr(v->buf, '\n');
 	if (!ptr)
 	{
-		v->line = ft_strjoin(v->line, v->buf);
+		v->line = str_free_join(v->line, v->buf);
 		if (!v->line)
 			return (0);
 		v->buf[0] = '\0';
@@ -31,7 +42,7 @@ static int	func(t_var	*v)
 	{
 		c = *(ptr + 1);
 		*(ptr + 1) = '\0';
-		v->line = ft_strjoin(v->line, v->buf);
+		v->line = str_free_join(v->line, v->buf);
 		if (!v->line)
 			return (0);
 		*(ptr + 1) = c;

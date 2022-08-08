@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/31 16:58:06 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 21:20:04 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static void	check_num_of_elements(char *filename, t_num *num_of)
 		free(line);
 		line = get_next_line(fd);
 	}
-	num_of->primitives = num_of->planes + num_of->spheres + \
-							num_of->cylinders + num_of->polygons;
+	num_of->primitives = num_of->planes + num_of->spheres + num_of->cylinders \
+															+ num_of->polygons;
 	if (camera_num != 1 || num_of->primitives == 0)
 		exit_error("Invalid input: incomplete scene");
 	if (num_of->lights != 1 || ambient_num != 1)

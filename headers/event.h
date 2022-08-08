@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:58:31 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/07 13:24:09 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 18:33:17 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int		phong_raytracing(t_minirt *rt);
 int		fast_raytracing(t_minirt *rt);
 int		key_press(int keycode, t_minirt *rt);
 int		key_release(int keycode, t_minirt *rt);
-int		exit_hook(t_minirt *rt);
 int		mouse_hook(int x2, int y2, t_minirt *rt);
 int		mouse_press(int button, int x, int y, t_minirt *rt);
 int		mouse_release(int button, int x, int y, t_minirt *rt);

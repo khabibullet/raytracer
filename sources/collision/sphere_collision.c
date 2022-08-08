@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 15:39:19 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 22:36:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void	collide_sphere(t_ray *ray, t_sphere *sphere)
 	{
 		ray->collis.surface = (void *)sphere;
 		ray->collis.distance = t[0] - EPSILON;
+		ray->collision
 	}
 }

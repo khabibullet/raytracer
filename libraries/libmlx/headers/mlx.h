@@ -53,6 +53,10 @@ void	*mlx_init();
 **  return (void *)0 if failed
 */
 
+void	mlx_destroy_mlx(void *mlx_ptr);
+/*
+ *	correctly frees a mlx pointer
+ */
 
 /*
 ** Basic actions

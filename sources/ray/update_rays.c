@@ -6,18 +6,16 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:27:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 17:53:23 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 19:28:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
-#include "../../headers/minirt.h"
 
-void	update_rays(t_minirt *rt, int heigth, int width)
+void	update_rays(t_ray **rays, int heigth, int width)
 {
 	int		i;
 	int		j;
-	t_ray	*ray;
 
 	i = 0;
 	while (i < heigth)
@@ -25,11 +23,11 @@ void	update_rays(t_minirt *rt, int heigth, int width)
 		j = 0;
 		while (j < width)
 		{
-			ray = &rt->screen.rays[i][j];
-			ray->coords = vec_multiply_nbr(&ray->coords, \
-												ray->collis.distance - EPSILON);
-			ray->origin = add_vecs(&ray->origin, &ray->coords);
-			ray->coords = vec_multiply_nbr(&ray->coords, -1.0F);
+			rays[i][j].coords = vec_multiply_nbr(&rays[i][j].coords, \
+										rays[i][j].collis.distance - EPSILON);
+			rays[i][j].origin = add_vecs(&rays[i][j].origin, \
+														&rays[i][j].coords);
+			rays[i][j].coords = vec_multiply_nbr(&rays[i][j].coords, -1.0F);
 			// get_surf_normal();
 			j++;
 		}
