@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 15:58:26 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 23:10:56 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,8 @@ void	collide_cylinder(t_ray *ray, t_cyl *cylinder)
 		return ;
 	ray->collis.surface = (void *)cylinder;
 	ray->collis.distance = t[0] - EPSILON;
+	new[COORDS] = vec_multiply_nbr(&new[COORDS], t[0] - EPSILON);
+	new[0] = add_vecs(&new[ORIGIN], &new[COORDS]);
+	new[0].z = 0;
+	ray->collis.surf_normal = matmul_mat_vec(cylinder->rev, &new[0]);
 }

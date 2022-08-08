@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 22:17:40 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 22:48:56 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	phong_raytracing(t_minirt *rt)
 		return (0);
 	put_buffer_to_window(rt, &rt->phong_buffer);
 	put_fps(rt->phong_rt.ptr, rt->phong_rt.win, &rt->screen.fps);
-	update_rays(rt, rt->screen.heigth, rt->screen.width); // замена полей начала луча, направления луча и нормали к поверхности
+	// update_rays(rt, rt->screen.heigth, rt->screen.width); // замена полей начала луча, направления луча и нормали к поверхности
 	// add_diffuse_component(rt);
 	// colorize_buffer(&rt->phong_buffer, &rt->screen.rays, &rt->screen);
 	// put_buffer_to_window(rt, &rt->phong_buffer);

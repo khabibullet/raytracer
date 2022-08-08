@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:21:05 by enoye             #+#    #+#             */
-/*   Updated: 2022/08/06 15:39:31 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 22:52:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	collide_plane(t_ray *ray, t_plane *plane)
 	{
 		ray->collis.surface = (void *)plane;
 		ray->collis.distance = t - EPSILON;
+		ray->collis.surf_normal = plane->coords;
 	}
 }
