@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:36:32 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 14:41:30 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 18:02:27 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 int	fast_raytracing(t_minirt *rt)
 {
-	// mlx_clear_window(rt->phong_rt.ptr, rt->phong_rt.win);
+	if (rt->controls.motion > 0)
+		return (0);
 	refresh_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 	move_cam(&rt->scene.cam, &rt->screen, &rt->controls);
 	rotate_cam_ver(&rt->scene.cam, &rt->controls);
@@ -27,8 +28,10 @@ int	fast_raytracing(t_minirt *rt)
 										rt->screen.heigth, rt->screen.width);
 	add_ambient_component(rt->screen.rays, &rt->scene.ambient, \
 										rt->screen.heigth, rt->screen.width);
-	colorize_buffer(&rt->phong_buffer, rt->screen.rays, &rt->screen);
-	put_buffer_to_window(rt, &rt->phong_buffer);
+	colorize_buffer(&rt->fast_buffer, rt->screen.rays, &rt->screen);
+	if (rt->controls.motion > 0)
+		return (0);
+	put_buffer_to_window(rt, &rt->fast_buffer);
 	put_fps(rt->phong_rt.ptr, rt->phong_rt.win, &rt->screen.fps);
 	return (0);
 }

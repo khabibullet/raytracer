@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:22:28 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/04 22:26:16 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/08 16:18:28 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 void	init_rays(t_minirt *rt)
 {
 	int	i;
+	int	j;
 
 	rt->screen.rays = safe_malloc(sizeof(*rt->screen.rays) * rt->screen.heigth);
 	i = 0;
@@ -24,6 +25,12 @@ void	init_rays(t_minirt *rt)
 	{
 		rt->screen.rays[i] = safe_malloc(sizeof(**rt->screen.rays) \
 															* rt->screen.width);
+		j = 0;
+		while (j < rt->screen.width)
+		{
+			rt->screen.rays[i][j] = (t_ray){0};
+			j++;
+		}
 		i++;
 	}
 }
