@@ -6,11 +6,10 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:54:34 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 18:29:51 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 22:32:59 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
 #include "../../headers/ray.h"
 
 int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode)
