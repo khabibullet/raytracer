@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 12:53:46 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 22:02:19 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 23:12:39 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_color	current_ray_diffuse(t_ray *ray, t_scene *scene)
 		ray->coords = subtract_vecs(&scene->lights[i].coords, &ray->origin);
 		ray->collis.distance = vector_len(&ray->coords);
 		ray->coords = unit_vector(ray->coords);
-		if (current_ray_nearest_collision(ray, scene, FAST))
+		if (!current_ray_nearest_collision(ray, scene, FAST))
 		{
 			coef = dot_product(&ray->coords, &ray->collis.surf_normal);
 			component = *(t_color *)(&ray->collis.surface);
