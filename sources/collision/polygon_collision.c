@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 15:57:42 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:26:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static inline void	init_basic(t_poly *poly, t_vec ab_ac[2], t_vec *n)
 	*n = cross_product(&ab_ac[0], &ab_ac[1]);
 }
 
-void	collide_poly(t_ray *ray, t_poly *poly)
+int	collide_poly(t_ray *ray, t_poly *poly, int mode)
 {
 	t_vec	n;
 	t_vec	ao;
@@ -36,19 +36,20 @@ void	collide_poly(t_ray *ray, t_poly *poly)
 	init_basic(poly, ab_ac, &n);
 	denom = dot_product(&ray->coords, &n);
 	if (denom == 0)
-		return ;
+		return (0);
 	denom = 1.0F / denom;
 	ao = subtract_vecs(&ray->origin, &poly->peak1);
 	t_u_v[0] = -denom * dot_product(&ao, &n);
 	t_u_v[1] = denom * mix_product(&ray->coords, &ao, &ab_ac[1]);
 	t_u_v[2] = denom * mix_product(&ray->coords, &ab_ac[0], &ao);
-	if (t_u_v[0] <= 0.0F || t_u_v[1] < 0.0F || t_u_v[2] < 0.0F
-		|| (t_u_v[1] + t_u_v[2]) > 1.0F)
-		return ;
-	if (t_u_v[0] - EPSILON < ray->collis.distance)
-	{
-		ray->collis.surface = (void *)poly;
-		ray->collis.distance = t_u_v[0] - EPSILON;
-		ray->collis.surf_normal = n;
-	}
+	if (t_u_v[0] <= 0.0F || t_u_v[1] < 0.0F || t_u_v[2] < 0.0F \
+			|| (t_u_v[1] + t_u_v[2]) > 1.0F \
+			|| t_u_v[0] - EPSILON >= ray->collis.distance)
+		return (0);
+	if (mode == FAST)
+		return (1);
+	ray->collis.surface = (void *)poly;
+	ray->collis.distance = t_u_v[0] - EPSILON;
+	ray->collis.surf_normal = n;
+	return (1);
 }

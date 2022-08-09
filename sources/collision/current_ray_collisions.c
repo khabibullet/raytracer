@@ -6,27 +6,32 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:54:34 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 15:27:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 18:29:51 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/collision.h"
 #include "../../headers/ray.h"
 
-void	current_ray_nearest_collision(t_ray *ray, t_scene *scene)
+int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode)
 {
 	int	i;
 
 	i = -1;
 	while (++i < scene->num_of.cylinders)
-		collide_cylinder(ray, &scene->cylinders[i]);
+		if (collide_cylinder(ray, &scene->cylinders[i], mode) && mode == FAST)
+			return (1);
 	i = -1;
 	while (++i < scene->num_of.spheres)
-		collide_sphere(ray, &scene->spheres[i]);
+		if (collide_sphere(ray, &scene->spheres[i], mode) && mode == FAST)
+			return (1);
 	i = -1;
 	while (++i < scene->num_of.planes)
-		collide_plane(ray, &scene->planes[i]);
+		if (collide_plane(ray, &scene->planes[i], mode) && mode == FAST)
+			return (1);
 	i = -1;
 	while (++i < scene->num_of.polygons)
-		collide_poly(ray, &scene->polygons[i]);
+		if (collide_poly(ray, &scene->polygons[i], mode) && mode == FAST)
+			return (1);
+	return (0);
 }

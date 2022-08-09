@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 22:48:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:06:32 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,21 @@
 **		intersects sphere, but ray does not intersect sphere.
 **		it means, that ray's origin is inside the sphere and ray intersect sphere
 **		only once.
-**	4)	If both t1 and t2 are positive, ray intersects sphere twice.
+**	3)	If both t1 and t2 are positive, ray intersects sphere twice.
 **/
 
-void	collide_sphere(t_ray *ray, t_sphere *sphere)
+static void	update_collision(t_ray *ray, t_sphere *sphere, float distance)
+{
+	t_vec	tmp;
+
+	ray->collis.surface = (void *)sphere;
+	ray->collis.distance = distance;
+	tmp = vec_multiply_nbr(&ray->coords, distance);
+	tmp = add_vecs(&ray->origin, &tmp);
+	ray->collis.surf_normal = subtract_vecs(&tmp, &sphere->center);
+}
+
+int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode)
 {
 	float	coeffs[3];
 	float	d;
@@ -38,15 +49,12 @@ void	collide_sphere(t_ray *ray, t_sphere *sphere)
 	t[0] = (-coeffs[1] + d) * coeffs[0];
 	t[1] = (-coeffs[1] - d) * coeffs[0];
 	if (d < 0 || (t[0] <= 0 && t[1] <= 0))
-		return ;
+		return (0);
 	if (t[0] <= 0 || (t[1] > 0 && t[0] >= t[1]))
 		t[0] = t[1];
-	if (t[0] - EPSILON < ray->collis.distance)
-	{
-		ray->collis.surface = (void *)sphere;
-		ray->collis.distance = t[0] - EPSILON;
-		co = vec_multiply_nbr(&ray->coords, t[0] - EPSILON);
-		co = add_vecs(&ray->origin, &co);
-		ray->collis.surf_normal = subtract_vecs(&co, &sphere->center);
-	}
+	if (t[0] - EPSILON >= ray->collis.distance)
+		return (0);
+	if (mode == FULL && (t[0] - EPSILON < ray->collis.distance))
+		update_collision(ray, sphere, t[0] - EPSILON);
+	return (1);
 }

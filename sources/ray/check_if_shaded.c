@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_nearest_colisions.c                            :+:      :+:    :+:   */
+/*   check_if_shaded.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 18:14:57 by anemesis         ###   ########.fr       */
+/*   Created: 2022/08/09 17:15:10 by anemesis          #+#    #+#             */
+/*   Updated: 2022/08/09 17:22:57 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../headers/collision.h"
-#include "../../headers/minirt.h"
 #include "../../headers/ray.h"
 
-void	get_nearest_collisions(t_ray **ray, t_scene *sc, int heigth, int width)
+void	check_if_shaded(t_ray *ray, t_scene *scene)
 {
-	register int	i;
-	register int	j;
-
-	i = 0;
-	while (i < heigth)
-	{
-		j = 0;
-		while (j < width)
-		{
-			current_ray_nearest_collision(&ray[i][j], sc, FULL);
-			++j;
-		}
-		++i;
-	}
+	(void)ray;
+	(void)scene;
 }

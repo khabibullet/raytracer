@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 23:10:56 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 16:27:36 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,20 @@ static inline void	transform_ray(t_vec new[2], t_cyl *cylinder, t_ray *ray)
 	new[COORDS] = matmul_mat_vec(cylinder->rot, &ray->coords);
 }
 
-void	collide_cylinder(t_ray *ray, t_cyl *cylinder)
+static void	update_collision(t_collision *collis, t_cyl *cylinder, \
+												t_vec ray[2], float distance)
+{
+	t_vec	surf;
+
+	collis->surface = (void *)cylinder;
+	collis->distance = distance;
+	surf = vec_multiply_nbr(&ray[COORDS], distance);
+	surf = add_vecs(&ray[ORIGIN], &surf);
+	surf.z = 0;
+	collis->surf_normal = matmul_mat_vec(cylinder->rev, &surf);
+}
+
+int	collide_cylinder(t_ray *ray, t_cyl *cylinder, int mode)
 {
 	t_vec	new[2];
 	float	d;
@@ -52,19 +65,15 @@ void	collide_cylinder(t_ray *ray, t_cyl *cylinder)
 	d = b * b - rr * (new[ORIGIN].x * new[ORIGIN].x + new[ORIGIN].y \
 						* new[ORIGIN].y - cylinder->radius * cylinder->radius);
 	if (d <= 0 || (new[COORDS].x == 0 && new[COORDS].y == 0))
-		return ;
+		return (0);
 	d = sqrtf(d);
 	rr = 1.0F / rr;
 	t[0] = (-b + d) * rr;
 	t[1] = (-b - d) * rr;
-	if (!optimal_root(t, &new[ORIGIN], &new[COORDS], &cylinder->semi_heigth))
-		return ;
-	if (t[0] - EPSILON > ray->collis.distance)
-		return ;
-	ray->collis.surface = (void *)cylinder;
-	ray->collis.distance = t[0] - EPSILON;
-	new[COORDS] = vec_multiply_nbr(&new[COORDS], t[0] - EPSILON);
-	new[0] = add_vecs(&new[ORIGIN], &new[COORDS]);
-	new[0].z = 0;
-	ray->collis.surf_normal = matmul_mat_vec(cylinder->rev, &new[0]);
+	if (!optimal_root(t, &new[ORIGIN], &new[COORDS], &cylinder->semi_heigth) \
+									|| t[0] - EPSILON > ray->collis.distance)
+		return (0);
+	if (mode == FULL)
+		update_collision(&ray->collis, cylinder, new, t[0] - EPSILON);
+	return (1);
 }

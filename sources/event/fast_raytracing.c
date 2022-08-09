@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:36:32 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 18:02:27 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 17:01:01 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	fast_raytracing(t_minirt *rt)
 {
-	if (rt->controls.motion > 0)
+	if (rt->controls.motion <= 0)
 		return (0);
 	refresh_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 	move_cam(&rt->scene.cam, &rt->screen, &rt->controls);
@@ -29,7 +29,7 @@ int	fast_raytracing(t_minirt *rt)
 	add_ambient_component(rt->screen.rays, &rt->scene.ambient, \
 										rt->screen.heigth, rt->screen.width);
 	colorize_buffer(&rt->fast_buffer, rt->screen.rays, &rt->screen);
-	if (rt->controls.motion > 0)
+	if (rt->controls.motion <= 0)
 		return (0);
 	put_buffer_to_window(rt, &rt->fast_buffer);
 	put_fps(rt->phong_rt.ptr, rt->phong_rt.win, &rt->screen.fps);

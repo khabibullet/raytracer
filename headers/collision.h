@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 15:41:05 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/08/09 18:30:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # define EPSILON 0.0001F
 # define ORIGIN 0
 # define COORDS 1
+# define NOT_NULL ((void *)1)
+# define FULL 1
+# define FAST 0
 
 # include <stdio.h>
 
@@ -32,11 +35,11 @@ typedef struct s_collision
 typedef struct s_ray	t_ray;
 typedef struct s_minirt	t_minirt;
 
-void	collide_sphere(t_ray *ray, t_sphere *sphere);
-void	collide_cylinder(t_ray *ray, t_cyl *cylinder);
-void	collide_plane(t_ray *ray, t_plane *plane);
-void	collide_poly(t_ray *ray, t_poly *poly);
+int		collide_sphere(t_ray *ray, t_sphere *sphere, int mode);
+int		collide_cylinder(t_ray *ray, t_cyl *cylinder, int mode);
+int		collide_plane(t_ray *ray, t_plane *plane, int mode);
+int		collide_poly(t_ray *ray, t_poly *poly, int mode);
 void	get_nearest_collisions(t_ray **ray, t_scene *sc, int heigth, int width);
-void	current_ray_nearest_collision(t_ray *ray, t_scene *scene);
+int		current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode);
 
 #endif
