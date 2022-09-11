@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 13:10:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 17:29:44 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 22:21:35 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 	parse_config(argv[1], &rt);
 	set_screen_properties(&rt.screen, 700, 700);
 	initialize_raytracing(&rt);
+	phong_raytracing(&rt);
 	mlx_hook(rt.phong_rt.win, X_EVENT_KEY_PRESS, 1L << 0, &key_press, &rt);
 	mlx_hook(rt.phong_rt.win, X_EVENT_KEY_RELEASE, 1L << 1, &key_release, &rt);
 	mlx_hook(rt.phong_rt.win, X_EVENT_EXIT, 1L << 17, &exit_free, &rt);
@@ -32,7 +33,7 @@ int	main(int argc, char **argv)
 	mlx_hook(rt.phong_rt.win, X_EVENT_MOUSE_PRESS, 1L << 2, &mouse_press, &rt);
 	mlx_hook(rt.phong_rt.win, X_EVENT_MOUSE_RELEASE, 1L << 3, \
 														&mouse_release, &rt);
-	mlx_loop_hook(rt.phong_rt.ptr, &phong_raytracing, &rt);
+	// mlx_loop_hook(rt.phong_rt.ptr, &phong_raytracing, &rt);
 	mlx_do_key_autorepeatoff(rt.phong_rt.ptr);
 	mlx_loop(rt.phong_rt.ptr);
 	return (0);

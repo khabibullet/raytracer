@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 22:53:58 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 21:45:19 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	add_specular_component(t_minirt *rt);
 void	revert_rays(t_ray **rays, int heigth, int width);
 void	colorize_buffer(t_img *buffer, t_ray **rays, t_screen *screen);
 void	refresh_rays(t_ray **rays, int heigth, int width);
-t_color	current_ray_diffuse(t_ray *ray, t_scene *scene);
+t_color	current_ray_diffuse(t_ray *ray, t_scene *scene, int i, int j);
 void	check_if_shaded(t_ray *ray, t_scene *scene);
 void	put_light_point(t_ray **rays, t_scene *scene, int heigth, \
 																	int width);

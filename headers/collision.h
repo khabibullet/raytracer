@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 10:33:12 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 19:10:23 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define COLLISION_H
 # define MD_FULL 1
 # define MD_PART 0
-# define EPSILON 0.00005F
+# define EPSILON 0.001F
 # define ORIGIN 0
 # define COORDS 1
 # define NOT_NULL ((void *)1)

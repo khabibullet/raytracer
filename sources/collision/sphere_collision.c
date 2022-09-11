@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 17:06:32 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 21:53:08 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode)
 	t_vec	co;
 
 	co = subtract_vecs(&ray->origin, &sphere->center);
-	coeffs[0] = dot_product(&ray->coords, &ray->coords);
-	coeffs[1] = 2 * dot_product(&ray->coords, &co);
-	coeffs[2] = dot_product(&co, &co) - (sphere->radius * sphere->radius);
+	coeffs[0] = dot_product(ray->coords, ray->coords);
+	coeffs[1] = 2 * dot_product(ray->coords, co);
+	coeffs[2] = dot_product(co, co) - (sphere->radius * sphere->radius);
 	d = sqrtf((coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]));
 	coeffs[0] = 1 / (2.0 * coeffs[0]);
 	t[0] = (-coeffs[1] + d) * coeffs[0];

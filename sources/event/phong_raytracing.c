@@ -6,12 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 17:13:41 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 22:22:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/event.h"
 #include "../../headers/utils.h"
+#include "unistd.h"
 
 int	phong_raytracing(t_minirt *rt)
 {

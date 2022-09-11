@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:31:37 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 22:57:29 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 21:53:20 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	put_light_point(t_ray **rays, t_scene *scene, int heigth, \
 		j = 0;
 		while (j < width)
 		{
-			tmp = dot_product(&cam_to_light, &rays[i][j].coords);
+			tmp = dot_product(cam_to_light, rays[i][j].coords);
 			if (tmp > min_angle)
 			{
 				min_angle = tmp;

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 16:26:29 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 21:52:52 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	collide_poly(t_ray *ray, t_poly *poly, int mode)
 	float	denom;
 
 	init_basic(poly, ab_ac, &n);
-	denom = dot_product(&ray->coords, &n);
+	denom = dot_product(ray->coords, n);
 	if (denom == 0)
 		return (0);
 	denom = 1.0F / denom;
 	ao = subtract_vecs(&ray->origin, &poly->peak1);
-	t_u_v[0] = -denom * dot_product(&ao, &n);
+	t_u_v[0] = -denom * dot_product(ao, n);
 	t_u_v[1] = denom * mix_product(&ray->coords, &ao, &ab_ac[1]);
 	t_u_v[2] = denom * mix_product(&ray->coords, &ab_ac[0], &ao);
 	if (t_u_v[0] <= 0.0F || t_u_v[1] < 0.0F || t_u_v[2] < 0.0F \
