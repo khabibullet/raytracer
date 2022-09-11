@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:51:01 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 11:39:03 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:36:42 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ void	init_pixels(t_minirt *rt)
 		}
 		i++;
 	}
-	printf("pixel: %f, %f\n", rt->screen.pixels[300][300].x, rt->screen.pixels[300][300].y);
 }

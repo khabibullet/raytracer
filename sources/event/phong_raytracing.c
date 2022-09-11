@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 13:54:45 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 17:13:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int	phong_raytracing(t_minirt *rt)
 {
-	if (rt->controls.motion > 0)
-		return (0);
 	mlx_clear_window(rt->phong_rt.ptr, rt->phong_rt.win);
 	refresh_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 	move_cam(&rt->scene.cam, &rt->screen, &rt->controls);
@@ -28,16 +26,14 @@ int	phong_raytracing(t_minirt *rt)
 										rt->screen.heigth, rt->screen.width);
 	add_ambient_component(rt->screen.rays, &rt->scene.ambient, \
 										rt->screen.heigth, rt->screen.width);
-	if (rt->controls.motion > 0)
-		return (0);
-	// revert_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
-	// add_diffuse_component(rt->screen.rays, rt->screen.heigth, rt->screen.width, \
-	// 																&rt->scene);
-	colorize_buffer(&rt->phong_buffer, rt->screen.rays, &rt->screen);
-	if (rt->controls.motion > 0)
-		return (0);
-	printf("buffer: %X\n", *(unsigned int *)(rt->phong_buffer.addr + (300 * rt->phong_buffer.len + 300 * (rt->phong_buffer.depth / 8))));
-	put_buffer_to_window(rt, &rt->phong_buffer);
-	// put_fps(rt->phong_rt.ptr, rt->phong_rt.win, &rt->screen.fps);
+	if (rt->controls.motion <= 0)
+	{
+		revert_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
+		add_diffuse_component(rt->screen.rays, rt->screen.heigth, \
+												rt->screen.width, &rt->scene);
+	}
+	colorize_buffer(&rt->buffer, rt->screen.rays, &rt->screen);
+	put_buffer_to_window(rt, &rt->buffer);
+	put_fps(rt->phong_rt.ptr, rt->phong_rt.win, &rt->screen.fps);
 	return (0);
 }

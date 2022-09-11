@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 23:05:09 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/01 23:25:16 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 17:13:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ typedef struct s_screen	t_screen;
 typedef struct s_minirt
 {
 	t_mlx		phong_rt;
-	t_mlx		fast_rt;
-	t_img		phong_buffer;
-	t_img		fast_buffer;
+	t_img		buffer;
 	t_scene		scene;
 	t_ctrl		controls;
 	t_screen	screen;

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:09:00 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 20:22:05 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 17:13:41 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,10 @@ int	exit_free(t_minirt *rt)
 {
 	mlx_clear_window(rt->phong_rt.ptr, rt->phong_rt.win);
 	mlx_destroy_window(rt->phong_rt.ptr, rt->phong_rt.win);
-	mlx_destroy_image(rt->phong_rt.ptr, rt->fast_buffer.ptr);
-	mlx_destroy_image(rt->phong_rt.ptr, rt->phong_buffer.ptr);
+	mlx_destroy_image(rt->phong_rt.ptr, rt->buffer.ptr);
 	free_scene(&rt->scene);
 	free_pixels(rt->screen.pixels, rt->screen.heigth);
 	free_rays(rt->screen.rays, rt->screen.heigth);
 	mlx_destroy_mlx(rt->phong_rt.ptr);
-	mlx_destroy_mlx(rt->fast_rt.ptr);
 	exit(EXIT_SUCCESS);
 }
