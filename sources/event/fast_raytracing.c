@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 16:36:32 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 23:00:13 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 10:33:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	fast_raytracing(t_minirt *rt)
 	rotate_cam_hor(&rt->scene.cam, &rt->controls);
 	find_screen_axes(&rt->screen, &rt->scene.cam.direction);
 	emit_rays(&rt->screen, &rt->scene.cam, rt->screen.heigth, rt->screen.width);
-	get_nearest_collisions(rt->screen.rays, &rt->scene, \
+	get_first_collisions(rt->screen.rays, &rt->scene, \
 										rt->screen.heigth, rt->screen.width);
 	add_ambient_component(rt->screen.rays, &rt->scene.ambient, \
 										rt->screen.heigth, rt->screen.width);

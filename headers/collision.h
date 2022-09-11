@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 23:13:36 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/11 10:33:12 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		collide_sphere(t_ray *ray, t_sphere *sphere, int mode);
 int		collide_cylinder(t_ray *ray, t_cyl *cylinder, int mode);
 int		collide_plane(t_ray *ray, t_plane *plane, int mode);
 int		collide_poly(t_ray *ray, t_poly *poly, int mode);
-void	get_nearest_collisions(t_ray **ray, t_scene *sc, int heigth, int width);
+void	get_first_collisions(t_ray **ray, t_scene *sc, int heigth, int width);
 int		current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode);
 
 #endif
