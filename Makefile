@@ -6,7 +6,7 @@
 #    By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/11 21:25:23 by anemesis          #+#    #+#              #
-#    Updated: 2022/09/11 21:43:01 by anemesis         ###   ########.fr        #
+#    Updated: 2022/09/12 17:18:11 by anemesis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ OBJ			=	$(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 CC			=	cc
 
-CFLAGS		=	-O1 -Wall -Wextra -Werror
+CFLAGS		=	-O1 -Wall -Wextra -Werror -g
 
 LIBS		=	./libraries/libft/libft.a ./libraries/libmlx/libmlx.a
 

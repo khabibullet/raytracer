@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:27:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 20:55:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/12 12:49:08 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ void	revert_rays(t_ray **rays, int heigth, int width)
 		j = 0;
 		while (j < width)
 		{
-			tmp = rays[i][j].coords;
-			tmp = vec_multiply_nbr(&tmp, rays[i][j].collis.distance);
-			rays[i][j].origin = add_vecs(&rays[i][j].origin, &tmp);
-			rays[i][j].beam = (t_vec){-tmp.x, -tmp.y, -tmp.z};
-			rays[i][j].collis.surf_normal = unit_vector(\
+			if (rays[i][j].collis.surface != NULL)
+			{
+				tmp = rays[i][j].coords;
+				tmp = vec_multiply_nbr(&tmp, rays[i][j].collis.distance);
+				rays[i][j].origin = add_vecs(&rays[i][j].origin, &tmp);
+				rays[i][j].beam = (t_vec){-tmp.x, -tmp.y, -tmp.z};
+				rays[i][j].collis.surf_normal = unit_vector(\
 												rays[i][j].collis.surf_normal);
+			}
 			++j;
 		}
 		++i;

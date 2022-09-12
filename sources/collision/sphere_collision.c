@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/11 21:53:08 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/12 20:03:10 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,34 @@ static void	update_collision(t_ray *ray, t_sphere *sphere, float distance)
 	ray->collis.surf_normal = subtract_vecs(&tmp, &sphere->center);
 }
 
-int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode)
+int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode, int i, int j)
 {
 	float	coeffs[3];
 	float	d;
 	float	t[2];
 	t_vec	co;
 
+	(void)i;
+	(void)j;
 	co = subtract_vecs(&ray->origin, &sphere->center);
 	coeffs[0] = dot_product(ray->coords, ray->coords);
 	coeffs[1] = 2 * dot_product(ray->coords, co);
 	coeffs[2] = dot_product(co, co) - (sphere->radius * sphere->radius);
-	d = sqrtf((coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]));
+	d = (coeffs[1] * coeffs[1]) - (4 * coeffs[0] * coeffs[2]);
+	if (d < 0)
+		return (0);
+	d = sqrt(d);
 	coeffs[0] = 1 / (2.0 * coeffs[0]);
 	t[0] = (-coeffs[1] + d) * coeffs[0];
 	t[1] = (-coeffs[1] - d) * coeffs[0];
-	if (d < 0 || (t[0] <= 0 && t[1] <= 0))
+	if (t[0] <= 0 && t[1] <= 0)
 		return (0);
 	if (t[0] <= 0 || (t[1] > 0 && t[0] >= t[1]))
 		t[0] = t[1];
 	if (t[0] - EPSILON >= ray->collis.distance)
 		return (0);
-	if (mode == FULL && (t[0] - EPSILON < ray->collis.distance))
-		update_collision(ray, sphere, t[0] - EPSILON);
+	if (mode == FAST)
+		return (1);
+	update_collision(ray, sphere, t[0] - EPSILON);
 	return (1);
 }
