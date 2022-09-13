@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/12 20:04:19 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 12:47:30 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	phong_raytracing(t_minirt *rt)
 	{
 		revert_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 		add_diffuse_component(rt->screen.rays, rt->screen.heigth, \
+												rt->screen.width, &rt->scene);
+		add_specular_component(rt->screen.rays, rt->screen.heigth, \
 												rt->screen.width, &rt->scene);
 	}
 	colorize_buffer(&rt->buffer, rt->screen.rays, &rt->screen);

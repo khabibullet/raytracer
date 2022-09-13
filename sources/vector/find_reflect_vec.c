@@ -6,13 +6,13 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 21:59:18 by enoye             #+#    #+#             */
-/*   Updated: 2022/07/04 14:13:13 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 11:46:44 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/vector.h"
 
-t_vec	find_reflect_vec(t_vec ray, t_vec norm)
+t_vec	reflect_vec(t_vec ray, t_vec norm)
 {
 	float	kof;
 	t_vec	reflect;
