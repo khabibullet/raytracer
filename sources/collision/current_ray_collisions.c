@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:54:34 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/12 20:04:03 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 18:21:31 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
+#include "../../headers/parsing.h"
 
 int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode, int i, int j)
 {
@@ -26,8 +27,12 @@ int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode, int i, i
 			return (1);
 	num = -1;
 	while (++num < scene->num_of.spheres)
+	{
+		if (mode == FAST && scene->spheres[num].type == BULB)
+			continue ;
 		if (collide_sphere(ray, &scene->spheres[num], mode, i, j) && mode == FAST)
 			return (1);
+	}
 	num = -1;
 	while (++num < scene->num_of.planes)
 		if (collide_plane(ray, &scene->planes[num], mode) && mode == FAST)

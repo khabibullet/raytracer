@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 17:32:51 by enoye             #+#    #+#             */
-/*   Updated: 2022/09/11 10:51:35 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 19:00:02 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ static void	count_elements(char *line, int *ambient, int *cam, t_num *num_of)
 	else if (!ft_strncmp(line, "C ", 2))
 		(*cam)++;
 	else if (!ft_strncmp(line, "L ", 2))
+	{
+		num_of->spheres++;
 		num_of->lights++;
+	}
 	else if (!ft_strncmp(line, "sp ", 3))
 		num_of->spheres++;
 	else if (!ft_strncmp(line, "pl ", 3))
@@ -56,10 +59,10 @@ static void	check_num_of_elements(char *filename, t_num *num_of)
 		line = get_next_line(fd);
 	}
 	num_of->primitives = num_of->planes + num_of->spheres + num_of->cylinders \
-															+ num_of->polygons;
+											+ num_of->polygons - num_of->lights;
 	if (camera_num != 1 || num_of->primitives == 0)
 		exit_error("Invalid input: incomplete scene");
-	if (num_of->lights != 1 || ambient_num != 1)
+	if (ambient_num > 1)
 		exit_error("Invalid input: invalid scene");
 	close(fd);
 }

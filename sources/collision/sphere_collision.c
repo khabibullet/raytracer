@@ -6,11 +6,12 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/12 20:03:10 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 18:19:42 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
+#include "../../headers/parsing.h"
 
 /**
 **	1)	If d (descriminant is below zero), then t1 (t[0]) and t2 (t[1]) are
@@ -31,6 +32,8 @@ static void	update_collision(t_ray *ray, t_sphere *sphere, float distance)
 	tmp = vec_multiply_nbr(&ray->coords, distance);
 	tmp = add_vecs(&ray->origin, &tmp);
 	ray->collis.surf_normal = subtract_vecs(&tmp, &sphere->center);
+	if (sphere->type == BULB)
+		ray->collis.surf_type = BULB;
 }
 
 int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode, int i, int j)
@@ -42,6 +45,8 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode, int i, int j)
 
 	(void)i;
 	(void)j;
+	// if (mode == FAST && sphere->type == BULB)
+	// 	return (0);
 	co = subtract_vecs(&ray->origin, &sphere->center);
 	coeffs[0] = dot_product(ray->coords, ray->coords);
 	coeffs[1] = 2 * dot_product(ray->coords, co);

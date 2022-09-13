@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 16:34:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:53:22 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_sphere
 	t_color	color;
 	t_vec	center;
 	float	radius;
+	int		type;
 }	t_sphere;
 
 typedef struct s_cam

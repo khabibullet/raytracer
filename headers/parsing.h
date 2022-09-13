@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 12:58:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/30 19:05:22 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:23:37 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 
 # include "../libraries/libft/libft.h"
 
+# define BULB 1
+# define SPHERE 0
+
 void	alloc_objects_arrays(t_minirt *rt);
 void	parse_config(char *filename, t_minirt *rt);
 
@@ -33,7 +36,7 @@ void	parse_ambient(char *line, t_scene *scene);
 void	parse_camera(char *line, t_scene *scene);
 void	parse_plane(char *line, t_scene *scene);
 void	parse_cylinder(char *line, t_scene *scene);
-void	parse_sphere(char *line, t_scene *scene);
+void	parse_sphere(char *line, t_scene *scene, int type);
 void	parse_polygon(char *line, t_scene *scene);
 
 #endif

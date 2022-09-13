@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/12 19:57:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 17:56:50 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_collision
 	float	distance;
 	void	*surface;
 	t_vec	surf_normal;
+	int		surf_type;
 }	t_collision;
 
 typedef struct s_ray	t_ray;

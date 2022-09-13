@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:55:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/07/30 19:05:48 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:59:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,12 @@ static void	parse_line(char *line, t_minirt *rt)
 	else if (!ft_strncmp(line, "C ", 2))
 		parse_camera(line + 1, &rt->scene);
 	else if (!ft_strncmp(line, "L ", 2))
+	{
 		parse_light(line + 1, &rt->scene);
+		parse_sphere(line + 1, &rt->scene, BULB);
+	}
 	else if (!ft_strncmp(line, "sp ", 3))
-		parse_sphere(line + 2, &rt->scene);
+		parse_sphere(line + 2, &rt->scene, SPHERE);
 	else if (!ft_strncmp(line, "pl ", 3))
 		parse_plane(line + 2, &rt->scene);
 	else if (!ft_strncmp(line, "cy ", 3))
