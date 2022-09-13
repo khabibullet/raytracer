@@ -6,12 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/09 16:27:36 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:50:46 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/collision.h"
 #include "../../headers/ray.h"
+
+static int	g_inside;
 
 static inline int	optimal_root(float t[2], t_vec *origin, t_vec *coords, \
 																float *heigh)
@@ -26,6 +28,8 @@ static inline int	optimal_root(float t[2], t_vec *origin, t_vec *coords, \
 		checksum[1]++;
 	if (checksum[0] == 0 && checksum[1] == 0)
 		return (0);
+	if (checksum[1] == 1 && t[1] < t[0])
+		g_inside = 1;
 	if (checksum[0] == 0 || (checksum[0] == checksum[1] && t[1] < t[0]))
 		t[0] = t[1];
 	return (1);
@@ -49,6 +53,12 @@ static void	update_collision(t_collision *collis, t_cyl *cylinder, \
 	surf = add_vecs(&ray[ORIGIN], &surf);
 	surf.z = 0;
 	collis->surf_normal = matmul_mat_vec(cylinder->rev, &surf);
+	if (g_inside == 1)
+	{
+		collis->surf_normal.x = -collis->surf_normal.x;
+		collis->surf_normal.y = -collis->surf_normal.y;
+		collis->surf_normal.z = -collis->surf_normal.z;
+	}
 }
 
 int	collide_cylinder(t_ray *ray, t_cyl *cylinder, int mode)
@@ -60,11 +70,13 @@ int	collide_cylinder(t_ray *ray, t_cyl *cylinder, int mode)
 	float	b;
 
 	transform_ray(new, cylinder, ray);
+	if (new[COORDS].x == 0 && new[COORDS].y == 0)
+		return (0);
 	rr = new[COORDS].x * new[COORDS].x + new[COORDS].y * new[COORDS].y;
 	b = new[COORDS].x * new[ORIGIN].x + new[COORDS].y * new[ORIGIN].y;
 	d = b * b - rr * (new[ORIGIN].x * new[ORIGIN].x + new[ORIGIN].y \
 						* new[ORIGIN].y - cylinder->radius * cylinder->radius);
-	if (d <= 0 || (new[COORDS].x == 0 && new[COORDS].y == 0))
+	if (d <= 0)
 		return (0);
 	d = sqrtf(d);
 	rr = 1.0F / rr;

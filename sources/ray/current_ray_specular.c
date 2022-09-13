@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 11:32:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 20:55:41 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/13 21:02:45 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_color	current_ray_specular(t_ray *ray, t_scene *scene, int i, int j)
 			coef = dot_product(unit_vector(reflected), unit_vector(tmp_ray.beam));
 			if (coef > 0)
 			{
-				coef = powf(coef, 15);
+				coef = powf(coef, 20);
 				component = *(t_color *)(tmp_ray.collis.surface);
 				component = mix_colors(&(t_color){coef, coef, coef}, &component);
 				component = mix_colors(&component, &scene->lights[num].color);
