@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 21:26:38 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/12 20:06:52 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:07:47 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	get_first_collisions(t_ray **ray, t_scene *scene, int heigth, int width)
 		j = 0;
 		while (j < width)
 		{
-			current_ray_nearest_collision(&ray[i][j], scene, FULL, i, j);
+			current_ray_nearest_collision(&ray[i][j], scene, FULL);
 			++j;
 		}
 		++i;

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 11:38:59 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:10:34 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,13 @@ void	emit_rays(t_screen *screen, t_cam *cam, int heigth, int width);
 void	add_ambient_component(t_ray **rays, t_color	*ambient, int heigth, \
 																int width);
 void	add_diffuse_component(t_ray **rays, int heigth, int width, t_scene *sc);
-void	add_specular_component(t_ray **rays, int heigth, int width, t_scene *sc);
+void	add_specular_component(t_ray **rays, int heigth, int width, \
+																t_scene *sc);
 void	revert_rays(t_ray **rays, int heigth, int width);
 void	colorize_buffer(t_img *buffer, t_ray **rays, t_screen *screen);
 void	refresh_rays(t_ray **rays, int heigth, int width);
-t_color	current_ray_diffuse(t_ray *ray, t_scene *scene, int i, int j);
+t_color	current_ray_diffuse(t_ray *ray, t_scene *scene);
 void	check_if_shaded(t_ray *ray, t_scene *scene);
-void	put_light_point(t_ray **rays, t_scene *scene, int heigth, \
-																	int width);
-t_color	current_ray_specular(t_ray *ray, t_scene *scene, int i, int j);
-
+t_color	current_ray_specular(t_ray *ray, t_scene *scene);
 
 #endif

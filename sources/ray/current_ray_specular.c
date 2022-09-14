@@ -6,14 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 11:32:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 21:02:45 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:12:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
 #include "../../headers/utils.h"
 
-t_color	current_ray_specular(t_ray *ray, t_scene *scene, int i, int j)
+t_color	current_ray_specular(t_ray *ray, t_scene *scene)
 {
 	int		num;
 	float	coef;
@@ -22,8 +22,6 @@ t_color	current_ray_specular(t_ray *ray, t_scene *scene, int i, int j)
 	t_vec	reflected;
 	t_ray	tmp_ray;
 
-	(void)i;
-	(void)j;
 	specular = (t_color){0};
 	num = 0;
 	while (num < scene->num_of.lights)
@@ -32,7 +30,7 @@ t_color	current_ray_specular(t_ray *ray, t_scene *scene, int i, int j)
 		tmp_ray.coords = subtract_vecs(&scene->lights[num].coords, &tmp_ray.origin);
 		tmp_ray.collis.distance = vector_len(&tmp_ray.coords);
 		tmp_ray.coords = unit_vector(tmp_ray.coords);
-		if (!current_ray_nearest_collision(&tmp_ray, scene, FAST, i, j))
+		if (!current_ray_nearest_collision(&tmp_ray, scene, FAST))
 		{
 			coef = 2 * dot_product(tmp_ray.collis.surf_normal, tmp_ray.coords);
 			reflected = vec_multiply_nbr(&tmp_ray.collis.surf_normal, coef);

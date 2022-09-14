@@ -6,14 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:54:34 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 18:21:31 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:03:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
 #include "../../headers/parsing.h"
 
-int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode, int i, int j)
+int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode)
 {
 	int	num;
 
@@ -30,7 +30,7 @@ int	current_ray_nearest_collision(t_ray *ray, t_scene *scene, int mode, int i, i
 	{
 		if (mode == FAST && scene->spheres[num].type == BULB)
 			continue ;
-		if (collide_sphere(ray, &scene->spheres[num], mode, i, j) && mode == FAST)
+		if (collide_sphere(ray, &scene->spheres[num], mode) && mode == FAST)
 			return (1);
 	}
 	num = -1;

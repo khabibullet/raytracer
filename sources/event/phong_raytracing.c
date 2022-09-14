@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 21:06:03 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:49:13 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ int	phong_raytracing(t_minirt *rt)
 	emit_rays(&rt->screen, &rt->scene.cam, rt->screen.heigth, rt->screen.width);
 	get_first_collisions(rt->screen.rays, &rt->scene, \
 										rt->screen.heigth, rt->screen.width);
-	// add_ambient_component(rt->screen.rays, &rt->scene.ambient, \
-	// 									rt->screen.heigth, rt->screen.width);
+	add_ambient_component(rt->screen.rays, &rt->scene.ambient, \
+										rt->screen.heigth, rt->screen.width);
 	if (rt->controls.motion <= 0)
 	{
 		revert_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 		add_diffuse_component(rt->screen.rays, rt->screen.heigth, \
 												rt->screen.width, &rt->scene);
-		// add_specular_component(rt->screen.rays, rt->screen.heigth, \
-		// 										rt->screen.width, &rt->scene);
+		add_specular_component(rt->screen.rays, rt->screen.heigth, \
+												rt->screen.width, &rt->scene);
 	}
 	colorize_buffer(&rt->buffer, rt->screen.rays, &rt->screen);
 	put_buffer_to_window(rt, &rt->buffer);

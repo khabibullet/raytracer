@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 18:32:47 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 20:23:31 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:49:07 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ void	add_specular_component(t_ray **rays, int heigth, int width, t_scene *sc)
 		j = 0;
 		while (j < width)
 		{
-			if (rays[i][j].collis.surface != NULL && rays[i][j].collis.surf_type != BULB)
+			if (rays[i][j].collis.surface != NULL \
+										&& rays[i][j].collis.surf_type != BULB)
 			{
-				specular = current_ray_specular(&rays[i][j], sc, i, j);
+				specular = current_ray_specular(&rays[i][j], sc);
 				rays[i][j].color = add_colors(rays[i][j].color, specular);
 			}
 			++j;

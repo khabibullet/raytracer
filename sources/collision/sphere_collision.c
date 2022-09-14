@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 18:19:42 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 16:52:39 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 **	3)	If both t1 and t2 are positive, ray intersects sphere twice.
 **/
 
-static void	update_collision(t_ray *ray, t_sphere *sphere, float distance)
+static int	update_collision(t_ray *ray, t_sphere *sphere, float distance)
 {
 	t_vec	tmp;
 
@@ -34,19 +34,16 @@ static void	update_collision(t_ray *ray, t_sphere *sphere, float distance)
 	ray->collis.surf_normal = subtract_vecs(&tmp, &sphere->center);
 	if (sphere->type == BULB)
 		ray->collis.surf_type = BULB;
+	return (1);
 }
 
-int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode, int i, int j)
+int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode)
 {
 	float	coeffs[3];
 	float	d;
 	float	t[2];
 	t_vec	co;
 
-	(void)i;
-	(void)j;
-	// if (mode == FAST && sphere->type == BULB)
-	// 	return (0);
 	co = subtract_vecs(&ray->origin, &sphere->center);
 	coeffs[0] = dot_product(ray->coords, ray->coords);
 	coeffs[1] = 2 * dot_product(ray->coords, co);
@@ -64,8 +61,7 @@ int	collide_sphere(t_ray *ray, t_sphere *sphere, int mode, int i, int j)
 		t[0] = t[1];
 	if (t[0] - EPSILON >= ray->collis.distance)
 		return (0);
-	if (mode == FAST)
+	if (mode == FAST || update_collision(ray, sphere, t[0] - EPSILON))
 		return (1);
-	update_collision(ray, sphere, t[0] - EPSILON);
 	return (1);
 }
