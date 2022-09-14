@@ -6,23 +6,14 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 14:55:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 15:59:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:22:15 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/parsing.h"
 
-static void	parse_line(char *line, t_minirt *rt)
+static void	parse_entity(char *line, t_minirt *rt)
 {
-	char	*newline;
-
-	while (*line == ' ')
-		line++;
-	if (!ft_strcmp(line, "\n"))
-		return ;
-	newline = ft_strchr(line, '\n');
-	if (newline)
-		*newline = '\0';
 	if (!ft_strncmp(line, "A ", 2))
 		parse_ambient(line + 1, &rt->scene);
 	else if (!ft_strncmp(line, "C ", 2))
@@ -42,6 +33,20 @@ static void	parse_line(char *line, t_minirt *rt)
 		parse_polygon(line + 2, &rt->scene);
 	else
 		return ;
+}
+
+static void	parse_line(char *line, t_minirt *rt)
+{
+	char	*newline;
+
+	while (*line == ' ')
+		line++;
+	if (!ft_strcmp(line, "\n"))
+		return ;
+	newline = ft_strchr(line, '\n');
+	if (newline)
+		*newline = '\0';
+	parse_entity(line, rt);
 }
 
 void	parse_config(char *filename, t_minirt *rt)

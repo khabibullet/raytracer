@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 23:27:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 20:12:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:15:29 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	revert_rays(t_ray **rays, int heigth, int width)
 		j = 0;
 		while (j < width)
 		{
-			if (rays[i][j].collis.surface != NULL && rays[i][j].collis.surf_type != BULB)
+			if (rays[i][j].collis.surface != NULL \
+										&& rays[i][j].collis.surf_type != BULB)
 			{
 				tmp = rays[i][j].coords;
 				tmp = vec_multiply_nbr(&tmp, rays[i][j].collis.distance);

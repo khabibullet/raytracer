@@ -6,44 +6,57 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 11:32:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 16:12:25 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 19:29:50 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/ray.h"
 #include "../../headers/utils.h"
 
+static t_color	add_component(t_color light_col, float coef, t_ray *tmp_ray)
+{
+	t_color	component;
+
+	coef = powf(coef, 20);
+	component = *(t_color *)(tmp_ray->collis.surface);
+	component = mix_colors(&(t_color){coef, coef, coef}, &component);
+	component = mix_colors(&component, &light_col);
+	return (component);
+}
+
+static float	calculate_coefficient(t_ray *ray)
+{
+	float	coef;
+	t_vec	reflected;
+
+	coef = 2 * dot_product(ray->collis.surf_normal, ray->coords);
+	reflected = vec_multiply_nbr(&ray->collis.surf_normal, coef);
+	reflected = subtract_vecs(&reflected, &ray->coords);
+	coef = dot_product(unit_vector(reflected), unit_vector(ray->beam));
+	return (coef);
+}
+
 t_color	current_ray_specular(t_ray *ray, t_scene *scene)
 {
 	int		num;
 	float	coef;
 	t_color	specular;
-	t_color	component;
-	t_vec	reflected;
-	t_ray	tmp_ray;
+	t_ray	tmp;
 
 	specular = (t_color){0};
 	num = 0;
 	while (num < scene->num_of.lights)
 	{
-		tmp_ray = *ray;
-		tmp_ray.coords = subtract_vecs(&scene->lights[num].coords, &tmp_ray.origin);
-		tmp_ray.collis.distance = vector_len(&tmp_ray.coords);
-		tmp_ray.coords = unit_vector(tmp_ray.coords);
-		if (!current_ray_nearest_collision(&tmp_ray, scene, FAST))
+		tmp = *ray;
+		tmp.coords = subtract_vecs(&scene->lights[num].coords, &tmp.origin);
+		tmp.collis.distance = vector_len(&tmp.coords);
+		tmp.coords = unit_vector(tmp.coords);
+		if (!current_ray_nearest_collision(&tmp, scene, FAST))
 		{
-			coef = 2 * dot_product(tmp_ray.collis.surf_normal, tmp_ray.coords);
-			reflected = vec_multiply_nbr(&tmp_ray.collis.surf_normal, coef);
-			reflected = subtract_vecs(&reflected, &tmp_ray.coords);
-			coef = dot_product(unit_vector(reflected), unit_vector(tmp_ray.beam));
+			coef = calculate_coefficient(&tmp);
 			if (coef > 0)
-			{
-				coef = powf(coef, 20);
-				component = *(t_color *)(tmp_ray.collis.surface);
-				component = mix_colors(&(t_color){coef, coef, coef}, &component);
-				component = mix_colors(&component, &scene->lights[num].color);
-				specular = add_colors(specular, component);
-			}
+				specular = add_colors(specular, add_component(\
+									scene->lights[num].color, coef, &tmp));
 		}
 		num++;
 	}
