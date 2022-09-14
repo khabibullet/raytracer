@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 17:32:25 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 15:53:22 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:58:24 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ typedef struct s_scene
 	t_poly			*polygons;
 	t_light			*lights;
 	t_num			num_of;
+	float			bulb_size;
+	float			norm_coef;
 }	t_scene;
 
 #endif

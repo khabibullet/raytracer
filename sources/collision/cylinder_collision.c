@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 17:48:11 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:59:23 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static void	update_collis(t_collision *collis, t_cyl *cylinder, \
 	t_vec	surf;
 
 	collis->surface = (void *)cylinder;
+	collis->surf_type = 0;
 	surf = vec_multiply_nbr(&ray[COORDS], collis->distance);
 	surf = add_vecs(&ray[ORIGIN], &surf);
 	surf.z = 0;

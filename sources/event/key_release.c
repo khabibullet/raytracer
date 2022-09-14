@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:50:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 18:01:59 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:19:15 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 int	key_release(int keycode, t_minirt *rt)
 {
-	rt->controls.motion--;
+	if (keycode == KEY_D || keycode == KEY_A || keycode == KEY_W || \
+		keycode == KEY_S || keycode == KEY_E || keycode == KEY_Q || \
+		keycode == KEY_PLUS || keycode == KEY_MINUS || keycode == KEY_R || \
+		keycode == KEY_ESC)
+		rt->controls.motion--;
 	if (keycode == KEY_D)
 		rt->controls.hor_shift--;
 	else if (keycode == KEY_A)

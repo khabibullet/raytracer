@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 15:01:40 by enoye             #+#    #+#             */
-/*   Updated: 2022/09/13 15:54:02 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 23:06:03 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	parse_sphere(char *line, t_scene *scene, int type)
 	}
 	else
 	{
-		scene->spheres[num].radius = 0.1;
+		scene->spheres[num].radius = 1;
 		scene->spheres[num].type = BULB;
 	}
 	parse_rgb_object(params[2], &scene->spheres[num].color);

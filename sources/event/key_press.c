@@ -6,16 +6,25 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:49:37 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/08 18:02:01 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 22:22:20 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/event.h"
 #include "../../headers/utils.h"
 
+static inline void	filter_keys(int keycode, t_minirt *rt)
+{
+	if (keycode == KEY_D || keycode == KEY_A || keycode == KEY_W || \
+		keycode == KEY_S || keycode == KEY_E || keycode == KEY_Q || \
+		keycode == KEY_PLUS || keycode == KEY_MINUS || keycode == KEY_R || \
+		keycode == KEY_ESC)
+		rt->controls.motion++;
+}
+
 int	key_press(int keycode, t_minirt *rt)
 {
-	rt->controls.motion++;
+	filter_keys(keycode, rt);
 	if (keycode == KEY_D && rt->controls.hor_shift != 1)
 		rt->controls.hor_shift++;
 	else if (keycode == KEY_A && rt->controls.hor_shift != -1)

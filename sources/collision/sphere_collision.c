@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:19:14 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 16:52:39 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:59:49 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static int	update_collision(t_ray *ray, t_sphere *sphere, float distance)
 	ray->collis.surf_normal = subtract_vecs(&tmp, &sphere->center);
 	if (sphere->type == BULB)
 		ray->collis.surf_type = BULB;
+	else
+		ray->collis.surf_type = 0;
 	return (1);
 }
 

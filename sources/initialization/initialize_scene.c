@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialize_minirt.c                                :+:      :+:    :+:   */
+/*   initialize_scene.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 13:55:00 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 23:07:14 by anemesis         ###   ########.fr       */
+/*   Created: 2022/09/14 23:06:39 by anemesis          #+#    #+#             */
+/*   Updated: 2022/09/14 23:21:25 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../headers/initialization.h"
 
-void	initialize_raytracing(t_minirt *rt)
+void	init_scene(t_minirt *rt)
 {
-	init_window_and_buffers(rt);
-	init_controls(rt);
-	init_pixels(rt);
-	init_rays(rt);
-	init_scene(rt);
+	int	i;
+
+	rt->scene.bulb_size = 0.5;
+	rt->scene.norm_coef = 900;
+	i = 0;
+	while (i < rt->scene.num_of.spheres)
+	{
+		if (rt->scene.spheres[i].type == BULB)
+			rt->scene.spheres[i].radius = rt->scene.bulb_size;
+		i++;
+	}
 }

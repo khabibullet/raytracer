@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 13:21:05 by enoye             #+#    #+#             */
-/*   Updated: 2022/09/12 19:09:07 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/14 21:59:40 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int	collide_plane(t_ray *ray, t_plane *plane, int mode)
 	collision.y = -plane->coords.y;
 	collision.z = -plane->coords.z;
 	ray->collis.surf_normal = collision;
+	ray->collis.surf_type = 0;
 	return (1);
 }
