@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 21:14:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/13 20:12:54 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:30:43 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,30 @@ void	add_ambient_component(t_ray **rays, t_color	*ambient, int heigth, \
 							(t_color *)(rays[i][j].collis.surface), ambient));
 				if (rays[i][j].collis.surf_type == BULB)
 					rays[i][j].color = maximize_brightness(rays[i][j].color);
+			}
+			++j;
+		}
+		++i;
+	}
+}
+
+void	brighten_ambient(t_ray **rays, int heigth, int width)
+{
+	register int	i;
+	register int	j;
+
+	i = 0;
+	while (i < heigth)
+	{
+		j = 0;
+		while (j < width)
+		{
+			if (rays[i][j].collis.surface != NULL \
+										&& rays[i][j].collis.surf_type != BULB)
+			{
+				rays[i][j].color.r *= 2;
+				rays[i][j].color.g *= 2;
+				rays[i][j].color.b *= 2;
 			}
 			++j;
 		}

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 16:10:34 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:31:07 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ void	refresh_rays(t_ray **rays, int heigth, int width);
 t_color	current_ray_diffuse(t_ray *ray, t_scene *scene);
 void	check_if_shaded(t_ray *ray, t_scene *scene);
 t_color	current_ray_specular(t_ray *ray, t_scene *scene);
+void	brighten_ambient(t_ray **rays, int heigth, int width);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 18:11:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 21:59:23 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:18:11 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	collide_cylinder(t_ray *ray, t_cyl *cylinder, int mode)
 	if (new[COORDS].x == 0 && new[COORDS].y == 0)
 		return (0);
 	d = find_discriminant(&b, &rr, cylinder->radius, new);
-	if (d <= 0)
+	if (d < 0)
 		return (0);
 	d = sqrtf(d);
 	rr = 1.0F / rr;

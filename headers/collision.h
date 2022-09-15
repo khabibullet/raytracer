@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 21:16:36 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 16:02:18 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:18:59 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 # define COLLISION_H
 # define MD_FULL 1
 # define MD_PART 0
-# define EPSILON 0.001F
+# define EPSILON 0.002F
 # define ORIGIN 0
 # define COORDS 1
 # define NOT_NULL ((void *)1)
 # define FULL 1
 # define FAST 0
+# define PLANE 2
+# define POLY 3
 
 # include <stdio.h>
 

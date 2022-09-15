@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/12 20:29:36 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:36:08 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,15 @@ static inline void	init_basic(t_poly *poly, t_vec ab_ac[2], t_vec *n)
 	ab_ac[0] = subtract_vecs(&poly->peak2, &poly->peak1);
 	ab_ac[1] = subtract_vecs(&poly->peak3, &poly->peak1);
 	*n = cross_product(&ab_ac[0], &ab_ac[1]);
+}
+
+static inline void	update_collision(t_collision *collis, void *poly, \
+														float distance, t_vec n)
+{
+	collis->surface = (void *)poly;
+	collis->distance = distance;
+	collis->surf_normal = n;
+	collis->surf_type = POLY;
 }
 
 int	collide_poly(t_ray *ray, t_poly *poly, int mode)
@@ -48,8 +57,6 @@ int	collide_poly(t_ray *ray, t_poly *poly, int mode)
 		return (0);
 	if (mode == FAST)
 		return (1);
-	ray->collis.surface = (void *)poly;
-	ray->collis.distance = t_u_v[0] - EPSILON;
-	ray->collis.surf_normal = n;
+	update_collision(&ray->collis, (void *)poly, t_u_v[0] - EPSILON, n);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 11:32:20 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 23:37:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:03:49 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 static t_color	add_component(t_color light_col, float coef, t_ray *tmp_ray)
 {
 	t_color	component;
+	float	degree;
 
-	coef = powf(coef, 2);
+	degree = 10;
+	if (tmp_ray->collis.surf_type == PLANE || tmp_ray->collis.surf_type == POLY)
+		degree = 60;
+	coef = powf(coef, degree);
 	component = *(t_color *)(tmp_ray->collis.surface);
 	component = mix_colors(&(t_color){coef, coef, coef}, &component);
 	component = mix_colors(&component, &light_col);
@@ -29,11 +33,11 @@ static float	calculate_coefficient(t_ray *ray, float norm_coef)
 	float	coef;
 	t_vec	reflected;
 
+	(void)norm_coef;
 	coef = 2 * dot_product(ray->collis.surf_normal, ray->coords);
 	reflected = vec_multiply_nbr(&ray->collis.surf_normal, coef);
 	reflected = subtract_vecs(&reflected, &ray->coords);
-	coef = dot_product(unit_vector(reflected), unit_vector(ray->beam)) \
-						* norm_coef / powf(ray->collis.distance, 2);
+	coef = dot_product(unit_vector(reflected), unit_vector(ray->beam));
 	return (coef);
 }
 
