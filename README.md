@@ -104,7 +104,7 @@ Frames per second indicator is added.
 <br>
 <img src="readme/room.png" alt="drawing" width="600" title="room.rt"/>
 
-<img src="readme/temple.png" alt="drawing" width="600" title="room.rt"/>
+<img src="readme/temple.png" alt="drawing" width="600" title="antic_temple.rt"/>
 
-<img src="readme/openspace.png" alt="drawing" width="600" title="room.rt"/>
+<img src="readme/openspace.png" alt="drawing" width="600" title="open_space.rt"/>
 <br>
