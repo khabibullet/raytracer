@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 17:51:41 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/15 12:36:08 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:34:38 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,17 @@ static inline void	update_collision(t_collision *collis, void *poly, \
 	collis->surf_type = POLY;
 }
 
+static inline void	check_normal(float *denom, t_vec *n, t_vec ab_ac[2])
+{
+	if (*denom > 0)
+	{
+		*n = (t_vec){-n->x, -n->y, -n->z};
+		*denom = -*denom;
+		ab_ac[0] = (t_vec){-ab_ac[0].x, -ab_ac[0].y, -ab_ac[0].z};
+		ab_ac[1] = (t_vec){-ab_ac[1].x, -ab_ac[1].y, -ab_ac[1].z};
+	}
+}
+
 int	collide_poly(t_ray *ray, t_poly *poly, int mode)
 {
 	t_vec	n;
@@ -44,6 +55,7 @@ int	collide_poly(t_ray *ray, t_poly *poly, int mode)
 
 	init_basic(poly, ab_ac, &n);
 	denom = dot_product(ray->coords, n);
+	check_normal(&denom, &n, ab_ac);
 	if (denom == 0)
 		return (0);
 	denom = 1.0F / denom;

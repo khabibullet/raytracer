@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:10:44 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/15 12:28:19 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:38:48 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int	phong_raytracing(t_minirt *rt)
 {
+	if (rt->insert_mode == 1)
+		get_property(rt);
 	mlx_clear_window(rt->phong_rt.ptr, rt->phong_rt.win);
 	refresh_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
 	move_cam(&rt->scene.cam, &rt->screen, &rt->controls);
@@ -30,10 +32,8 @@ int	phong_raytracing(t_minirt *rt)
 	if (rt->controls.motion <= 0)
 	{
 		revert_rays(rt->screen.rays, rt->screen.heigth, rt->screen.width);
-		add_diffuse_component(rt->screen.rays, rt->screen.heigth, \
-												rt->screen.width, &rt->scene);
-		add_specular_component(rt->screen.rays, rt->screen.heigth, \
-												rt->screen.width, &rt->scene);
+		add_diffuse_component(rt->screen.rays, &rt->screen, &rt->scene);
+		add_specular_component(rt->screen.rays, &rt->screen, &rt->scene);
 	}
 	else
 		brighten_ambient(rt->screen.rays, rt->screen.heigth, rt->screen.width);

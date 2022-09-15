@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 18:14:57 by anemesis          #+#    #+#             */
-/*   Updated: 2022/08/06 22:05:24 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:36:36 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define KEY_D		2
 # define KEY_O		31
 # define KEY_R		15
+# define KEY_I		34
 # define KEY_ESC	53
 # define KEY_PLUS	24
 # define KEY_MINUS	27

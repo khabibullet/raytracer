@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 16:25:42 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 19:14:02 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:30:43 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ double		ft_atof(const char *str);
 void		*safe_malloc(size_t size);
 long int	current_time_ms(void);
 void		put_buffer_to_window(t_minirt *rt, t_img *buf);
+int			get_property(t_minirt *rt);
 
 #endif

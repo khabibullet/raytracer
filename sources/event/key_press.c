@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:49:37 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 22:22:20 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:42:18 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ static inline void	filter_keys(int keycode, t_minirt *rt)
 int	key_press(int keycode, t_minirt *rt)
 {
 	filter_keys(keycode, rt);
+	if (keycode == KEY_I)
+		rt->insert_mode = 1;
 	if (keycode == KEY_D && rt->controls.hor_shift != 1)
 		rt->controls.hor_shift++;
 	else if (keycode == KEY_A && rt->controls.hor_shift != -1)

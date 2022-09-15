@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 17:50:16 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/14 22:19:15 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:42:24 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	key_release(int keycode, t_minirt *rt)
 		rt->controls.ver_shift--;
 	else if (keycode == KEY_Q)
 		rt->controls.ver_shift++;
+	if (keycode == KEY_I)
+		rt->insert_mode = 0;
 	return (0);
 }

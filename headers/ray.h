@@ -6,7 +6,7 @@
 /*   By: anemesis <anemesis@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:25:53 by anemesis          #+#    #+#             */
-/*   Updated: 2022/09/15 12:31:07 by anemesis         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:51:31 by anemesis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ typedef struct s_img	t_img;
 void	emit_rays(t_screen *screen, t_cam *cam, int heigth, int width);
 void	add_ambient_component(t_ray **rays, t_color	*ambient, int heigth, \
 																int width);
-void	add_diffuse_component(t_ray **rays, int heigth, int width, t_scene *sc);
-void	add_specular_component(t_ray **rays, int heigth, int width, \
-																t_scene *sc);
+void	add_diffuse_component(t_ray **rays, t_screen *screen, t_scene *sc);
+void	add_specular_component(t_ray **rays, t_screen *screen, t_scene *sc);
 void	revert_rays(t_ray **rays, int heigth, int width);
 void	colorize_buffer(t_img *buffer, t_ray **rays, t_screen *screen);
 void	refresh_rays(t_ray **rays, int heigth, int width);
